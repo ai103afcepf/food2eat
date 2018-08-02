@@ -1,9 +1,25 @@
 package fr.afcepf.ai103.data;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class MotifRejetRef {
 	
-	private int idLabel;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int idMotifRejetRef;
+	
 	private String libelleMotifRejetRef;
+	
+	@OneToMany(mappedBy="motifRejetRef",fetch=FetchType.LAZY)
+	private List<AlimentGenerique> listeAlimentsGeneriquesMotifRejetRef;
 	
 	public MotifRejetRef() {
 		super();
@@ -12,15 +28,15 @@ public class MotifRejetRef {
 
 	@Override
 	public String toString() {
-		return "MotifRejetRef [idLabel=" + idLabel + ", libelleMotifRejetRef=" + libelleMotifRejetRef + "]";
+		return "MotifRejetRef [idLabel=" + idMotifRejetRef + ", libelleMotifRejetRef=" + libelleMotifRejetRef + "]";
 	}
 
-	public int getIdLabel() {
-		return idLabel;
+	public int getIdMotifRejetRef() {
+		return idMotifRejetRef;
 	}
 
-	public void setIdLabel(int idLabel) {
-		this.idLabel = idLabel;
+	public void setIdMotifRejetRef(int idMotifRejetRef) {
+		this.idMotifRejetRef = idMotifRejetRef;
 	}
 
 	public String getLibelleMotifRejetRef() {
@@ -30,5 +46,15 @@ public class MotifRejetRef {
 	public void setLibelleMotifRejetRef(String libelleMotifRejetRef) {
 		this.libelleMotifRejetRef = libelleMotifRejetRef;
 	}
+
+	public List<AlimentGenerique> getListeAlimentsGeneriquesMotifRejetRef() {
+		return listeAlimentsGeneriquesMotifRejetRef;
+	}
+
+	public void setListeAlimentsGeneriquesMotifRejetRef(List<AlimentGenerique> listeAlimentsGeneriquesMotifRejetRef) {
+		this.listeAlimentsGeneriquesMotifRejetRef = listeAlimentsGeneriquesMotifRejetRef;
+	}
+
+	
 
 }

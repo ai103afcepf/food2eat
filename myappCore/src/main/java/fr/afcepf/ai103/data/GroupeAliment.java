@@ -1,9 +1,25 @@
 package fr.afcepf.ai103.data;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class GroupeAliment {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idGroupeAliment;
+	
 	private String libelleGroupeAliment;
+	
+	@OneToMany(mappedBy = "groupeAliment", fetch = FetchType.LAZY)
+	private List<CategorieAliment> listeCategorieAliments;
 	
 	public GroupeAliment() {
 		super();
@@ -30,6 +46,14 @@ public class GroupeAliment {
 
 	public void setLibelleGroupeAliment(String libelleGroupeAliment) {
 		this.libelleGroupeAliment = libelleGroupeAliment;
+	}
+
+	public List<CategorieAliment> getListeCategorieAliments() {
+		return listeCategorieAliments;
+	}
+
+	public void setListeCategorieAliments(List<CategorieAliment> listeCategorieAliments) {
+		this.listeCategorieAliments = listeCategorieAliments;
 	}
 	
 }
