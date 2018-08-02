@@ -2,6 +2,7 @@ package fr.afcepf.ai103.test;
 
 import fr.afcepf.ai103.dao.DaoClientJpa;
 import fr.afcepf.ai103.dao.IDaoClient;
+import fr.afcepf.ai103.data.Adresse;
 import fr.afcepf.ai103.data.Client;
 
 public class TestApp {
@@ -17,7 +18,13 @@ public class TestApp {
 		System.out.println("nouveau numClient" + cc.getNumClient());
 		//...
 		System.exit(0);//pour forcer l'arrêt (pour compenser entityManager.close() )
+		
+		Adresse adr1 = new Adresse();
+		// adr1.
 	}
+	
+	
+	
 	
 	/* NB: via un double click sur h2...jar (situé dans 
 	C:\Users\formation\.m2\repository\com\h2database\h2\1.4.197)

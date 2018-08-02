@@ -24,9 +24,7 @@ public class Operation {
 	@Temporal(TemporalType.DATE) //seule la date est significative pas l'heure
 	@Column(name="dateOp")
     private Date date;
-	
-    private Double montant;
-    
+	private Double montant;
     private String label;
     
     @ManyToOne() //Many Operation To One Compte

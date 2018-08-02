@@ -1,18 +1,13 @@
 package fr.afcepf.ai103.data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class GroupeAliment {
-
-	@Id
+	
 	private int idGroupeAliment;
 	private String libelleGroupeAliment;
-
+	
 	public GroupeAliment() {
 		super();
-		
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -36,5 +31,5 @@ public class GroupeAliment {
 	public void setLibelleGroupeAliment(String libelleGroupeAliment) {
 		this.libelleGroupeAliment = libelleGroupeAliment;
 	}
-
+	
 }

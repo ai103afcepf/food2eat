@@ -19,9 +19,16 @@
 		<!-- <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider> --> <!-- Hb 5.3 -->
 		<!-- pour une appli JEE/EJB , c'est le serveur qui impose le provider -->
 
+
+		<!-- **************** Ajout des classes pour le mapping ********************** -->
+		<!-- TP Didier DeFrance -->
 		<class>fr.afcepf.ai103.data.Client</class>
 		<class>fr.afcepf.ai103.data.Compte</class>
 		<class>fr.afcepf.ai103.data.Operation</class>
+		<!-- Ajouter la balise <class> pour chaque class .java dans le package 
+			Data -->
+		<class>fr.afcepf.ai103.data.Adresse</class>
+		<class>fr.afcepf.ai103.data.StatutAdresse</class>
 
 		<properties>
 			<!-- la config database est soit ici soit dans standalone.xml -->
