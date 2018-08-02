@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class PackagingContenant {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)//
 	private int idPackagingContenant;
 	
 	private String libellePackagingContenant;
