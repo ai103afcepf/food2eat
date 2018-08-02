@@ -29,6 +29,9 @@
 			Data -->
 		<class>fr.afcepf.ai103.data.Adresse</class>
 		<class>fr.afcepf.ai103.data.StatutAdresse</class>
+		<class>fr.afcepf.ai103.data.StockPerso</class>
+		<class>fr.afcepf.ai103.data.MotifJeter</class>
+		<class>fr.afcepf.ai103.data.Consommation</class>
 
 		<properties>
 			<!-- la config database est soit ici soit dans standalone.xml -->
