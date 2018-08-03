@@ -22,7 +22,7 @@ public class Region {
 
 	public List<Ville> getVilles() {
 		return villes;
-	}
+	}   
 
 	public void setVilles(List<Ville> villes) {
 		this.villes = villes;

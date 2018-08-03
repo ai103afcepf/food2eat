@@ -19,10 +19,10 @@ public class StatutAdresse {
 
 	@OneToMany(mappedBy = "statutAdresse", fetch = FetchType.LAZY)
 	// @JsonIgnore
-	private List<Adresse> listeAdresses;
+	private List<Adresse> listeAdresses; 
 
 	public StatutAdresse() {
-		super();
+		super(); 
 	}
 
 	@Override

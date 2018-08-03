@@ -2,9 +2,21 @@ package fr.afcepf.ai103.data;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+//
+@Entity
 public class AlimentGenerique {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idAlimentGenerique;
+	
 	private String libelleAlimentGenerique;
 	private String imageAlimentGenerique;
 	private Date datePropositionReferencementAlimentGenerique;
@@ -12,6 +24,46 @@ public class AlimentGenerique {
 	private Date dateAcceptationReferencementAlimentGenerique;
 	private Date dateModificationReferencementAlimentGenerique;
 	private Date dateRetraitReferencementAlimentGenerique;
+	
+	@ManyToOne
+	@JoinColumn(name="idCategorieAliment")
+	private CategorieAliment categorieAliment;
+	
+	@ManyToOne
+	@JoinColumn(name="idStockageConservation")
+	private StockageConservation stockageConservation;
+	
+	@ManyToOne
+	@JoinColumn(name="idPackagingContenant")
+	private PackagingContenant packagingContenant;
+	
+	@ManyToOne
+	@JoinColumn(name="idMotifRejetRef")
+	private MotifRejetRef motifRejetRef;
+	
+	@ManyToOne
+	@JoinColumn(name="idMotifRetraitRef")
+	private MotifRejetRef motifRetraitRef;
+	
+	@ManyToOne
+	@JoinColumn(name="idOrigine")
+	private Origine origine;
+	
+	@ManyToOne
+	@JoinColumn(name="idLabel")
+	private Label label;
+	
+	@ManyToOne
+	@JoinColumn(name="idNutriscore")
+	private Nutriscore nutriscore;
+	
+	@ManyToOne
+	@JoinColumn(name="idPortionUnite")
+	private PortionUnite portionUnite;
+	
+	@ManyToOne
+	@JoinColumn(name="idNbUnites")
+	private NbUnites nbUnites;
 	
 	public AlimentGenerique() {
 		super();
@@ -91,6 +143,86 @@ public class AlimentGenerique {
 
 	public void setDateRetraitReferencementAlimentGenerique(Date dateRetraitReferencementAlimentGenerique) {
 		this.dateRetraitReferencementAlimentGenerique = dateRetraitReferencementAlimentGenerique;
+	}
+
+	public CategorieAliment getCategorieAliment() {
+		return categorieAliment;
+	}
+
+	public void setCategorieAliment(CategorieAliment categorieAliment) {
+		this.categorieAliment = categorieAliment;
+	}
+
+	public StockageConservation getStockageConservation() {
+		return stockageConservation;
+	}
+
+	public void setStockageConservation(StockageConservation stockageConservation) {
+		this.stockageConservation = stockageConservation;
+	}
+
+	public PackagingContenant getPackagingContenant() {
+		return packagingContenant;
+	}
+
+	public void setPackagingContenant(PackagingContenant packagingContenant) {
+		this.packagingContenant = packagingContenant;
+	}
+
+	public MotifRejetRef getMotifRejetRef() {
+		return motifRejetRef;
+	}
+
+	public void setMotifRejetRef(MotifRejetRef motifRejetRef) {
+		this.motifRejetRef = motifRejetRef;
+	}
+
+	public MotifRejetRef getMotifRetraitRef() {
+		return motifRetraitRef;
+	}
+
+	public void setMotifRetraitRef(MotifRejetRef motifRetraitRef) {
+		this.motifRetraitRef = motifRetraitRef;
+	}
+
+	public Origine getOrigine() {
+		return origine;
+	}
+
+	public void setOrigine(Origine origine) {
+		this.origine = origine;
+	}
+
+	public Label getLabel() {
+		return label;
+	}
+
+	public void setLabel(Label label) {
+		this.label = label;
+	}
+
+	public Nutriscore getNutriscore() {
+		return nutriscore;
+	}
+
+	public void setNutriscore(Nutriscore nutriscore) {
+		this.nutriscore = nutriscore;
+	}
+
+	public PortionUnite getPortionUnite() {
+		return portionUnite;
+	}
+
+	public void setPortionUnite(PortionUnite portionUnite) {
+		this.portionUnite = portionUnite;
+	}
+
+	public NbUnites getNbUnites() {
+		return nbUnites;
+	}
+
+	public void setNbUnites(NbUnites nbUnites) {
+		this.nbUnites = nbUnites;
 	}
 	
 }

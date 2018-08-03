@@ -16,9 +16,9 @@ public class TypeVoie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTypeVoie;
 	private String libelleTypeVoie;
-
+ 
 	@OneToMany(mappedBy = "typeVoie", fetch = FetchType.LAZY)
-	private List<Adresse> listeAdresseTypeV;
+	private List<Adresse> listeAdresseTypeV;  
 
 	public TypeVoie() {
 		super();
