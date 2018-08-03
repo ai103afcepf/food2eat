@@ -34,7 +34,7 @@ public class Adresse {
 
 	@ManyToOne
 	@JoinColumn(name = "idStatutAdresse")
-	private StatutAdresse statutAdresse;
+	private StatutAdresse statutAdresse; 
 
 	@ManyToOne
 	@JoinColumn(name = "idVille")

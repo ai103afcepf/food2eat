@@ -21,9 +21,9 @@ public class Ville {
 	private Region regions;
 
 	public Ville() {
-		super();
+		super(); 
 
-	}
+	} 
 
 	@Override
 	public String toString() {
