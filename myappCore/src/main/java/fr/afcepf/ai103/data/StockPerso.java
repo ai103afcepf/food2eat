@@ -24,6 +24,10 @@ public class StockPerso {
 	private Date dateAjoutStockPerso;
 	private Date dateConsoChoisieStockPerso;
 	
+	@ManyToOne
+	@JoinColumn(name="idUtilisateur")
+	private Utilisateur utilisateurStock;
+	
 	@OneToMany(mappedBy="stockPerso", fetch=FetchType.LAZY)
 	private List<Consommation> listeConsommations;
 	
@@ -92,5 +96,12 @@ public class StockPerso {
 	public void setAlimentGenerique(AlimentGenerique alimentGenerique) {
 		this.alimentGenerique = alimentGenerique;
 	}
+	public Utilisateur getUtilisateurStock() {
+		return utilisateurStock;
+	}
+	public void setUtilisateurStock(Utilisateur utilisateurStock) {
+		this.utilisateurStock = utilisateurStock;
+	}
+	
 
 }

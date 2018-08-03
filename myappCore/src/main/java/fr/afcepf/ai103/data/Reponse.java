@@ -21,6 +21,10 @@ public class Reponse {
 	private Date dateAcceptationReservation;
 	private Date dateAnnulationReservation;
 	
+	@ManyToOne
+	@JoinColumn(name="idUtilisateur")
+	private Utilisateur utilisateurReponse;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="idMotifAnnulationResa")
@@ -101,4 +105,13 @@ public class Reponse {
 	public void setEvaluation(Evaluation evaluation) {
 		this.evaluation = evaluation;
 	}
+
+	public Utilisateur getUtilisateurReponse() {
+		return utilisateurReponse;
+	}
+
+	public void setUtilisateurReponse(Utilisateur utilisateurReponse) {
+		this.utilisateurReponse = utilisateurReponse;
+	}
+	
 }

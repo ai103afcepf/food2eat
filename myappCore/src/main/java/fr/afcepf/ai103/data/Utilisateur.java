@@ -30,6 +30,10 @@ public class Utilisateur {
 	private Date dateLethargie;
 	private Date dateDesinscription;
 	
+	@ManyToOne
+	@JoinColumn(name="idAdresse")
+	private Adresse adresse;
+	
 	@ManyToOne // (cascade = CascadeType.ALL)
 	@JoinColumn(name = "idMotifDesinscription")
 	private MotifDesinscription motifDesinscription;
@@ -37,6 +41,12 @@ public class Utilisateur {
 	@ManyToOne // (cascade = CascadeType.ALL)
 	@JoinColumn(name = "idSexe")
 	private Sexe sexe;
+	
+	@OneToMany(mappedBy="utilisateurStock",fetch=FetchType.LAZY)
+	private List<StockPerso> listeStockPersoUtilisateur;
+	
+	@OneToMany(mappedBy="utilisateurReponse", fetch=FetchType.LAZY)
+	private List<Reponse> listeReponsesUtilisateur;
 	
 	@OneToMany(mappedBy = "utilisateur1", fetch = FetchType.LAZY)
 	// @JsonIgnore
@@ -164,11 +174,19 @@ public class Utilisateur {
 		this.sexe = sexe;
 	}
 
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
 	public List<RelationFoodFriend> getListeRelationFoodFriends1() {
 		return listeRelationFoodFriends1;
 	}
 
-	public void setListeRelationFoodFriends(List<RelationFoodFriend> listeRelationFoodFriends1) {
+	public void setListeRelationFoodFriends1(List<RelationFoodFriend> listeRelationFoodFriends1) {
 		this.listeRelationFoodFriends1 = listeRelationFoodFriends1;
 	}
 
@@ -176,8 +194,27 @@ public class Utilisateur {
 		return listeRelationFoodFriends2;
 	}
 
-	public void setListeRelationFoodFriends1(List<RelationFoodFriend> listeRelationFoodFriends2) {
+	public void setListeRelationFoodFriends2(List<RelationFoodFriend> listeRelationFoodFriends2) {
 		this.listeRelationFoodFriends2 = listeRelationFoodFriends2;
 	}
+
+	public List<Reponse> getListeReponsesUtilisateur() {
+		return listeReponsesUtilisateur;
+	}
+
+	public List<StockPerso> getListeStockPersoUtilisateur() {
+		return listeStockPersoUtilisateur;
+	}
+
+	public void setListeStockPersoUtilisateur(List<StockPerso> listeStockPersoUtilisateur) {
+		this.listeStockPersoUtilisateur = listeStockPersoUtilisateur;
+	}
+
+	public void setListeReponsesUtilisateur(List<Reponse> listeReponsesUtilisateur) {
+		this.listeReponsesUtilisateur = listeReponsesUtilisateur;
+	}
+
+
+
 	
 }

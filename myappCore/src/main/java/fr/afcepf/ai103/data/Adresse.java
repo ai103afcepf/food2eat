@@ -1,14 +1,17 @@
 package fr.afcepf.ai103.data;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 //1. Ajouter une balise <class> dans persistence.xml
 //2. Ajouter les annotations @Entity pour la classe (pour faire le lien avec la table dans BDD)
@@ -39,6 +42,9 @@ public class Adresse {
 	@ManyToOne
 	@JoinColumn(name = "idVille")
 	private Ville villesAdresse;
+	
+	@OneToMany(mappedBy="adresse",fetch=FetchType.LAZY)
+	private List<Utilisateur> listeUtilisateursAdresse;
 
 	public Adresse() {
 		super();
@@ -132,4 +138,13 @@ public class Adresse {
 	public void setVillesAdresse(Ville villesAdresse) {
 		this.villesAdresse = villesAdresse;
 	}
+
+	public List<Utilisateur> getListeUtilisateursAdresse() {
+		return listeUtilisateursAdresse;
+	}
+
+	public void setListeUtilisateursAdresse(List<Utilisateur> listeUtilisateursAdresse) {
+		this.listeUtilisateursAdresse = listeUtilisateursAdresse;
+	}
+	
 }
