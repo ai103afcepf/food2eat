@@ -16,7 +16,7 @@ import javax.persistence.TemporalType;
 @Entity
 @NamedQuery(name="Operation.findByNumCompte" ,
             query= "SELECT o FROM Operation o WHERE o.compte.numero = :numCpt")
-public class Operation {
+public class Operation { 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long numero;

@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 //2. Ajouter les annotations @Entity pour la classe (pour faire le lien avec la table dans BDD)
 // @Id pour définir la Primary Key (clé primaire) et @GeneratedValue(strategy=GenerationType.IDENTITY) 
 
-@Entity
+@Entity 
 public class Adresse {
 
 	@Id

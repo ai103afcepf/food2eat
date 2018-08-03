@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 //
 @Entity
 public class Nutriscore {
-	
+	 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idNutriscore;

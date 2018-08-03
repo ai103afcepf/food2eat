@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class MotifAnnulationAnnonce {
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idMotifAnnulationAnnonce;
 	private String libelleMotifAnnulationAnnonce;

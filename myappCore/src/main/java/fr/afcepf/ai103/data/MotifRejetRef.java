@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class MotifRejetRef {
 	
-	@Id
+	@Id  
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idMotifRejetRef;
 	

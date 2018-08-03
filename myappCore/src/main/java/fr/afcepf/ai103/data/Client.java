@@ -18,7 +18,7 @@ import javax.persistence.NamedQuery;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity //entité persistante prise en charge par JPA/Hibernate
-//@Table(name="Client")
+//@Table(name="Client") 
 @NamedQueries({
   @NamedQuery(name="Client.comptesDuClient", 
             query="SELECT cpt FROM Client cli INNER JOIN cli.comptes cpt WHERE cli.numClient = :numClient"

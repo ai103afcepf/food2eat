@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Compte {
+public class Compte { 
 	@Id //identifiant (primary key)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="numCompte")

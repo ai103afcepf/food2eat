@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class StockPerso {
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idStockPerso;
 	

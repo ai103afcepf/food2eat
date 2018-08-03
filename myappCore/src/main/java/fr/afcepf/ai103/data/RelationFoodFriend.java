@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class RelationFoodFriend {
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRelationFoodFriend;
 	

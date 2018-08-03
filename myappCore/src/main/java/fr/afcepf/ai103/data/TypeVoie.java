@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class TypeVoie {
 
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idTypeVoie;
 	private String libelleTypeVoie;

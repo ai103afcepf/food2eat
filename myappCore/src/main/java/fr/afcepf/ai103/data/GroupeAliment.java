@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class GroupeAliment {
 	
-	@Id
+	@Id  
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idGroupeAliment;
 	

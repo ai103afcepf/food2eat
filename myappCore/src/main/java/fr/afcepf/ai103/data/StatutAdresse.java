@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class StatutAdresse {
 
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idStatutAdresse;
 	private String libelleStatutAdresse;

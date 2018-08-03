@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class MotifDesinscription {
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idMotifDesinscription;
 	private String libelleMotifDesinscription;
