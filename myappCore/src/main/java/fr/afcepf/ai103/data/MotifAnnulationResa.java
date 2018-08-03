@@ -17,7 +17,7 @@ public class MotifAnnulationResa {
 	private int idMotifAnnulationResa;
 	
 	private String libelleMotifAnnulationResa;
-	
+	 
 	@OneToMany(mappedBy = "motifAnnulationResa", fetch = FetchType.LAZY)
 	private List<Reponse> listeReponses;
 	

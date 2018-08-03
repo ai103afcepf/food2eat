@@ -15,7 +15,7 @@ public class Evaluation {
 	private int idEvaluation;
 	
 	private String commentaireEvaluation;
-	
+	 
 	@ManyToOne
 	@JoinColumn(name="idNotation")
 	private Notation notation;

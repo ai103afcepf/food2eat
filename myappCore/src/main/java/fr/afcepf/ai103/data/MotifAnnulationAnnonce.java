@@ -14,7 +14,7 @@ public class MotifAnnulationAnnonce {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idMotifAnnulationAnnonce;
 	private String libelleMotifAnnulationAnnonce;
-	
+	 
 	@ManyToOne
 	@JoinColumn(name="idAnnonce")
 	private Annonce annonce;

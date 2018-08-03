@@ -22,7 +22,7 @@ public class Annonce {
 	private Date datePublicationAnnonce;
 	private Date dateAnnulationPublicationAnnonce;
 	private Date dateFermetureAnnonce;
-
+ 
 	@OneToMany(mappedBy = "annonce", fetch = FetchType.LAZY)
 	private List<Reponse> listeReponses;
 
