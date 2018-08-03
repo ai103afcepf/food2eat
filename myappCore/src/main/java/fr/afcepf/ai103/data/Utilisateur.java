@@ -1,10 +1,24 @@
 package fr.afcepf.ai103.data;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Utilisateur {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUtilisateur;
+	
 	private String nom;
 	private String prenom;
 	private String pseudo;
@@ -15,6 +29,23 @@ public class Utilisateur {
 	private Date dateInscription;
 	private Date dateLethargie;
 	private Date dateDesinscription;
+	
+	@ManyToOne // (cascade = CascadeType.ALL)
+	@JoinColumn(name = "idMotifDesinscription")
+	private MotifDesinscription motifDesinscription;
+	
+	@ManyToOne // (cascade = CascadeType.ALL)
+	@JoinColumn(name = "idSexe")
+	private Sexe sexe;
+	
+	@OneToMany(mappedBy = "utilisateur1", fetch = FetchType.LAZY)
+	// @JsonIgnore
+	private List<RelationFoodFriend> listeRelationFoodFriends1;
+	
+	@OneToMany(mappedBy = "utilisateur2", fetch = FetchType.LAZY)
+	// @JsonIgnore
+	private List<RelationFoodFriend> listeRelationFoodFriends2;
+	
 	
 	public Utilisateur() {
 		super();
@@ -115,6 +146,38 @@ public class Utilisateur {
 
 	public void setDateDesinscription(Date dateDesinscription) {
 		this.dateDesinscription = dateDesinscription;
+	}
+
+	public MotifDesinscription getMotifDesinscription() {
+		return motifDesinscription;
+	}
+
+	public void setMotifDesinscription(MotifDesinscription motifDesinscription) {
+		this.motifDesinscription = motifDesinscription;
+	}
+
+	public Sexe getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(Sexe sexe) {
+		this.sexe = sexe;
+	}
+
+	public List<RelationFoodFriend> getListeRelationFoodFriends1() {
+		return listeRelationFoodFriends1;
+	}
+
+	public void setListeRelationFoodFriends(List<RelationFoodFriend> listeRelationFoodFriends1) {
+		this.listeRelationFoodFriends1 = listeRelationFoodFriends1;
+	}
+
+	public List<RelationFoodFriend> getListeRelationFoodFriends2() {
+		return listeRelationFoodFriends2;
+	}
+
+	public void setListeRelationFoodFriends1(List<RelationFoodFriend> listeRelationFoodFriends2) {
+		this.listeRelationFoodFriends2 = listeRelationFoodFriends2;
 	}
 	
 }
