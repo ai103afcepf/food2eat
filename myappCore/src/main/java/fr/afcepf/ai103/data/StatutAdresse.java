@@ -9,24 +9,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class StatutAdresse {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idStatutAdresse;
-	
 	private String libelleStatutAdresse;
-	
-	@OneToMany(mappedBy="statutAdresse", fetch=FetchType.LAZY)
-	//@JsonIgnore
+
+	@OneToMany(mappedBy = "statutAdresse", fetch = FetchType.LAZY)
+	// @JsonIgnore
 	private List<Adresse> listeAdresses;
-	
+
 	public StatutAdresse() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

@@ -1,14 +1,28 @@
 package fr.afcepf.ai103.data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Ville {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idVille;
+
 	private String codePostal;
 	private String nomVille;
-	
+
+	@ManyToOne
+	private Region regions;
+
 	public Ville() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
@@ -39,5 +53,13 @@ public class Ville {
 	public void setNomVille(String nomVille) {
 		this.nomVille = nomVille;
 	}
-	
+
+	public Region getRegions() {
+		return regions;
+	}
+
+	public void setRegions(Region regions) {
+		this.regions = regions;
+	}
+
 }

@@ -28,7 +28,7 @@ public class Operation {
     private String label;
     
     @ManyToOne() //Many Operation To One Compte
-    @JoinColumn(name="numCpt"  ) //nom de la clef etrangère dans table Operation
+    @JoinColumn(name="numCpt") //nom de la clef etrangère dans table Operation
     private Compte compte; //avec get/set mais pas dans toString()
     
    

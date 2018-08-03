@@ -2,6 +2,7 @@ package fr.afcepf.ai103.data;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,18 +20,25 @@ public class Adresse {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAdresse;
-	
+
 	private int numero;
 	private String nomVoie;
 	private Long coordonneesGpsLat;
 	private Long coordonneesGpsLong;
 	private Date dateDebutValidite;
 	private Date dateFinValidite;
-	
+
+	@ManyToOne // (cascade = CascadeType.ALL)
+	@JoinColumn(name = "idTypeVoie")
+	private TypeVoie typeVoie;
+
 	@ManyToOne
-	@JoinColumn(name="idStatutAdresse")
+	@JoinColumn(name = "idStatutAdresse")
 	private StatutAdresse statutAdresse;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "idVille")
+	private Ville villesAdresse;
 
 	public Adresse() {
 		super();
@@ -68,8 +76,6 @@ public class Adresse {
 	public void setNomVoie(String nomVoie) {
 		this.nomVoie = nomVoie;
 	}
-
-	
 
 	public Long getCoordonneesGpsLat() {
 		return coordonneesGpsLat;
@@ -111,4 +117,19 @@ public class Adresse {
 		this.statutAdresse = statutAdresse;
 	}
 
+	public TypeVoie getTypeVoie() {
+		return typeVoie;
+	}
+
+	public void setTypeVoie(TypeVoie typeVoie) {
+		this.typeVoie = typeVoie;
+	}
+
+	public Ville getVillesAdresse() {
+		return villesAdresse;
+	}
+
+	public void setVillesAdresse(Ville villesAdresse) {
+		this.villesAdresse = villesAdresse;
+	}
 }

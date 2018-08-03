@@ -8,7 +8,6 @@ public class CategorieAliment {
 	
 	public CategorieAliment() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
