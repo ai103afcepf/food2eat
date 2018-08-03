@@ -19,7 +19,7 @@ public class MotifAnnulationResa {
 	private String libelleMotifAnnulationResa;
 	 
 	@OneToMany(mappedBy = "motifAnnulationResa", fetch = FetchType.LAZY)
-	private List<Reponse> listeReponses;
+	private List<Reponse> listeReponsesAnnulees;
 	
 	public MotifAnnulationResa() {
 		super();
@@ -36,12 +36,14 @@ public class MotifAnnulationResa {
 		return idMotifAnnulationResa;
 	} 
 
-	public List<Reponse> getListeReponses() {
-		return listeReponses;
+	
+
+	public List<Reponse> getListeReponsesAnnulees() {
+		return listeReponsesAnnulees;
 	}
 
-	public void setListeReponses(List<Reponse> listeReponses) {
-		this.listeReponses = listeReponses;
+	public void setListeReponsesAnnulees(List<Reponse> listeReponsesAnnulees) {
+		this.listeReponsesAnnulees = listeReponsesAnnulees;
 	}
 
 	public void setIdMotifAnnulationResa(int idMotifAnnulationResa) {

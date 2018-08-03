@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -24,6 +26,13 @@ public class StockPerso {
 	
 	@OneToMany(mappedBy="stockPerso", fetch=FetchType.LAZY)
 	private List<Consommation> listeConsommations;
+	
+	@OneToMany(mappedBy="stockPerso", fetch=FetchType.LAZY)
+	private List<Annonce> listesAnnoncesStock;
+	
+	@ManyToOne
+	@JoinColumn(name="idAlimentGenerique")
+	private AlimentGenerique alimentGenerique;
 	
 	public StockPerso() {
 		super();
@@ -70,6 +79,18 @@ public class StockPerso {
 	}
 	public void setListeConsommations(List<Consommation> listeConsommations) {
 		this.listeConsommations = listeConsommations;
+	}
+	public List<Annonce> getListesAnnoncesStock() {
+		return listesAnnoncesStock;
+	}
+	public void setListesAnnoncesStock(List<Annonce> listesAnnoncesStock) {
+		this.listesAnnoncesStock = listesAnnoncesStock;
+	}
+	public AlimentGenerique getAlimentGenerique() {
+		return alimentGenerique;
+	}
+	public void setAlimentGenerique(AlimentGenerique alimentGenerique) {
+		this.alimentGenerique = alimentGenerique;
 	}
 
 }

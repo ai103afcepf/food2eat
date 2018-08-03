@@ -22,22 +22,6 @@ public class Reponse {
 	private Date dateAnnulationReservation;
 	
 	
-	public Annonce getAnnonce() {
-		return annonce;
-	}
-
-	public void setAnnonce(Annonce annonce) {
-		this.annonce = annonce;
-	}
-
-	public Evaluation getEvaluation() {
-		return evaluation;
-	}
-
-	public void setEvaluation(Evaluation evaluation) {
-		this.evaluation = evaluation;
-	}
-
 	@ManyToOne
 	@JoinColumn(name="idMotifAnnulationResa")
 	private MotifAnnulationResa motifAnnulationResa;
@@ -102,5 +86,19 @@ public class Reponse {
 	public void setDateAnnulationReservation(Date dateAnnulationReservation) {
 		this.dateAnnulationReservation = dateAnnulationReservation;
 	}
+	public Annonce getAnnonce() {
+		return annonce;
+	}
 
+	public void setAnnonce(Annonce annonce) {
+		this.annonce = annonce;
+	}
+
+	public Evaluation getEvaluation() {
+		return evaluation;
+	}
+
+	public void setEvaluation(Evaluation evaluation) {
+		this.evaluation = evaluation;
+	}
 }

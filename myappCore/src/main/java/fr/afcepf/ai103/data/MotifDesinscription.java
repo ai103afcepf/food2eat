@@ -19,7 +19,7 @@ public class MotifDesinscription {
 	
 	@OneToMany(mappedBy = "motifDesinscription", fetch = FetchType.LAZY)
 	// @JsonIgnore
-	private List<Utilisateur> listeUtilisateurs;
+	private List<Utilisateur> listeUtilisateursDesinscription;
 	
 	public MotifDesinscription() {
 		super();
@@ -48,12 +48,13 @@ public class MotifDesinscription {
 		this.libelleMotifDesinscription = libelleMotifDesinscription;
 	}
 
-	public List<Utilisateur> getListeUtilisateurs() {
-		return listeUtilisateurs;
+	public List<Utilisateur> getListeUtilisateursDesinscription() {
+		return listeUtilisateursDesinscription;
 	}
 
-	public void setListeUtilisateurs(List<Utilisateur> listeUtilisateurs) {
-		this.listeUtilisateurs = listeUtilisateurs;
+	public void setListeUtilisateursDesinscription(List<Utilisateur> listeUtilisateursDesinscription) {
+		this.listeUtilisateursDesinscription = listeUtilisateursDesinscription;
 	}
 
+	
 }

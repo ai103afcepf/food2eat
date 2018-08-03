@@ -20,7 +20,7 @@ public class Sexe {
 	
 	@OneToMany(mappedBy = "sexe", fetch = FetchType.LAZY)
 	// @JsonIgnore
-	private List<Utilisateur> listeUtilisateurs;
+	private List<Utilisateur> listeUtilisateursSexe;
 	
 	public Sexe() {
 		super();
@@ -48,12 +48,13 @@ public class Sexe {
 		this.libelleSexe = libelleSexe;
 	}
 
-	public List<Utilisateur> getListeUtilisateurs() {
-		return listeUtilisateurs;
+	public List<Utilisateur> getListeUtilisateursSexe() {
+		return listeUtilisateursSexe;
 	}
 
-	public void setListeUtilisateurs(List<Utilisateur> listeUtilisateurs) {
-		this.listeUtilisateurs = listeUtilisateurs;
+	public void setListeUtilisateursSexe(List<Utilisateur> listeUtilisateursSexe) {
+		this.listeUtilisateursSexe = listeUtilisateursSexe;
 	}
+
 
 }

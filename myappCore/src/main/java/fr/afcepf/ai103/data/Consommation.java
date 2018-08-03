@@ -78,4 +78,12 @@ public class Consommation {
 		this.stockPerso = stockPerso;
 	}
 
+	public MotifJeter getMotifJeter() {
+		return motifJeter;
+	}
+
+	public void setMotifJeter(MotifJeter motifJeter) {
+		this.motifJeter = motifJeter;
+	}
+
 }

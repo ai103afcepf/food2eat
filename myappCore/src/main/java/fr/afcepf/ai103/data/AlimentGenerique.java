@@ -1,13 +1,16 @@
 package fr.afcepf.ai103.data;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 //
 @Entity
@@ -24,6 +27,9 @@ public class AlimentGenerique {
 	private Date dateAcceptationReferencementAlimentGenerique;
 	private Date dateModificationReferencementAlimentGenerique;
 	private Date dateRetraitReferencementAlimentGenerique;
+	
+	@OneToMany(mappedBy="alimentGenerique", fetch=FetchType.LAZY)
+	private List<StockPerso> listeAlimentsStockPerso;
 	
 	@ManyToOne
 	@JoinColumn(name="idCategorieAliment")
@@ -223,6 +229,14 @@ public class AlimentGenerique {
 
 	public void setNbUnites(NbUnites nbUnites) {
 		this.nbUnites = nbUnites;
+	}
+
+	public List<StockPerso> getListeAlimentsStockPerso() {
+		return listeAlimentsStockPerso;
+	}
+
+	public void setListeAlimentsStockPerso(List<StockPerso> listeAlimentsStockPerso) {
+		this.listeAlimentsStockPerso = listeAlimentsStockPerso;
 	}
 	
 }

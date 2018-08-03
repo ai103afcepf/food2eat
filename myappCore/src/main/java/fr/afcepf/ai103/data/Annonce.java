@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -24,13 +26,15 @@ public class Annonce {
 	private Date dateFermetureAnnonce;
  
 	@OneToMany(mappedBy = "annonce", fetch = FetchType.LAZY)
-	private List<Reponse> listeReponses;
+	private List<Reponse> listeReponsesAnnonce;
+	
+	@ManyToOne
+	@JoinColumn(name="idStockPerso")
+	private StockPerso stockPerso;
 
 	public Annonce() {
 		super();
 	}
-
-	
 
 	@Override
 	public String toString() {
@@ -42,12 +46,14 @@ public class Annonce {
 
 
 
-	public List<Reponse> getListeReponses() {
-		return listeReponses;
+	
+
+	public List<Reponse> getListeReponsesAnnonce() {
+		return listeReponsesAnnonce;
 	}
 
-	public void setListeReponses(List<Reponse> listeReponses) {
-		this.listeReponses = listeReponses;
+	public void setListeReponsesAnnonce(List<Reponse> listeReponsesAnnonce) {
+		this.listeReponsesAnnonce = listeReponsesAnnonce;
 	}
 
 	public int getIdAnnonce() {
@@ -96,6 +102,14 @@ public class Annonce {
 
 	public void setDateFermetureAnnonce(Date dateFermetureAnnonce) {
 		this.dateFermetureAnnonce = dateFermetureAnnonce;
+	}
+
+	public StockPerso getStockPerso() {
+		return stockPerso;
+	}
+
+	public void setStockPerso(StockPerso stockPerso) {
+		this.stockPerso = stockPerso;
 	}
 
 }

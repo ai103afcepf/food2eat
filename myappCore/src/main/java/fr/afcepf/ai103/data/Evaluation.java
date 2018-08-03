@@ -20,13 +20,7 @@ public class Evaluation {
 	@JoinColumn(name="idNotation")
 	private Notation notation;
 	
-	public Notation getNotation() {
-		return notation;
-	}
 
-	public void setNotation(Notation notation) {
-		this.notation = notation;
-	}
 
 	public Evaluation() {
 		super();
@@ -53,5 +47,11 @@ public class Evaluation {
 	public void setCommentaireEvaluation(String commentaireEvaluation) {
 		this.commentaireEvaluation = commentaireEvaluation;
 	}
+	public Notation getNotation() {
+		return notation;
+	}
 
+	public void setNotation(Notation notation) {
+		this.notation = notation;
+	}
 }
