@@ -12,36 +12,35 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Reponse {
-	
-	@Id 
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String idReponse;
-	 
+	private int idReponse;
+
 	private Date dateReponseAnnonce;
 	private Date dateAcceptationReservation;
 	private Date dateAnnulationReservation;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idUtilisateur")
+	@JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateurReponse;
-		
+
 	@ManyToOne
-	@JoinColumn(name="idMotifAnnulationResa")
+	@JoinColumn(name = "idMotifAnnulationResa")
 	private MotifAnnulationResa motifAnnulationResa;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idAnnonce")
+	@JoinColumn(name = "idAnnonce")
 	private Annonce annonceReponse;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idRendezVous")
+	@JoinColumn(name = "idRendezVous")
 	private RendezVous rdvReponse;
-	
+
 	@OneToOne
-	@JoinColumn(name="idEvaluation")
+	@JoinColumn(name = "idEvaluation")
 	private Evaluation evaluation;
-	
-	
+
 	public Reponse() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -54,11 +53,11 @@ public class Reponse {
 				+ dateAnnulationReservation + "]";
 	}
 
-	public String getIdReponse() {
+	public int getIdReponse() {
 		return idReponse;
 	}
 
-	public void setIdReponse(String idReponse) {
+	public void setIdReponse(int idReponse) {
 		this.idReponse = idReponse;
 	}
 
@@ -126,6 +125,4 @@ public class Reponse {
 		this.evaluation = evaluation;
 	}
 
-	
-	
 }
