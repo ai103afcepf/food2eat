@@ -19,7 +19,7 @@ public class StatutAdresse {
 
 	@OneToMany(mappedBy = "statutAdresse", fetch = FetchType.LAZY)
 	// @JsonIgnore
-	private List<Adresse> listeAdresses; 
+	private List<Adresse> listeAdressesStatut; 
 
 	public StatutAdresse() {
 		super(); 
@@ -47,12 +47,14 @@ public class StatutAdresse {
 		this.libelleStatutAdresse = libelleStatutAdresse;
 	}
 
-	public List<Adresse> getListeAdresses() {
-		return listeAdresses;
+	public List<Adresse> getListeAdressesStatut() {
+		return listeAdressesStatut;
 	}
 
-	public void setListeAdresses(List<Adresse> listeAdresses) {
-		this.listeAdresses = listeAdresses;
+	public void setListeAdressesStatut(List<Adresse> listeAdressesStatut) {
+		this.listeAdressesStatut = listeAdressesStatut;
 	}
+
+
 
 }

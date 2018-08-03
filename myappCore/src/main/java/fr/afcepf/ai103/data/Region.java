@@ -15,28 +15,25 @@ public class Region {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRegion;
-	private String labelRegion;
+	private String libelleRegion;
 	
-	@OneToMany(mappedBy="regions", fetch = FetchType.LAZY)
-	private List<Ville> villes;
+	@OneToMany(mappedBy="region", fetch = FetchType.LAZY)
+	private List<Ville> listeVilles;
 
-	public List<Ville> getVilles() {
-		return villes;
-	}   
 
-	public void setVilles(List<Ville> villes) {
-		this.villes = villes;
-	}
 
 	public Region() {
 		super();
 
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Region [idRegion=" + idRegion + ", labelRegion=" + labelRegion + "]";
+		return "Region [idRegion=" + idRegion + ", libelleRegion=" + libelleRegion + ", listeVilles=" + listeVilles
+				+ "]";
 	}
+
 
 	public int getIdRegion() {
 		return idRegion;
@@ -46,12 +43,21 @@ public class Region {
 		this.idRegion = idRegion;
 	}
 
-	public String getLabelRegion() {
-		return labelRegion;
+	public String getLibelleRegion() {
+		return libelleRegion;
 	}
 
-	public void setLabelRegion(String labelRegion) {
-		this.labelRegion = labelRegion;
+	public void setLibelleRegion(String libelleRegion) {
+		this.libelleRegion = libelleRegion;
 	}
+
+	public List<Ville> getListeVilles() {
+		return listeVilles;
+	}
+
+	public void setListeVilles(List<Ville> listeVilles) {
+		this.listeVilles = listeVilles;
+	}
+
 
 }

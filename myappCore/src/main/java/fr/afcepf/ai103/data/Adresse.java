@@ -41,10 +41,14 @@ public class Adresse {
 
 	@ManyToOne
 	@JoinColumn(name = "idVille")
-	private Ville villesAdresse;
+	private Ville villeAdresse;
 	
-	@OneToMany(mappedBy="adresse",fetch=FetchType.LAZY)
-	private List<Utilisateur> listeUtilisateursAdresse;
+	@ManyToOne
+	@JoinColumn(name="idUtilisateur")
+	private Utilisateur utilisateurAdresse;
+	
+	@OneToMany(mappedBy="adresseRdv",fetch=FetchType.LAZY)
+	private List<RendezVous> listeRdvAdresse;
 
 	public Adresse() {
 		super();
@@ -115,14 +119,6 @@ public class Adresse {
 		this.dateFinValidite = dateFinValidite;
 	}
 
-	public StatutAdresse getStatutAdresse() {
-		return statutAdresse;
-	}
-
-	public void setStatutAdresse(StatutAdresse statutAdresse) {
-		this.statutAdresse = statutAdresse;
-	}
-
 	public TypeVoie getTypeVoie() {
 		return typeVoie;
 	}
@@ -131,20 +127,38 @@ public class Adresse {
 		this.typeVoie = typeVoie;
 	}
 
-	public Ville getVillesAdresse() {
-		return villesAdresse;
+	public StatutAdresse getStatutAdresse() {
+		return statutAdresse;
 	}
 
-	public void setVillesAdresse(Ville villesAdresse) {
-		this.villesAdresse = villesAdresse;
+	public void setStatutAdresse(StatutAdresse statutAdresse) {
+		this.statutAdresse = statutAdresse;
 	}
 
-	public List<Utilisateur> getListeUtilisateursAdresse() {
-		return listeUtilisateursAdresse;
+	public Ville getVilleAdresse() {
+		return villeAdresse;
 	}
 
-	public void setListeUtilisateursAdresse(List<Utilisateur> listeUtilisateursAdresse) {
-		this.listeUtilisateursAdresse = listeUtilisateursAdresse;
+	public void setVilleAdresse(Ville villeAdresse) {
+		this.villeAdresse = villeAdresse;
 	}
+
+	public Utilisateur getUtilisateurAdresse() {
+		return utilisateurAdresse;
+	}
+
+	public void setUtilisateurAdresse(Utilisateur utilisateurAdresse) {
+		this.utilisateurAdresse = utilisateurAdresse;
+	}
+
+	public List<RendezVous> getListeRdvAdresse() {
+		return listeRdvAdresse;
+	}
+
+	public void setListeRdvAdresse(List<RendezVous> listeRdvAdresse) {
+		this.listeRdvAdresse = listeRdvAdresse;
+	}
+
+	
 	
 }

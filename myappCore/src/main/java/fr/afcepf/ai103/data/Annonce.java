@@ -25,13 +25,24 @@ public class Annonce {
 	private Date dateAnnulationPublicationAnnonce;
 	private Date dateFermetureAnnonce;
  
-	@OneToMany(mappedBy = "annonce", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "annonceReponse", fetch = FetchType.LAZY)
 	private List<Reponse> listeReponsesAnnonce;
+	
+	@OneToMany(mappedBy = "annonceRdv", fetch = FetchType.LAZY)
+	private List<RendezVous> listeRdvAnnonce;
 	
 	@ManyToOne
 	@JoinColumn(name="idStockPerso")
-	private StockPerso stockPerso;
+	private StockPerso stockPersoAnnonce;
+	
+	@ManyToOne
+	@JoinColumn(name="idMotifAnnulationAnnonce")
+	private MotifAnnulationAnnonce motifAnnulationAnnonce;
 
+	
+	
+	
+	
 	public Annonce() {
 		super();
 	}
@@ -42,18 +53,6 @@ public class Annonce {
 				+ ", dateAnnulationCreationAnnonce=" + dateAnnulationCreationAnnonce + ", datePublicationAnnonce="
 				+ datePublicationAnnonce + ", dateAnnulationPublicationAnnonce=" + dateAnnulationPublicationAnnonce
 				+ ", dateFermetureAnnonce=" + dateFermetureAnnonce + "]";
-	}
-
-
-
-	
-
-	public List<Reponse> getListeReponsesAnnonce() {
-		return listeReponsesAnnonce;
-	}
-
-	public void setListeReponsesAnnonce(List<Reponse> listeReponsesAnnonce) {
-		this.listeReponsesAnnonce = listeReponsesAnnonce;
 	}
 
 	public int getIdAnnonce() {
@@ -104,12 +103,37 @@ public class Annonce {
 		this.dateFermetureAnnonce = dateFermetureAnnonce;
 	}
 
-	public StockPerso getStockPerso() {
-		return stockPerso;
+	public List<Reponse> getListeReponsesAnnonce() {
+		return listeReponsesAnnonce;
 	}
 
-	public void setStockPerso(StockPerso stockPerso) {
-		this.stockPerso = stockPerso;
+	public void setListeReponsesAnnonce(List<Reponse> listeReponsesAnnonce) {
+		this.listeReponsesAnnonce = listeReponsesAnnonce;
 	}
 
+	public List<RendezVous> getListeRdvAnnonce() {
+		return listeRdvAnnonce;
+	}
+
+	public void setListeRdvAnnonce(List<RendezVous> listeRdvAnnonce) {
+		this.listeRdvAnnonce = listeRdvAnnonce;
+	}
+
+	public StockPerso getStockPersoAnnonce() {
+		return stockPersoAnnonce;
+	}
+
+	public void setStockPersoAnnonce(StockPerso stockPersoAnnonce) {
+		this.stockPersoAnnonce = stockPersoAnnonce;
+	}
+
+	public MotifAnnulationAnnonce getMotifAnnulationAnnonce() {
+		return motifAnnulationAnnonce;
+	}
+
+	public void setMotifAnnulationAnnonce(MotifAnnulationAnnonce motifAnnulationAnnonce) {
+		this.motifAnnulationAnnonce = motifAnnulationAnnonce;
+	}
+
+	
 }

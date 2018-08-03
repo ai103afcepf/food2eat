@@ -22,7 +22,7 @@ public class Consommation {
 
 	@ManyToOne
 	@JoinColumn(name = "idStockPerso")
-	private StockPerso stockPerso;
+	private StockPerso stockPersoConso;
 
 	@ManyToOne
 	@JoinColumn(name = "idMotifJeter")
@@ -70,12 +70,12 @@ public class Consommation {
 		this.quantiteConso = quantiteConso;
 	}
 
-	public StockPerso getStockPerso() {
-		return stockPerso;
+	public StockPerso getStockPersoConso() {
+		return stockPersoConso;
 	}
 
-	public void setStockPerso(StockPerso stockPerso) {
-		this.stockPerso = stockPerso;
+	public void setStockPersoConso(StockPerso stockPersoConso) {
+		this.stockPersoConso = stockPersoConso;
 	}
 
 	public MotifJeter getMotifJeter() {

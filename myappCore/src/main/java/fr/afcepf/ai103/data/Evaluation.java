@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Evaluation {
@@ -20,8 +21,9 @@ public class Evaluation {
 	@JoinColumn(name="idNotation")
 	private Notation notation;
 	
-
-
+	@OneToOne(mappedBy="evaluation")
+	private Reponse reponseEvalutaion;
+	
 	public Evaluation() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -38,7 +40,7 @@ public class Evaluation {
 
 	public void setIdEvaluation(int idEvaluation) {
 		this.idEvaluation = idEvaluation;
-	} 
+	}
 
 	public String getCommentaireEvaluation() {
 		return commentaireEvaluation;
@@ -47,6 +49,7 @@ public class Evaluation {
 	public void setCommentaireEvaluation(String commentaireEvaluation) {
 		this.commentaireEvaluation = commentaireEvaluation;
 	}
+
 	public Notation getNotation() {
 		return notation;
 	}
@@ -54,4 +57,14 @@ public class Evaluation {
 	public void setNotation(Notation notation) {
 		this.notation = notation;
 	}
+
+	public Reponse getReponseEvalutaion() {
+		return reponseEvalutaion;
+	}
+
+	public void setReponseEvalutaion(Reponse reponseEvalutaion) {
+		this.reponseEvalutaion = reponseEvalutaion;
+	}
+
+
 }

@@ -23,11 +23,11 @@ public class RelationFoodFriend {
 	
 	@ManyToOne // (cascade = CascadeType.ALL)
 	@JoinColumn(name = "idUtilisateur")
-	private Utilisateur utilisateur1;
+	private Utilisateur utilisateurFriend1;
 	
 	@ManyToOne // (cascade = CascadeType.ALL)
-	@JoinColumn(name = "idUtilisateur")
-	private Utilisateur utilisateur2;
+	@JoinColumn(name = "idFriend")
+	private Utilisateur utilisateurFriend2;
 	
 	public RelationFoodFriend() {
 		super();
@@ -82,20 +82,21 @@ public class RelationFoodFriend {
 		this.dateRetraitFoodFriend = dateRetraitFoodFriend;
 	}
 
-	public Utilisateur getUtilisateur1() {
-		return utilisateur1;
+	public Utilisateur getUtilisateurFriend1() {
+		return utilisateurFriend1;
 	}
 
-	public void setUtilisateur1(Utilisateur utilisateur1) {
-		this.utilisateur1 = utilisateur1;
+	public void setUtilisateurFriend1(Utilisateur utilisateurFriend1) {
+		this.utilisateurFriend1 = utilisateurFriend1;
 	}
 
-	public Utilisateur getUtilisateur2() {
-		return utilisateur2;
+	public Utilisateur getUtilisateurFriend2() {
+		return utilisateurFriend2;
 	}
 
-	public void setUtilisateur2(Utilisateur utilisateur2) {
-		this.utilisateur2 = utilisateur2;
+	public void setUtilisateurFriend2(Utilisateur utilisateurFriend2) {
+		this.utilisateurFriend2 = utilisateurFriend2;
 	}
-	
+
+		
 }

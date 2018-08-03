@@ -30,9 +30,10 @@ public class Utilisateur {
 	private Date dateLethargie;
 	private Date dateDesinscription;
 	
-	@ManyToOne
-	@JoinColumn(name="idAdresse")
-	private Adresse adresse;
+
+	
+	@OneToMany(mappedBy="utilisateurAdresse",fetch=FetchType.LAZY)
+	private List<Adresse> listeAdressesUtilisateur;
 	
 	@ManyToOne // (cascade = CascadeType.ALL)
 	@JoinColumn(name = "idMotifDesinscription")
@@ -48,11 +49,11 @@ public class Utilisateur {
 	@OneToMany(mappedBy="utilisateurReponse", fetch=FetchType.LAZY)
 	private List<Reponse> listeReponsesUtilisateur;
 	
-	@OneToMany(mappedBy = "utilisateur1", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "utilisateurFriend1", fetch = FetchType.LAZY)
 	// @JsonIgnore
 	private List<RelationFoodFriend> listeRelationFoodFriends1;
 	
-	@OneToMany(mappedBy = "utilisateur2", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "utilisateurFriend2", fetch = FetchType.LAZY)
 	// @JsonIgnore
 	private List<RelationFoodFriend> listeRelationFoodFriends2;
 	
@@ -158,6 +159,14 @@ public class Utilisateur {
 		this.dateDesinscription = dateDesinscription;
 	}
 
+	public List<Adresse> getListeAdressesUtilisateur() {
+		return listeAdressesUtilisateur;
+	}
+
+	public void setListeAdressesUtilisateur(List<Adresse> listeAdressesUtilisateur) {
+		this.listeAdressesUtilisateur = listeAdressesUtilisateur;
+	}
+
 	public MotifDesinscription getMotifDesinscription() {
 		return motifDesinscription;
 	}
@@ -174,12 +183,20 @@ public class Utilisateur {
 		this.sexe = sexe;
 	}
 
-	public Adresse getAdresse() {
-		return adresse;
+	public List<StockPerso> getListeStockPersoUtilisateur() {
+		return listeStockPersoUtilisateur;
 	}
 
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
+	public void setListeStockPersoUtilisateur(List<StockPerso> listeStockPersoUtilisateur) {
+		this.listeStockPersoUtilisateur = listeStockPersoUtilisateur;
+	}
+
+	public List<Reponse> getListeReponsesUtilisateur() {
+		return listeReponsesUtilisateur;
+	}
+
+	public void setListeReponsesUtilisateur(List<Reponse> listeReponsesUtilisateur) {
+		this.listeReponsesUtilisateur = listeReponsesUtilisateur;
 	}
 
 	public List<RelationFoodFriend> getListeRelationFoodFriends1() {
@@ -197,24 +214,6 @@ public class Utilisateur {
 	public void setListeRelationFoodFriends2(List<RelationFoodFriend> listeRelationFoodFriends2) {
 		this.listeRelationFoodFriends2 = listeRelationFoodFriends2;
 	}
-
-	public List<Reponse> getListeReponsesUtilisateur() {
-		return listeReponsesUtilisateur;
-	}
-
-	public List<StockPerso> getListeStockPersoUtilisateur() {
-		return listeStockPersoUtilisateur;
-	}
-
-	public void setListeStockPersoUtilisateur(List<StockPerso> listeStockPersoUtilisateur) {
-		this.listeStockPersoUtilisateur = listeStockPersoUtilisateur;
-	}
-
-	public void setListeReponsesUtilisateur(List<Reponse> listeReponsesUtilisateur) {
-		this.listeReponsesUtilisateur = listeReponsesUtilisateur;
-	}
-
-
 
 	
 }

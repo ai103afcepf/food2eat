@@ -18,7 +18,7 @@ public class TypeVoie {
 	private String libelleTypeVoie;
  
 	@OneToMany(mappedBy = "typeVoie", fetch = FetchType.LAZY)
-	private List<Adresse> listeAdresseTypeV;  
+	private List<Adresse> listeAdresseTypeVoie;  
 
 	public TypeVoie() {
 		super();
@@ -45,12 +45,13 @@ public class TypeVoie {
 		this.libelleTypeVoie = libelleTypeVoie;
 	}
 
-	public List<Adresse> getListeAdresseTypeV() {
-		return listeAdresseTypeV;
+	public List<Adresse> getListeAdresseTypeVoie() {
+		return listeAdresseTypeVoie;
 	}
 
-	public void setListeAdresseTypeV(List<Adresse> listeAdresseTypeV) {
-		this.listeAdresseTypeV = listeAdresseTypeV;
+	public void setListeAdresseTypeVoie(List<Adresse> listeAdresseTypeVoie) {
+		this.listeAdresseTypeVoie = listeAdresseTypeVoie;
 	}
+
 
 }

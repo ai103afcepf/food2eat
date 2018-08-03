@@ -28,10 +28,10 @@ public class StockPerso {
 	@JoinColumn(name="idUtilisateur")
 	private Utilisateur utilisateurStock;
 	
-	@OneToMany(mappedBy="stockPerso", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="stockPersoConso", fetch=FetchType.LAZY)
 	private List<Consommation> listeConsommations;
 	
-	@OneToMany(mappedBy="stockPerso", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="stockPersoAnnonce", fetch=FetchType.LAZY)
 	private List<Annonce> listesAnnoncesStock;
 	
 	@ManyToOne

@@ -1,11 +1,15 @@
 package fr.afcepf.ai103.data;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Ville {
@@ -16,9 +20,13 @@ public class Ville {
 
 	private String codePostal;
 	private String nomVille;
+	
+	@OneToMany(mappedBy="villeAdresse",fetch=FetchType.LAZY)
+	private List<Adresse> listeAdressesVille;
 
 	@ManyToOne
-	private Region regions;
+	@JoinColumn(name="idRegion")
+	private Region region;
 
 	public Ville() {
 		super(); 
@@ -54,12 +62,22 @@ public class Ville {
 		this.nomVille = nomVille;
 	}
 
-	public Region getRegions() {
-		return regions;
+	public List<Adresse> getListeAdressesVille() {
+		return listeAdressesVille;
 	}
 
-	public void setRegions(Region regions) {
-		this.regions = regions;
+	public void setListeAdressesVille(List<Adresse> listeAdressesVille) {
+		this.listeAdressesVille = listeAdressesVille;
 	}
+
+	public Region getRegion() {
+		return region;
+	}
+
+	public void setRegion(Region region) {
+		this.region = region;
+	}
+
+	
 
 }

@@ -24,15 +24,18 @@ public class Reponse {
 	@ManyToOne
 	@JoinColumn(name="idUtilisateur")
 	private Utilisateur utilisateurReponse;
-	
-	
+		
 	@ManyToOne
 	@JoinColumn(name="idMotifAnnulationResa")
 	private MotifAnnulationResa motifAnnulationResa;
 	
 	@ManyToOne
 	@JoinColumn(name="idAnnonce")
-	private Annonce annonce;
+	private Annonce annonceReponse;
+	
+	@ManyToOne
+	@JoinColumn(name="idRendezVous")
+	private RendezVous rdvReponse;
 	
 	@OneToOne
 	@JoinColumn(name="idEvaluation")
@@ -55,14 +58,6 @@ public class Reponse {
 		return idReponse;
 	}
 
-	public MotifAnnulationResa getMotifAnnulationResa() {
-		return motifAnnulationResa;
-	}
-
-	public void setMotifAnnulationResa(MotifAnnulationResa motifAnnulationResa) {
-		this.motifAnnulationResa = motifAnnulationResa;
-	}
-
 	public void setIdReponse(String idReponse) {
 		this.idReponse = idReponse;
 	}
@@ -73,7 +68,7 @@ public class Reponse {
 
 	public void setDateReponseAnnonce(Date dateReponseAnnonce) {
 		this.dateReponseAnnonce = dateReponseAnnonce;
-	} 
+	}
 
 	public Date getDateAcceptationReservation() {
 		return dateAcceptationReservation;
@@ -90,12 +85,37 @@ public class Reponse {
 	public void setDateAnnulationReservation(Date dateAnnulationReservation) {
 		this.dateAnnulationReservation = dateAnnulationReservation;
 	}
-	public Annonce getAnnonce() {
-		return annonce;
+
+	public Utilisateur getUtilisateurReponse() {
+		return utilisateurReponse;
 	}
 
-	public void setAnnonce(Annonce annonce) {
-		this.annonce = annonce;
+	public void setUtilisateurReponse(Utilisateur utilisateurReponse) {
+		this.utilisateurReponse = utilisateurReponse;
+	}
+
+	public MotifAnnulationResa getMotifAnnulationResa() {
+		return motifAnnulationResa;
+	}
+
+	public void setMotifAnnulationResa(MotifAnnulationResa motifAnnulationResa) {
+		this.motifAnnulationResa = motifAnnulationResa;
+	}
+
+	public Annonce getAnnonceReponse() {
+		return annonceReponse;
+	}
+
+	public void setAnnonceReponse(Annonce annonceReponse) {
+		this.annonceReponse = annonceReponse;
+	}
+
+	public RendezVous getRdvReponse() {
+		return rdvReponse;
+	}
+
+	public void setRdvReponse(RendezVous rdvReponse) {
+		this.rdvReponse = rdvReponse;
 	}
 
 	public Evaluation getEvaluation() {
@@ -106,12 +126,6 @@ public class Reponse {
 		this.evaluation = evaluation;
 	}
 
-	public Utilisateur getUtilisateurReponse() {
-		return utilisateurReponse;
-	}
-
-	public void setUtilisateurReponse(Utilisateur utilisateurReponse) {
-		this.utilisateurReponse = utilisateurReponse;
-	}
+	
 	
 }
