@@ -22,8 +22,8 @@ public class ServiceClient implements IServiceClient {
 	public Client rechercherInfosClient(Long numClient) {
     	return daoClient.rechercherClientParNumero(numClient);
     	
-    	/* 
-    	Client cli = new Client();
+    	
+    /*	Client cli = new Client();
     	 //simulation de valeurs récupérées en base:
     	 cli.setNumClient(numClient);
     	 cli.setPrenom("jean"); cli.setNom("Bon");

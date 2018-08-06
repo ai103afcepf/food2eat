@@ -64,7 +64,8 @@ public class DaoClientJpa implements IDaoClient {
 
 	@Override
 	public List<Client> rechercherClientsParNom(String nom) {
-		return entityManager.createNamedQuery("Client.parNom", Client.class).setParameter("nom", nom).getResultList();
+		return entityManager.createNamedQuery("Client.parNom", Client.class).
+				setParameter("nom", nom).getResultList();
 	}
 
 }

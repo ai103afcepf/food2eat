@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 //1. Ajouter une balise <class> dans persistence.xml
@@ -17,6 +19,11 @@ import javax.persistence.OneToMany;
 // @Id pour définir la Primary Key (clé primaire) et @GeneratedValue(strategy=GenerationType.IDENTITY) 
 
 @Entity
+@NamedQueries({
+	// Peut être que cette requete sera dans la classe Utilisateur
+	@NamedQuery(name="Adresse.findByIdUser", 
+			query="SELECT adr FROM Adresse adr INNER JOIN adr.utilisateurAdresse userAdr WHERE userAdr.idUtilisateur = :idUtilisateur")
+})
 public class Adresse {
 
 	@Id

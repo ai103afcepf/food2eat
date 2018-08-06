@@ -7,7 +7,7 @@ import fr.afcepf.ai103.data.Utilisateur;
 
 public interface IServiceAdresse {
 
-	public Adresse rechercherInfosAdresse();
+	public Adresse rechercherInfosAdresse(Integer idAdresse);
 
 	public List<Adresse> rechercherAdresseParCodePostal();
 
@@ -15,7 +15,7 @@ public interface IServiceAdresse {
 
 	public Adresse rechercherListeAdressesParVille();
 
-	public List<Adresse> rechercherListClientParId(Adresse idAdresse);
+	public List<Adresse> rechercherListClientParId(Adresse adresse);
 
 	public Adresse saveOrUpdateAdresse(Adresse adresse);
 

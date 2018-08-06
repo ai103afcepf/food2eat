@@ -17,7 +17,7 @@ public class Ville {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idVille;
-
+// 
 	private String codePostal;
 	private String nomVille;
 	

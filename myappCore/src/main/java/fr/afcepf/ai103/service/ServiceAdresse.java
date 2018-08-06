@@ -18,8 +18,9 @@ public class ServiceAdresse implements IServiceAdresse {
 	private IDaoAdresse daoAdresse;
 
 	@Override
-	public Adresse rechercherInfosAdresse() {
-		return null;
+	public Adresse rechercherInfosAdresse(Integer idAdresse) {
+		
+		return daoAdresse.rechcherAdresseParIdAdr(idAdresse);
 	}
 
 	@Override

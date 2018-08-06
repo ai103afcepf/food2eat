@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.mail.Address;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -25,9 +26,6 @@ public class DaoAdresse implements IDaoAdresse {
 	public Adresse insererAdresse(Adresse adresse) {
 
 		entityManager.persist(adresse);
-		// affichage
-		System.out.println(adresse.toString());
-		
 		return adresse;
 	}
 
@@ -43,9 +41,24 @@ public class DaoAdresse implements IDaoAdresse {
 	}
 
 	@Override
-	public List<Utilisateur> rechcherAdresseParIdUtilisateur(Integer idUtilisateur) {
+	public List<Adresse> rechcherAdresseParIdUtilisateur(Integer idUtilisateur) {
 
-		return null;
+		return entityManager.createNamedQuery("Adresse.findByIdUser", Adresse.class).
+				setParameter("idUtilisateur", idUtilisateur).getResultList();
+	}
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	@Override
+	public List<Adresse> rechercherAdresses() {
+
+		return entityManager.createQuery("SELECT a FROM Adresse a", Adresse.class).getResultList();
 	}
 
 }

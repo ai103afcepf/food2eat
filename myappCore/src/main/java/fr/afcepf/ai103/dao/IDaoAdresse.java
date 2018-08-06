@@ -1,5 +1,6 @@
 package fr.afcepf.ai103.dao;
 
+
 import java.util.List;
 
 import fr.afcepf.ai103.data.Adresse;
@@ -12,8 +13,10 @@ public interface IDaoAdresse {
 	public void mettreAJourAdresse(Adresse adresse);
 
 	public Adresse rechcherAdresseParIdAdr(Integer idAdresse);
+	
+	public List<Adresse> rechercherAdresses();
 
 	// pas sur
-	public List<Utilisateur> rechcherAdresseParIdUtilisateur(Integer idUtilisateur);
+	public List<Adresse> rechcherAdresseParIdUtilisateur(Integer idUtilisateur);
 
 }

@@ -30,7 +30,6 @@ public class Utilisateur {
 	private Date dateLethargie;
 	private Date dateDesinscription;
 	
-
 	
 	@OneToMany(mappedBy="utilisateurAdresse",fetch=FetchType.LAZY)
 	private List<Adresse> listeAdressesUtilisateur;
