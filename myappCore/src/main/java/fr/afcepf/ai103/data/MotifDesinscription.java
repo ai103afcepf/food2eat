@@ -14,7 +14,7 @@ public class MotifDesinscription {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idMotifDesinscription;
+	private Integer idMotifDesinscription;
 	private String libelleMotifDesinscription;
 	
 	@OneToMany(mappedBy = "motifDesinscription", fetch = FetchType.LAZY)
@@ -32,11 +32,11 @@ public class MotifDesinscription {
 				+ libelleMotifDesinscription + "]";
 	}
 
-	public int getIdMotifDesinscription() {
+	public Integer getIdMotifDesinscription() {
 		return idMotifDesinscription;
 	}
 
-	public void setIdMotifDesinscription(int idMotifDesinscription) {
+	public void setIdMotifDesinscription(Integer idMotifDesinscription) {
 		this.idMotifDesinscription = idMotifDesinscription;
 	}
 

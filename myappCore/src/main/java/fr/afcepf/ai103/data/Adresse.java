@@ -3,7 +3,6 @@ package fr.afcepf.ai103.data;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,14 +16,14 @@ import javax.persistence.OneToMany;
 //2. Ajouter les annotations @Entity pour la classe (pour faire le lien avec la table dans BDD)
 // @Id pour définir la Primary Key (clé primaire) et @GeneratedValue(strategy=GenerationType.IDENTITY) 
 
-@Entity 
+@Entity
 public class Adresse {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idAdresse;
+	private Integer idAdresse;
 
-	private int numero;
+	private Integer numero;
 	private String nomVoie;
 	private Long coordonneesGpsLat;
 	private Long coordonneesGpsLong;
@@ -37,17 +36,17 @@ public class Adresse {
 
 	@ManyToOne
 	@JoinColumn(name = "idStatutAdresse")
-	private StatutAdresse statutAdresse; 
+	private StatutAdresse statutAdresse;
 
 	@ManyToOne
 	@JoinColumn(name = "idVille")
 	private Ville villeAdresse;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idUtilisateur")
+	@JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateurAdresse;
-	
-	@OneToMany(mappedBy="adresseRdv",fetch=FetchType.LAZY)
+
+	@OneToMany(mappedBy = "adresseRdv", fetch = FetchType.LAZY)
 	private List<RendezVous> listeRdvAdresse;
 
 	public Adresse() {
@@ -63,19 +62,19 @@ public class Adresse {
 				+ ", dateDebutValidite=" + dateDebutValidite + ", dateFinValidite=" + dateFinValidite + "]";
 	}
 
-	public int getIdAdresse() {
+	public Integer getIdAdresse() {
 		return idAdresse;
 	}
 
-	public void setIdAdresse(int idAdresse) {
+	public void setIdAdresse(Integer idAdresse) {
 		this.idAdresse = idAdresse;
 	}
 
-	public int getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 
@@ -159,6 +158,4 @@ public class Adresse {
 		this.listeRdvAdresse = listeRdvAdresse;
 	}
 
-	
-	
 }

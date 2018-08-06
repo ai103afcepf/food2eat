@@ -14,7 +14,7 @@ public class GroupeAliment {
 	
 	@Id  
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idGroupeAliment;
+	private Integer idGroupeAliment;
 	
 	private String libelleGroupeAliment;
 	
@@ -32,11 +32,11 @@ public class GroupeAliment {
 				+ "]";
 	}
 
-	public int getIdGroupeAliment() {
+	public Integer getIdGroupeAliment() {
 		return idGroupeAliment;
 	}
 
-	public void setIdGroupeAliment(int idGroupeAliment) {
+	public void setIdGroupeAliment(Integer idGroupeAliment) {
 		this.idGroupeAliment = idGroupeAliment;
 	}
 

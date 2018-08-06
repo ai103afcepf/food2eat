@@ -14,7 +14,7 @@ public class Label {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idLabel;
+	private Integer idLabel;
 	
 	private String libelleLabel;
 	private String imageLabel;
@@ -32,11 +32,11 @@ public class Label {
 		return "Label [idLabel=" + idLabel + ", libelleLabel=" + libelleLabel + ", imageLabel=" + imageLabel + "]";
 	}
 
-	public int getIdLabel() {
+	public Integer getIdLabel() {
 		return idLabel;
 	}
 
-	public void setIdLabel(int idLabel) {
+	public void setIdLabel(Integer idLabel) {
 		this.idLabel = idLabel;
 	}
 

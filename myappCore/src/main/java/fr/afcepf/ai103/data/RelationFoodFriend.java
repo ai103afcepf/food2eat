@@ -14,7 +14,7 @@ public class RelationFoodFriend {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idRelationFoodFriend;
+	private Integer idRelationFoodFriend;
 	
 	private Date dateDemandeFoodFriend;
 	private Date dateRefusFoodFriend;
@@ -42,11 +42,11 @@ public class RelationFoodFriend {
 				+ dateRetraitFoodFriend + "]";
 	}
 
-	public int getIdRelationFoodFriend() {
+	public Integer getIdRelationFoodFriend() {
 		return idRelationFoodFriend;
 	}
 
-	public void setIdRelationFoodFriend(int idRelationFoodFriend) {
+	public void setIdRelationFoodFriend(Integer idRelationFoodFriend) {
 		this.idRelationFoodFriend = idRelationFoodFriend;
 	}
 

@@ -13,13 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 //
-@Entity 
+@Entity
 public class AlimentGenerique {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idAlimentGenerique;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idAlimentGenerique;
+
 	private String libelleAlimentGenerique;
 	private String imageAlimentGenerique;
 	private Date datePropositionReferencementAlimentGenerique;
@@ -27,53 +27,52 @@ public class AlimentGenerique {
 	private Date dateAcceptationReferencementAlimentGenerique;
 	private Date dateModificationReferencementAlimentGenerique;
 	private Date dateRetraitReferencementAlimentGenerique;
-	
-	@OneToMany(mappedBy="alimentGenerique", fetch=FetchType.LAZY)
+
+	@OneToMany(mappedBy = "alimentGenerique", fetch = FetchType.LAZY)
 	private List<StockPerso> listeAlimentsStockPerso;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idCategorieAliment")
+	@JoinColumn(name = "idCategorieAliment")
 	private CategorieAliment categorieAliment;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idStockageConservation")
+	@JoinColumn(name = "idStockageConservation")
 	private StockageConservation stockageConservation;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idPackagingContenant")
+	@JoinColumn(name = "idPackagingContenant")
 	private PackagingContenant packagingContenant;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idMotifRejetRef")
+	@JoinColumn(name = "idMotifRejetRef")
 	private MotifRejetRef motifRejetRef;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idMotifRetraitRef")
+	@JoinColumn(name = "idMotifRetraitRef")
 	private MotifRejetRef motifRetraitRef;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idOrigine")
+	@JoinColumn(name = "idOrigine")
 	private Origine origine;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idLabel")
+	@JoinColumn(name = "idLabel")
 	private Label label;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idNutriscore")
+	@JoinColumn(name = "idNutriscore")
 	private Nutriscore nutriscore;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idPortionUnite")
+	@JoinColumn(name = "idPortionUnite")
 	private PortionUnite portionUnite;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idNbUnites")
+	@JoinColumn(name = "idNbUnites")
 	private NbUnites nbUnites;
-	
+
 	public AlimentGenerique() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -87,11 +86,11 @@ public class AlimentGenerique {
 				+ ", dateRetraitReferencementAlimentGenerique=" + dateRetraitReferencementAlimentGenerique + "]";
 	}
 
-	public int getIdAlimentGenerique() {
+	public Integer getIdAlimentGenerique() {
 		return idAlimentGenerique;
 	}
 
-	public void setIdAlimentGenerique(int idAlimentGenerique) {
+	public void setIdAlimentGenerique(Integer idAlimentGenerique) {
 		this.idAlimentGenerique = idAlimentGenerique;
 	}
 
@@ -238,5 +237,5 @@ public class AlimentGenerique {
 	public void setListeAlimentsStockPerso(List<StockPerso> listeAlimentsStockPerso) {
 		this.listeAlimentsStockPerso = listeAlimentsStockPerso;
 	}
-	
+
 }

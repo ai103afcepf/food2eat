@@ -16,7 +16,7 @@ public class Ville {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idVille;
+	private Integer idVille;
 
 	private String codePostal;
 	private String nomVille;
@@ -38,11 +38,11 @@ public class Ville {
 		return "Ville [idVille=" + idVille + ", codePostal=" + codePostal + ", nomVille=" + nomVille + "]";
 	}
 
-	public int getIdVille() {
+	public Integer getIdVille() {
 		return idVille;
 	}
 
-	public void setIdVille(int idVille) {
+	public void setIdVille(Integer idVille) {
 		this.idVille = idVille;
 	}
 

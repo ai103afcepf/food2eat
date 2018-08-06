@@ -14,10 +14,10 @@ public class StockageConservation {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idStockageConservation;
+	private Integer idStockageConservation;
 	
 	private String libelleStockageConservation;
-	private int duree_extention_apres_dlcStockageConservation;
+	private Integer duree_extention_apres_dlcStockageConservation;
 	
 	@OneToMany(mappedBy="stockageConservation",fetch=FetchType.LAZY)
 	private List<AlimentGenerique> listeAlimentsGeneriquesStockage;
@@ -36,11 +36,11 @@ public class StockageConservation {
 				+ "]";
 	}
 
-	public int getIdStockageConservation() {
+	public Integer getIdStockageConservation() {
 		return idStockageConservation;
 	}
 
-	public void setIdStockageConservation(int idStockageConservation) {
+	public void setIdStockageConservation(Integer idStockageConservation) {
 		this.idStockageConservation = idStockageConservation;
 	}
 
@@ -52,11 +52,11 @@ public class StockageConservation {
 		this.libelleStockageConservation = libelleStockageConservation;
 	}
 
-	public int getDuree_extention_apres_dlcStockageConservation() {
+	public Integer getDuree_extention_apres_dlcStockageConservation() {
 		return duree_extention_apres_dlcStockageConservation;
 	}
 
-	public void setDuree_extention_apres_dlcStockageConservation(int duree_extention_apres_dlcStockageConservation) {
+	public void setDuree_extention_apres_dlcStockageConservation(Integer duree_extention_apres_dlcStockageConservation) {
 		this.duree_extention_apres_dlcStockageConservation = duree_extention_apres_dlcStockageConservation;
 	}
 

@@ -13,7 +13,7 @@ public class Evaluation {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idEvaluation;
+	private Integer idEvaluation;
 	
 	private String commentaireEvaluation;
 	 
@@ -34,11 +34,11 @@ public class Evaluation {
 		return "Evaluation [idEvaluation=" + idEvaluation + ", commentaireEvaluation=" + commentaireEvaluation + "]";
 	}
 
-	public int getIdEvaluation() {
+	public Integer getIdEvaluation() {
 		return idEvaluation;
 	}
 
-	public void setIdEvaluation(int idEvaluation) {
+	public void setIdEvaluation(Integer idEvaluation) {
 		this.idEvaluation = idEvaluation;
 	}
 

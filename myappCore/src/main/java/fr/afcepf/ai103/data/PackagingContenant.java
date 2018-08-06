@@ -14,10 +14,10 @@ public class PackagingContenant {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)//
-	private int idPackagingContenant;
+	private Integer idPackagingContenant;
 	
 	private String libellePackagingContenant;
-	private int duree_extention_apres_dlc;
+	private Integer duree_extention_apres_dlc;
 	
 	@OneToMany(mappedBy="packagingContenant",fetch=FetchType.LAZY)
 	private List<AlimentGenerique> listeAlimentsGeneriquesPackaging;
@@ -33,11 +33,11 @@ public class PackagingContenant {
 				+ libellePackagingContenant + ", duree_extention_apres_dlc=" + duree_extention_apres_dlc + "]";
 	}
 
-	public int getIdPackagingContenant() {
+	public Integer getIdPackagingContenant() {
 		return idPackagingContenant;
 	}
 
-	public void setIdPackagingContenant(int idPackagingContenant) {
+	public void setIdPackagingContenant(Integer idPackagingContenant) {
 		this.idPackagingContenant = idPackagingContenant;
 	}
 
@@ -49,11 +49,11 @@ public class PackagingContenant {
 		this.libellePackagingContenant = libellePackagingContenant;
 	}
 
-	public int getDuree_extention_apres_dlc() {
+	public Integer getDuree_extention_apres_dlc() {
 		return duree_extention_apres_dlc;
 	}
 
-	public void setDuree_extention_apres_dlc(int duree_extention_apres_dlc) {
+	public void setDuree_extention_apres_dlc(Integer duree_extention_apres_dlc) {
 		this.duree_extention_apres_dlc = duree_extention_apres_dlc;
 	}
 

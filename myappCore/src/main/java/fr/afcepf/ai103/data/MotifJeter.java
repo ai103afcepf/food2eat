@@ -14,7 +14,7 @@ public class MotifJeter {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idMotifJeter;
+	private Integer idMotifJeter;
 	
 	private String libelleMotifJeter;
 	
@@ -30,11 +30,11 @@ public class MotifJeter {
 		return "MotifJeter [idMotifJeter=" + idMotifJeter + ", libelleMotifJeter=" + libelleMotifJeter + "]";
 	}
 
-	public int getIdMotifJeter() {
+	public Integer getIdMotifJeter() {
 		return idMotifJeter;
 	}
 
-	public void setIdMotifJeter(int idMotifJeter) {
+	public void setIdMotifJeter(Integer idMotifJeter) {
 		this.idMotifJeter = idMotifJeter;
 	}
 

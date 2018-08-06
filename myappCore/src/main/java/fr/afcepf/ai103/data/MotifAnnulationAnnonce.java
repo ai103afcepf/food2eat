@@ -16,7 +16,7 @@ public class MotifAnnulationAnnonce {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idMotifAnnulationAnnonce;
+	private Integer idMotifAnnulationAnnonce;
 	private String libelleMotifAnnulationAnnonce;
 	 
 	@OneToMany(mappedBy="motifAnnulationAnnonce",fetch=FetchType.LAZY)
@@ -36,12 +36,12 @@ public class MotifAnnulationAnnonce {
 	}
 
 
-	public int getIdMotifAnnulationAnnonce() {
+	public Integer getIdMotifAnnulationAnnonce() {
 		return idMotifAnnulationAnnonce;
 	}
 
 
-	public void setIdMotifAnnulationAnnonce(int idMotifAnnulationAnnonce) {
+	public void setIdMotifAnnulationAnnonce(Integer idMotifAnnulationAnnonce) {
 		this.idMotifAnnulationAnnonce = idMotifAnnulationAnnonce;
 	}
 

@@ -17,7 +17,7 @@ public class RendezVous {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idRendezVous;
+	private Integer idRendezVous;
 	private Date dateRendezVous;
 	
 	@ManyToOne
@@ -46,12 +46,12 @@ public class RendezVous {
 	}
 
 
-	public int getIdRendezVous() {
+	public Integer getIdRendezVous() {
 		return idRendezVous;
 	}
 
 
-	public void setIdRendezVous(int idRendezVous) {
+	public void setIdRendezVous(Integer idRendezVous) {
 		this.idRendezVous = idRendezVous;
 	}
 

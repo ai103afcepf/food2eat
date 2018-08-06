@@ -17,9 +17,9 @@ public class StockPerso {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idStockPerso;
+	private Integer idStockPerso;
 	
-	private int quantiteStockPerso;
+	private Integer quantiteStockPerso;
 	private Date dlcStockPerso;
 	private Date dateAjoutStockPerso;
 	private Date dateConsoChoisieStockPerso;
@@ -48,16 +48,16 @@ public class StockPerso {
 				+ ", dlcStockPerso=" + dlcStockPerso + ", dateAjoutStockPerso=" + dateAjoutStockPerso
 				+ ", dateConsoChoisieStockPerso=" + dateConsoChoisieStockPerso + "]";
 	}
-	public int getIdStockPerso() {
+	public Integer getIdStockPerso() {
 		return idStockPerso;
 	}
-	public void setIdStockPerso(int idStockPerso) {
+	public void setIdStockPerso(Integer idStockPerso) {
 		this.idStockPerso = idStockPerso;
 	}
-	public int getQuantiteStockPerso() {
+	public Integer getQuantiteStockPerso() {
 		return quantiteStockPerso;
 	}
-	public void setQuantiteStockPerso(int quantiteStockPerso) {
+	public void setQuantiteStockPerso(Integer quantiteStockPerso) {
 		this.quantiteStockPerso = quantiteStockPerso;
 	}
 	public Date getDlcStockPerso() {

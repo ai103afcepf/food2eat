@@ -14,9 +14,9 @@ public class PortionUnite {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idPortionUnite;
+	private Integer idPortionUnite;
 	
-	private int quantitePortionUnite;
+	private Integer quantitePortionUnite;
 	private String unitePortionUnite;
 	
 	@OneToMany(mappedBy="portionUnite",fetch=FetchType.LAZY)
@@ -34,19 +34,19 @@ public class PortionUnite {
 				+ ", unitePortionUnite=" + unitePortionUnite + "]";
 	}
 
-	public int getIdPortionUnite() {
+	public Integer getIdPortionUnite() {
 		return idPortionUnite;
 	}
 
-	public void setIdPortionUnite(int idPortionUnite) {
+	public void setIdPortionUnite(Integer idPortionUnite) {
 		this.idPortionUnite = idPortionUnite;
 	}
 
-	public int getQuantitePortionUnite() {
+	public Integer getQuantitePortionUnite() {
 		return quantitePortionUnite;
 	}
 
-	public void setQuantitePortionUnite(int quantitePortionUnite) {
+	public void setQuantitePortionUnite(Integer quantitePortionUnite) {
 		this.quantitePortionUnite = quantitePortionUnite;
 	}
 

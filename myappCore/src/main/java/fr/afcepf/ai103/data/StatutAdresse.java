@@ -14,7 +14,7 @@ public class StatutAdresse {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idStatutAdresse;
+	private Integer idStatutAdresse;
 	private String libelleStatutAdresse;
 
 	@OneToMany(mappedBy = "statutAdresse", fetch = FetchType.LAZY)
@@ -31,11 +31,11 @@ public class StatutAdresse {
 				+ "]";
 	}
 
-	public int getIdStatutAdresse() {
+	public Integer getIdStatutAdresse() {
 		return idStatutAdresse;
 	}
 
-	public void setIdStatutAdresse(int idStatutAdresse) {
+	public void setIdStatutAdresse(Integer idStatutAdresse) {
 		this.idStatutAdresse = idStatutAdresse;
 	}
 

@@ -15,7 +15,7 @@ public class Nutriscore {
 	 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idNutriscore;
+	private Integer idNutriscore;
 	
 	private String scoreNutriscore;
 	private String imageNutriscore;
@@ -34,11 +34,11 @@ public class Nutriscore {
 				+ ", imageNutriscore=" + imageNutriscore + "]";
 	}
 
-	public int getIdNutriscore() {
+	public Integer getIdNutriscore() {
 		return idNutriscore;
 	}
 
-	public void setIdNutriscore(int idNutriscore) {
+	public void setIdNutriscore(Integer idNutriscore) {
 		this.idNutriscore = idNutriscore;
 	}
 

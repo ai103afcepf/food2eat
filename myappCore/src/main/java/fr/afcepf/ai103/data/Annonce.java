@@ -17,7 +17,7 @@ public class Annonce {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idAnnonce;
+	private Integer idAnnonce;
 
 	private Date dateCreationAnnonce;
 	private Date dateAnnulationCreationAnnonce;
@@ -55,11 +55,11 @@ public class Annonce {
 				+ ", dateFermetureAnnonce=" + dateFermetureAnnonce + "]";
 	}
 
-	public int getIdAnnonce() {
+	public Integer getIdAnnonce() {
 		return idAnnonce;
 	}
 
-	public void setIdAnnonce(int idAnnonce) {
+	public void setIdAnnonce(Integer idAnnonce) {
 		this.idAnnonce = idAnnonce;
 	}
 

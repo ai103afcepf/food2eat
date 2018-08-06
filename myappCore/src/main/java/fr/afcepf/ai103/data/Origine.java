@@ -1,3 +1,4 @@
+
 package fr.afcepf.ai103.data;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class Origine {
 
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idOrigine;
+	private Integer idOrigine;
 	
 	private String libelleOrigine;
 	
@@ -31,11 +32,11 @@ public class Origine {
 		return "Origine [idOrigine=" + idOrigine + ", libelleOrigine=" + libelleOrigine + "]";
 	}
 
-	public int getIdOrigine() {
+	public Integer getIdOrigine() {
 		return idOrigine;
 	}
 
-	public void setIdOrigine(int idOrigine) {
+	public void setIdOrigine(Integer idOrigine) {
 		this.idOrigine = idOrigine;
 	}
 

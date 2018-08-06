@@ -14,11 +14,11 @@ public class Consommation {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idConsommation;
+	private Integer idConsommation;
 
 	private Date dateManger;
 	private Date dateJeter;
-	private int quantiteConso;
+	private Integer quantiteConso;
 
 	@ManyToOne
 	@JoinColumn(name = "idStockPerso")
@@ -38,11 +38,11 @@ public class Consommation {
 				+ dateJeter + ", quantiteConso=" + quantiteConso + "]";
 	}
 
-	public int getIdConsommation() {
+	public Integer getIdConsommation() {
 		return idConsommation;
 	}
 
-	public void setIdConsommation(int idConsommation) {
+	public void setIdConsommation(Integer idConsommation) {
 		this.idConsommation = idConsommation;
 	}
 
@@ -62,11 +62,11 @@ public class Consommation {
 		this.dateJeter = dateJeter;
 	}
 
-	public int getQuantiteConso() {
+	public Integer getQuantiteConso() {
 		return quantiteConso;
 	}
 
-	public void setQuantiteConso(int quantiteConso) {
+	public void setQuantiteConso(Integer quantiteConso) {
 		this.quantiteConso = quantiteConso;
 	}
 

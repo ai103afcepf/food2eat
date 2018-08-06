@@ -16,10 +16,10 @@ public class CategorieAliment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idCategorieAliment;
+	private Integer idCategorieAliment;
 	
 	private String libelleCategorieAliment;
-	private int dureeExtensionApresDlcCategorieAliment;
+	private Integer dureeExtensionApresDlcCategorieAliment;
 	
 	@ManyToOne
 	@JoinColumn(name="idGroupeAliment")
@@ -40,11 +40,11 @@ public class CategorieAliment {
 				+ dureeExtensionApresDlcCategorieAliment + "]";
 	}
 
-	public int getIdCategorieAliment() {
+	public Integer getIdCategorieAliment() {
 		return idCategorieAliment;
 	}
 
-	public void setIdCategorieAliment(int idCategorieAliment) {
+	public void setIdCategorieAliment(Integer idCategorieAliment) {
 		this.idCategorieAliment = idCategorieAliment;
 	}
 
@@ -56,11 +56,11 @@ public class CategorieAliment {
 		this.libelleCategorieAliment = libelleCategorieAliment;
 	}
 
-	public int getDureeExtensionApresDlcCategorieAliment() {
+	public Integer getDureeExtensionApresDlcCategorieAliment() {
 		return dureeExtensionApresDlcCategorieAliment;
 	}
 
-	public void setDureeExtensionApresDlcCategorieAliment(int dureeExtensionApresDlcCategorieAliment) {
+	public void setDureeExtensionApresDlcCategorieAliment(Integer dureeExtensionApresDlcCategorieAliment) {
 		this.dureeExtensionApresDlcCategorieAliment = dureeExtensionApresDlcCategorieAliment;
 	}
 

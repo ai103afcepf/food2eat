@@ -14,7 +14,7 @@ public class MotifRetraitRef {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idMotifRetraitRef;
+	private Integer idMotifRetraitRef;
 	
 	private String libelleMotifRetraitRef;
 	
@@ -33,11 +33,11 @@ public class MotifRetraitRef {
 				+ libelleMotifRetraitRef + "]";
 	}
 
-	public int getIdMotifRetraitRef() {
+	public Integer getIdMotifRetraitRef() {
 		return idMotifRetraitRef;
 	}
 
-	public void setIdMotifRetraitRef(int idMotifRetraitRef) {
+	public void setIdMotifRetraitRef(Integer idMotifRetraitRef) {
 		this.idMotifRetraitRef = idMotifRetraitRef;
 	}
 

@@ -14,7 +14,7 @@ public class Sexe {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idSexe;
+	private Integer idSexe;
 	
 	private String libelleSexe;
 	
@@ -32,11 +32,11 @@ public class Sexe {
 		return "Sexe [idSexe=" + idSexe + ", libelleSexe=" + libelleSexe + "]";
 	}
 
-	public int getIdSexe() {
+	public Integer getIdSexe() {
 		return idSexe;
 	}
 
-	public void setIdSexe(int idSexe) {
+	public void setIdSexe(Integer idSexe) {
 		this.idSexe = idSexe;
 	}
 

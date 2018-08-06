@@ -14,7 +14,7 @@ public class MotifRejetRef {
 	
 	@Id  
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idMotifRejetRef;
+	private Integer idMotifRejetRef;
 	
 	private String libelleMotifRejetRef;
 	
@@ -31,11 +31,11 @@ public class MotifRejetRef {
 		return "MotifRejetRef [idLabel=" + idMotifRejetRef + ", libelleMotifRejetRef=" + libelleMotifRejetRef + "]";
 	}
 
-	public int getIdMotifRejetRef() {
+	public Integer getIdMotifRejetRef() {
 		return idMotifRejetRef;
 	}
 
-	public void setIdMotifRejetRef(int idMotifRejetRef) {
+	public void setIdMotifRejetRef(Integer idMotifRejetRef) {
 		this.idMotifRejetRef = idMotifRejetRef;
 	}
 

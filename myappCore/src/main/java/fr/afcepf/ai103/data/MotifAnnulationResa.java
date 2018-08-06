@@ -14,7 +14,7 @@ public class MotifAnnulationResa {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idMotifAnnulationResa;
+	private Integer idMotifAnnulationResa;
 	
 	private String libelleMotifAnnulationResa;
 	 
@@ -32,7 +32,7 @@ public class MotifAnnulationResa {
 				+ libelleMotifAnnulationResa + "]";
 	}
 
-	public int getIdMotifAnnulationResa() {
+	public Integer getIdMotifAnnulationResa() {
 		return idMotifAnnulationResa;
 	} 
 
@@ -46,7 +46,7 @@ public class MotifAnnulationResa {
 		this.listeReponsesAnnulees = listeReponsesAnnulees;
 	}
 
-	public void setIdMotifAnnulationResa(int idMotifAnnulationResa) {
+	public void setIdMotifAnnulationResa(Integer idMotifAnnulationResa) {
 		this.idMotifAnnulationResa = idMotifAnnulationResa;
 	}
 

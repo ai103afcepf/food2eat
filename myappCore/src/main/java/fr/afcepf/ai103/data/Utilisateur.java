@@ -17,7 +17,7 @@ public class Utilisateur {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idUtilisateur;
+	private Integer idUtilisateur;
 	
 	private String nom;
 	private String prenom;
@@ -71,11 +71,11 @@ public class Utilisateur {
 				+ dateLethargie + ", dateDesinscription=" + dateDesinscription + "]";
 	}
 
-	public int getIdUtilisateur() {
+	public Integer getIdUtilisateur() {
 		return idUtilisateur;
 	}
 
-	public void setIdUtilisateur(int idUtilisateur) {
+	public void setIdUtilisateur(Integer idUtilisateur) {
 		this.idUtilisateur = idUtilisateur;
 	}
 

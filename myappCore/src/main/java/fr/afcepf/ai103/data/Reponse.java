@@ -15,7 +15,7 @@ public class Reponse {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idReponse;
+	private Integer idReponse;
 
 	private Date dateReponseAnnonce;
 	private Date dateAcceptationReservation;
@@ -53,11 +53,11 @@ public class Reponse {
 				+ dateAnnulationReservation + "]";
 	}
 
-	public int getIdReponse() {
+	public Integer getIdReponse() {
 		return idReponse;
 	}
 
-	public void setIdReponse(int idReponse) {
+	public void setIdReponse(Integer idReponse) {
 		this.idReponse = idReponse;
 	}
 

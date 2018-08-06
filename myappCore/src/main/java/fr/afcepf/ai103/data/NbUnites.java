@@ -14,9 +14,9 @@ public class NbUnites {
 	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idNbUnites;
+	private Integer idNbUnites;
 	
-	private int quantiteNbUnites;
+	private Integer quantiteNbUnites;
 	
 	@OneToMany(mappedBy="nbUnites",fetch=FetchType.LAZY)
 	private List<AlimentGenerique> listeAlimentsGeneriquesNbUnite;
@@ -32,19 +32,19 @@ public class NbUnites {
 		return "NbUnites [idNbUnites=" + idNbUnites + ", quantiteNbUnites=" + quantiteNbUnites + "]";
 	}
 
-	public int getIdNbUnites() {
+	public Integer getIdNbUnites() {
 		return idNbUnites;
 	}
 
-	public void setIdNbUnites(int idNbUnites) {
+	public void setIdNbUnites(Integer idNbUnites) {
 		this.idNbUnites = idNbUnites;
 	}
 
-	public int getQuantiteNbUnites() {
+	public Integer getQuantiteNbUnites() {
 		return quantiteNbUnites;
 	}
 
-	public void setQuantiteNbUnites(int quantiteNbUnites) {
+	public void setQuantiteNbUnites(Integer quantiteNbUnites) {
 		this.quantiteNbUnites = quantiteNbUnites;
 	}
 

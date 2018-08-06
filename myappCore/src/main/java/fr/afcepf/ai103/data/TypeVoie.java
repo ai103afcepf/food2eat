@@ -14,7 +14,7 @@ public class TypeVoie {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idTypeVoie;
+	private Integer idTypeVoie;
 	private String libelleTypeVoie;
  
 	@OneToMany(mappedBy = "typeVoie", fetch = FetchType.LAZY)
@@ -29,11 +29,11 @@ public class TypeVoie {
 		return "TypeVoie [idTypeVoie=" + idTypeVoie + ", libelleTypeVoie=" + libelleTypeVoie + "]";
 	}
 
-	public int getIdTypeVoie() {
+	public Integer getIdTypeVoie() {
 		return idTypeVoie;
 	}
 
-	public void setIdTypeVoie(int idTypeVoie) {
+	public void setIdTypeVoie(Integer idTypeVoie) {
 		this.idTypeVoie = idTypeVoie;
 	}
 

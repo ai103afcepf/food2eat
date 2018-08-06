@@ -14,9 +14,9 @@ public class Notation {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idNotation;
+	private Integer idNotation;
 	
-	private int note;
+	private Integer note;
 	private String imageNotation;
 	 
 	@OneToMany(mappedBy = "notation", fetch = FetchType.LAZY)
@@ -32,19 +32,19 @@ public class Notation {
 		return "Notation [idNotation=" + idNotation + ", note=" + note + ", imageNotation=" + imageNotation + "]";
 	}
 
-	public int getIdNotation() {
+	public Integer getIdNotation() {
 		return idNotation;
 	} 
 
-	public void setIdNotation(int idNotation) {
+	public void setIdNotation(Integer idNotation) {
 		this.idNotation = idNotation;
 	}
 
-	public int getNote() {
+	public Integer getNote() {
 		return note;
 	}
 
-	public void setNote(int note) {
+	public void setNote(Integer note) {
 		this.note = note;
 	}
 

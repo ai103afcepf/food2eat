@@ -14,7 +14,7 @@ public class Region {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idRegion;
+	private Integer idRegion;
 	private String libelleRegion;
 	
 	@OneToMany(mappedBy="region", fetch = FetchType.LAZY)
@@ -35,11 +35,11 @@ public class Region {
 	}
 
 
-	public int getIdRegion() {
+	public Integer getIdRegion() {
 		return idRegion;
 	}
 
-	public void setIdRegion(int idRegion) {
+	public void setIdRegion(Integer idRegion) {
 		this.idRegion = idRegion;
 	}
 
