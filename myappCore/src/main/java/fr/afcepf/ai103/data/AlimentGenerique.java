@@ -19,6 +19,14 @@ public class AlimentGenerique {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idAlimentGenerique;
+	private long codeBarreAlimentGenerique;
+	public long getCodeBarreAlimentGenerique() {
+		return codeBarreAlimentGenerique;
+	}
+
+	public void setCodeBarreAlimentGenerique(long codeBarreAlimentGenerique) {
+		this.codeBarreAlimentGenerique = codeBarreAlimentGenerique;
+	}
 
 	private String libelleAlimentGenerique;
 	private String imageAlimentGenerique;

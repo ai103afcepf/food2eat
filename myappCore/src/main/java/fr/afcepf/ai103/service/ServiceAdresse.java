@@ -19,7 +19,7 @@ public class ServiceAdresse implements IServiceAdresse {
 
 	@Override
 	public Adresse rechercherInfosAdresse(Integer idAdresse) {
-		
+
 		return daoAdresse.rechcherAdresseParIdAdr(idAdresse);
 	}
 
@@ -57,6 +57,14 @@ public class ServiceAdresse implements IServiceAdresse {
 	@Override
 	public List<Adresse> rechercherTousLesAdresses() {
 		return null;
+	}
+
+	public IDaoAdresse getDaoAdresse() {
+		return daoAdresse;
+	}
+
+	public void setDaoAdresse(IDaoAdresse daoAdresse) {
+		this.daoAdresse = daoAdresse;
 	}
 
 }

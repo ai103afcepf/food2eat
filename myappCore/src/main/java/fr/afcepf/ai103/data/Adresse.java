@@ -20,10 +20,23 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-	// Peut être que cette requete sera dans la classe Utilisateur
-	@NamedQuery(name="Adresse.findByIdUser", 
-			query="SELECT adr FROM Adresse adr INNER JOIN adr.utilisateurAdresse userAdr WHERE userAdr.idUtilisateur = :idUtilisateur")
-})
+		// Peut être que cette requete sera dans la classe Utilisateur :: query="SELECT
+		// adr FROM Adresse adr INNER JOIN adr.utilisateurAdresse userAdr WHERE
+		// userAdr.idUtilisateur = :idUtilisateur")
+		@NamedQuery(name = "Adresse.findAllAdresse", query = "SELECT adr1 FROM Adresse adr1"),
+
+		@NamedQuery(name = "Adresse.findAdresseByUser", query = "SELECT adr2 FROM Adresse adr2 WHERE adr2.utilisateurAdresse.idUtilisateur= :idUtilisateur"),
+
+		@NamedQuery(name = "Adresse.findAdresseByCodePostal", query = "SELECT adr3 FROM Adresse adr3 WHERE adr3.villeAdresse.codePostal = :codePostal "),
+
+		@NamedQuery(name = "Adresse.findAdresseByRegion", query = "SELECT adr4 FROM Adresse adr4 ") })
+
+/*
+ * SELECT a.numero, t.libelleTypeVoie, a.nomVoie, v.codePostal, v.nomVille FROM
+ * adresse a LEFT JOIN Ville v ON a.idVille = v.idVille LEFT JOIN TypeVoie t ON
+ * t.idTypeVoie = a.idTypeVoie LEFT JOIN Region r ON v.idRegion = r.idRegion
+ */
+
 public class Adresse {
 
 	@Id
@@ -32,8 +45,8 @@ public class Adresse {
 
 	private Integer numero;
 	private String nomVoie;
-	private Long coordonneesGpsLat;
-	private Long coordonneesGpsLong;
+	private Double coordonneesGpsLat;
+	private Double coordonneesGpsLong;
 	private Date dateDebutValidite;
 	private Date dateFinValidite;
 
@@ -93,19 +106,19 @@ public class Adresse {
 		this.nomVoie = nomVoie;
 	}
 
-	public Long getCoordonneesGpsLat() {
+	public Double getCoordonneesGpsLat() {
 		return coordonneesGpsLat;
 	}
 
-	public void setCoordonneesGpsLat(Long coordonneesGpsLat) {
+	public void setCoordonneesGpsLat(Double coordonneesGpsLat) {
 		this.coordonneesGpsLat = coordonneesGpsLat;
 	}
 
-	public Long getCoordonneesGpsLong() {
+	public Double getCoordonneesGpsLong() {
 		return coordonneesGpsLong;
 	}
 
-	public void setCoordonneesGpsLong(Long coordonneesGpsLong) {
+	public void setCoordonneesGpsLong(Double coordonneesGpsLong) {
 		this.coordonneesGpsLong = coordonneesGpsLong;
 	}
 

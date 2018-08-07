@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+	<ui:define name="header">
+	    Add your header here or delete to use the default
+	</ui:define>
+	<ui:define name="content">
+	    Id Adresse: <h:outputText value="#{adressBean.adresse.idAdresse}" />
+		<br />
+	  N°: <h:outputText value="#{adressBean.adresse.numero}" />
+		<br />
+      nom voie: <h:outputText value="#{adressBean.adresse.nomVoie}" />
+		<br />
+      coordonneesGpsLat: <h:outputText
+			value="#{adresseBean.adresse.coordonneesGpsLat}" />
+		<br />
+	  coordonneesGpsLong: <h:outputText
+			value="#{adresseBean.adresse.coordonneesGpsLong}" />
+		<br />
+      dateDebutValidite: <h:outputText
+			value="#{adresseBean.adresse.dateDebutValidite}" />
+		<hr />
+		dateFinValidite: <h:outputText
+			value="#{adresseBean.adresse.dateFinValidite}" />
+		<hr />
+		TypeVoie: <h:outputText
+			value="#{adresseBean.adresse.getTypeVoie()}" />
+		<hr />
+		StatutAdresse: <h:outputText
+			value="#{adresseBean.adresse.getStatutAdresse()}" />
+		<hr />
+		Utilisateur: <h:outputText
+			value="#{adresseBean.adresse.getUtilisateur()}" />
+		<hr />
+		listeRdvAdresse: <h:outputText
+			value="#{adresseBean.adresse.getListeRdvAdresse()}" />
+		<hr />
+	</ui:define>
+	<ui:define name="footer">
+	    Add your footer here or delete to use the default
+	</ui:define>
+</ui:composition>
+</html>

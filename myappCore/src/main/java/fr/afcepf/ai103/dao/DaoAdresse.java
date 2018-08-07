@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 
 import fr.afcepf.ai103.data.Adresse;
 import fr.afcepf.ai103.data.Utilisateur;
+import fr.afcepf.ai103.data.Ville;
 
 @Stateless
 @Local
@@ -36,15 +37,16 @@ public class DaoAdresse implements IDaoAdresse {
 
 	@Override
 	public Adresse rechcherAdresseParIdAdr(Integer idAdresse) {
-
-		return entityManager.find(Adresse.class, idAdresse);
+		//entityManager.find(Adresse.class, idAdresse);
+		return null;
 	}
 
 	@Override
 	public List<Adresse> rechcherAdresseParIdUtilisateur(Integer idUtilisateur) {
 
-		return entityManager.createNamedQuery("Adresse.findByIdUser", Adresse.class).
-				setParameter("idUtilisateur", idUtilisateur).getResultList();
+		return entityManager.createNamedQuery("Adresse.findAdresseByUser", Adresse.class).
+				setParameter("idUtilisateur", idUtilisateur).
+				getResultList();
 	}
 
 	public EntityManager getEntityManager() {
@@ -59,6 +61,13 @@ public class DaoAdresse implements IDaoAdresse {
 	public List<Adresse> rechercherAdresses() {
 
 		return entityManager.createQuery("SELECT a FROM Adresse a", Adresse.class).getResultList();
+	}
+
+	@Override
+	public List<Adresse> getAdresseByCodePostal(String codePostal) {
+		
+		return entityManager.createNamedQuery("Adresse.findAdresseByCodePostal", Adresse.class).
+				setParameter("codePostal", codePostal).getResultList();
 	}
 
 }
