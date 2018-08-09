@@ -23,7 +23,6 @@ public class GroupeAliment {
 	
 	public GroupeAliment() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

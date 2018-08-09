@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Consommation {
@@ -16,7 +18,9 @@ public class Consommation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idConsommation;
 
+	@Temporal(TemporalType.DATE)
 	private Date dateManger;
+	@Temporal(TemporalType.DATE)
 	private Date dateJeter;
 	private Integer quantiteConso;
 

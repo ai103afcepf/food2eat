@@ -7,18 +7,14 @@ import fr.afcepf.ai103.data.Utilisateur;
 
 public interface IServiceAdresse {
 
-	public Adresse rechercherInfosAdresse(Integer idAdresse);
-
-	public List<Adresse> rechercherAdresseParCodePostal();
-
-	public List<Utilisateur> adressePourUtilisateur(Utilisateur idUtilisateur);
-
-	public Adresse rechercherListeAdressesParVille();
-
-	public List<Adresse> rechercherListClientParId(Adresse adresse);
-
 	public Adresse saveOrUpdateAdresse(Adresse adresse);
 
+	public Adresse rechercherInfosAdresse(Integer idAdresse);
+
+	public List<Adresse> rechercherAdresseParCodePostal(String codePostal);
+
 	public List<Adresse> rechercherTousLesAdresses();
+
+	public List<Adresse> getAdresseByIdUser(Integer idUtilisateur);
 
 }

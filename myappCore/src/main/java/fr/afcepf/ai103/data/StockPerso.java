@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class StockPerso {
@@ -20,8 +22,11 @@ public class StockPerso {
 	private Integer idStockPerso;
 	
 	private Integer quantiteStockPerso;
+	@Temporal(TemporalType.DATE)
 	private Date dlcStockPerso;
+	@Temporal(TemporalType.DATE)
 	private Date dateAjoutStockPerso;
+	@Temporal(TemporalType.DATE)
 	private Date dateConsoChoisieStockPerso;
 	
 	@ManyToOne

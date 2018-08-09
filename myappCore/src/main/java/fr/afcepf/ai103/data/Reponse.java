@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Reponse {
@@ -17,8 +19,11 @@ public class Reponse {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idReponse;
 
+	// Date et Heure? ou Date sans heure pas?
 	private Date dateReponseAnnonce;
+	@Temporal(TemporalType.DATE)
 	private Date dateAcceptationReservation;
+	@Temporal(TemporalType.DATE)
 	private Date dateAnnulationReservation;
 
 	@ManyToOne

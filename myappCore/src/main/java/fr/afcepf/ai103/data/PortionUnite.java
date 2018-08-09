@@ -25,7 +25,6 @@ public class PortionUnite {
 	
 	public PortionUnite() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

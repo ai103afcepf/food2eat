@@ -17,6 +17,7 @@ INSERT INTO StatutAdresse(idStatutAdresse,libelleStatutAdresse) VALUES (2,'Tempo
 INSERT INTO TypeVoie(idTypeVoie,libelleTypeVoie) VALUES (1, 'Rue')
 INSERT INTO TypeVoie(idTypeVoie,libelleTypeVoie) VALUES (2, 'Avenue')
 INSERT INTO TypeVoie(idTypeVoie,libelleTypeVoie) VALUES (3, 'Boulevard')
+INSERT INTO TypeVoie(idTypeVoie,libelleTypeVoie) VALUES (4, 'Avenue')
 
 /** Region **/
 INSERT INTO Region(idRegion, libelleRegion) VALUES (1, 'IDF')

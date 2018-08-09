@@ -18,6 +18,7 @@ public class RendezVous {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idRendezVous;
+	// Date et Heure c pourquoi il n'y a pas eu de @Temporal(TemporalType.DATE)
 	private Date dateRendezVous;
 	
 	@ManyToOne
@@ -36,7 +37,6 @@ public class RendezVous {
 	
 	public RendezVous() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 

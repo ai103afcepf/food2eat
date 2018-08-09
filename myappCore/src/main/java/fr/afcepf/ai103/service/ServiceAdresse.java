@@ -1,11 +1,13 @@
 package fr.afcepf.ai103.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
+import fr.afcepf.ai103.dao.DaoAdresse;
 import fr.afcepf.ai103.dao.IDaoAdresse;
 import fr.afcepf.ai103.data.Adresse;
 import fr.afcepf.ai103.data.Utilisateur;
@@ -18,35 +20,9 @@ public class ServiceAdresse implements IServiceAdresse {
 	private IDaoAdresse daoAdresse;
 
 	@Override
-	public Adresse rechercherInfosAdresse(Integer idAdresse) {
-
-		return daoAdresse.rechcherAdresseParIdAdr(idAdresse);
-	}
-
-	@Override
-	public List<Adresse> rechercherAdresseParCodePostal() {
-		return null;
-	}
-
-	@Override
-	public List<Utilisateur> adressePourUtilisateur(Utilisateur utilisateur) {
-		return null;
-	}
-
-	@Override
-	public Adresse rechercherListeAdressesParVille() {
-		return null;
-	}
-
-	@Override
-	public List<Adresse> rechercherListClientParId(Adresse idAdresse) {
-		return null;
-	}
-
-	@Override
 	public Adresse saveOrUpdateAdresse(Adresse adresse) {
 
-		if (adresse.getIdAdresse() == -1) {
+		if (adresse.getIdAdresse() == null) {
 			adresse = daoAdresse.insererAdresse(adresse);
 		} else {
 			daoAdresse.mettreAJourAdresse(adresse);
@@ -55,8 +31,38 @@ public class ServiceAdresse implements IServiceAdresse {
 	}
 
 	@Override
+	public Adresse rechercherInfosAdresse(Integer idAdresse) {
+		return daoAdresse.rechcherAdresseParIdAdr(idAdresse);
+	}
+
+	@Override
+	public List<Adresse> rechercherAdresseParCodePostal(String codePostal) {
+		return daoAdresse.getAdresseByCodePostal(codePostal);
+	}
+
+	@Override
 	public List<Adresse> rechercherTousLesAdresses() {
-		return null;
+		return daoAdresse.rechercherAdresses();
+	}
+
+	@Override
+	public List<Adresse> getAdresseByIdUser(Integer idUtilisateur) {
+
+		// Modele java8 Stream()
+		/*
+		 * System.out.println("getAdresseByIdUser - Liste Adresse = "); List<Adresse>
+		 * adresses = daoAdresse.findAdressByIdUser().stream() .filter(adr ->
+		 * adr.getUtilisateurAdresse().getIdUtilisateur() == idUtilisateur)
+		 * .collect(Collectors.toList()); System.out.println(adresses.size());
+		 */
+		return daoAdresse.rechcherAdresseParIdUtilisateur(idUtilisateur);
+		/*
+		 * Calcul pour récuperer :
+		 * 
+		 * .stream().filter(adr -> adr.getUtilisateurAdresse().getIdUtilisateur() ==
+		 * idUtilisateur) .collect(Collectors.toList());
+		 */
+
 	}
 
 	public IDaoAdresse getDaoAdresse() {

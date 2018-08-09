@@ -25,7 +25,6 @@ public class MotifAnnulationAnnonce {
 	
 	public MotifAnnulationAnnonce() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	

@@ -24,7 +24,6 @@ public class Notation {
 	
 	public Notation() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

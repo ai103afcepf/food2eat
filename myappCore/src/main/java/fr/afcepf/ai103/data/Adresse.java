@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 //1. Ajouter une balise <class> dans persistence.xml
 //2. Ajouter les annotations @Entity pour la classe (pour faire le lien avec la table dans BDD)
@@ -24,12 +26,10 @@ import javax.persistence.OneToMany;
 		// adr FROM Adresse adr INNER JOIN adr.utilisateurAdresse userAdr WHERE
 		// userAdr.idUtilisateur = :idUtilisateur")
 		@NamedQuery(name = "Adresse.findAllAdresse", query = "SELECT adr1 FROM Adresse adr1"),
-
 		@NamedQuery(name = "Adresse.findAdresseByUser", query = "SELECT adr2 FROM Adresse adr2 WHERE adr2.utilisateurAdresse.idUtilisateur= :idUtilisateur"),
-
 		@NamedQuery(name = "Adresse.findAdresseByCodePostal", query = "SELECT adr3 FROM Adresse adr3 WHERE adr3.villeAdresse.codePostal = :codePostal "),
-
-		@NamedQuery(name = "Adresse.findAdresseByRegion", query = "SELECT adr4 FROM Adresse adr4 ") })
+		@NamedQuery(name = "Adresse.findAdresseByRegion", query = "SELECT adr4 FROM Adresse adr4 WHERE adr4.villeAdresse.region.libelleRegion = :libelleRegion "),
+		@NamedQuery(name = "RendezVous.rendezVousAdresse", query = "SELECT rdv FROM Adresse adr LEFT JOIN adr.listeRdvAdresse rdv WHERE adr.idAdresse = :idAdresse")})
 
 /*
  * SELECT a.numero, t.libelleTypeVoie, a.nomVoie, v.codePostal, v.nomVille FROM
@@ -47,7 +47,9 @@ public class Adresse {
 	private String nomVoie;
 	private Double coordonneesGpsLat;
 	private Double coordonneesGpsLong;
+	@Temporal(TemporalType.DATE)
 	private Date dateDebutValidite;
+	@Temporal(TemporalType.DATE)
 	private Date dateFinValidite;
 
 	@ManyToOne // (cascade = CascadeType.ALL)
@@ -66,7 +68,7 @@ public class Adresse {
 	@JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateurAdresse;
 
-	@OneToMany(mappedBy = "adresseRdv", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "adresseRdv", fetch = FetchType.EAGER)
 	private List<RendezVous> listeRdvAdresse;
 
 	public Adresse() {

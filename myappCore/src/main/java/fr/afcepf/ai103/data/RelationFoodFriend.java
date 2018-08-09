@@ -8,27 +8,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class RelationFoodFriend {
-	
-	@Id 
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idRelationFoodFriend;
-	
+	@Temporal(TemporalType.DATE)
 	private Date dateDemandeFoodFriend;
+	@Temporal(TemporalType.DATE)
 	private Date dateRefusFoodFriend;
+	@Temporal(TemporalType.DATE)
 	private Date dateAcceptationFoodFriend;
+	@Temporal(TemporalType.DATE)
 	private Date dateRetraitFoodFriend;
-	
+
 	@ManyToOne // (cascade = CascadeType.ALL)
 	@JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateurFriend1;
-	
+
 	@ManyToOne // (cascade = CascadeType.ALL)
 	@JoinColumn(name = "idFriend")
 	private Utilisateur utilisateurFriend2;
-	
+
 	public RelationFoodFriend() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -98,5 +103,4 @@ public class RelationFoodFriend {
 		this.utilisateurFriend2 = utilisateurFriend2;
 	}
 
-		
 }

@@ -6,9 +6,11 @@ import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.mail.Address;
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 
 import fr.afcepf.ai103.data.Adresse;
+import fr.afcepf.ai103.data.RendezVous;
 import fr.afcepf.ai103.data.Utilisateur;
 import fr.afcepf.ai103.data.Ville;
 
@@ -37,24 +39,14 @@ public class DaoAdresse implements IDaoAdresse {
 
 	@Override
 	public Adresse rechcherAdresseParIdAdr(Integer idAdresse) {
-		//entityManager.find(Adresse.class, idAdresse);
-		return null;
+		return entityManager.find(Adresse.class, idAdresse);
 	}
 
 	@Override
 	public List<Adresse> rechcherAdresseParIdUtilisateur(Integer idUtilisateur) {
 
-		return entityManager.createNamedQuery("Adresse.findAdresseByUser", Adresse.class).
-				setParameter("idUtilisateur", idUtilisateur).
-				getResultList();
-	}
-
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
+		return entityManager.createNamedQuery("Adresse.findAdresseByUser", Adresse.class)
+				.setParameter("idUtilisateur", idUtilisateur).getResultList();
 	}
 
 	@Override
@@ -65,9 +57,23 @@ public class DaoAdresse implements IDaoAdresse {
 
 	@Override
 	public List<Adresse> getAdresseByCodePostal(String codePostal) {
-		
-		return entityManager.createNamedQuery("Adresse.findAdresseByCodePostal", Adresse.class).
-				setParameter("codePostal", codePostal).getResultList();
+
+		return entityManager.createNamedQuery("Adresse.findAdresseByCodePostal", Adresse.class)
+				.setParameter("codePostal", codePostal).getResultList();
+	}
+
+	@Override
+	public List<RendezVous> rechercherRDVParIdAdresse(Integer idAdresse) {
+		return entityManager.createNamedQuery("RendezVous.rendezVousAdresse", RendezVous.class)
+				.setParameter("idAdresse", idAdresse).getResultList();
+	}
+
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 }

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Utilisateur {
@@ -25,13 +27,17 @@ public class Utilisateur {
 	private String password;
 	private String email;
 	private String numeroTel;
+	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
+	@Temporal(TemporalType.DATE)
 	private Date dateInscription;
+	@Temporal(TemporalType.DATE)
 	private Date dateLethargie;
+	@Temporal(TemporalType.DATE)
 	private Date dateDesinscription;
 	
 	
-	@OneToMany(mappedBy="utilisateurAdresse",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="utilisateurAdresse",fetch=FetchType.EAGER)
 	private List<Adresse> listeAdressesUtilisateur;
 	
 	@ManyToOne // (cascade = CascadeType.ALL)

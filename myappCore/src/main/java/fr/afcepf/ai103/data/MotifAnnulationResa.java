@@ -23,7 +23,6 @@ public class MotifAnnulationResa {
 	
 	public MotifAnnulationResa() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

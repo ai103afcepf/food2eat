@@ -23,7 +23,6 @@ public class MotifDesinscription {
 	
 	public MotifDesinscription() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

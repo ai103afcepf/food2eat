@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 //
 @Entity
@@ -30,10 +32,15 @@ public class AlimentGenerique {
 
 	private String libelleAlimentGenerique;
 	private String imageAlimentGenerique;
+	@Temporal(TemporalType.DATE)
 	private Date datePropositionReferencementAlimentGenerique;
+	@Temporal(TemporalType.DATE)
 	private Date dateRejetReferencementAlimentGenerique;
+	@Temporal(TemporalType.DATE)
 	private Date dateAcceptationReferencementAlimentGenerique;
+	@Temporal(TemporalType.DATE)
 	private Date dateModificationReferencementAlimentGenerique;
+	@Temporal(TemporalType.DATE)
 	private Date dateRetraitReferencementAlimentGenerique;
 
 	@OneToMany(mappedBy = "alimentGenerique", fetch = FetchType.LAZY)

@@ -9,29 +9,41 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 @Entity
+@NamedQueries({ @NamedQuery(name = "Ville.findAllVille", query = "SELECT v FROM Ville v"),
+		@NamedQuery(name = "Ville.findVilleByNomVille", query = "SELECT v FROM Ville v WHERE v.nomVille= :nomVille"),
+		@NamedQuery(name = "Ville.findAdresseByIdVille", query = "SELECT adr FROM Ville v LEFT JOIN v.listeAdressesVille adr WHERE v.idVille = :idVille") })
+
 public class Ville {
 
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idVille;
-// 
+	
 	private String codePostal;
 	private String nomVille;
-	
-	@OneToMany(mappedBy="villeAdresse",fetch=FetchType.LAZY)
+
+	@OneToMany(mappedBy = "villeAdresse", fetch = FetchType.EAGER)
 	private List<Adresse> listeAdressesVille;
 
 	@ManyToOne
-	@JoinColumn(name="idRegion")
+	@JoinColumn(name = "idRegion")
 	private Region region;
 
-	public Ville() {
-		super(); 
+	@OneToMany(mappedBy = "rdvReponse", fetch = FetchType.LAZY)
+	private List<Reponse> listeReponsesRdv;
 
-	} 
+	@OneToMany(mappedBy = "adresseRdv", fetch = FetchType.LAZY)
+	private List<RendezVous> listeRendezVous;
+
+	public Ville() {
+		super();
+
+	}
 
 	@Override
 	public String toString() {
@@ -77,7 +89,5 @@ public class Ville {
 	public void setRegion(Region region) {
 		this.region = region;
 	}
-
-	
 
 }

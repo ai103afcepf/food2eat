@@ -25,7 +25,6 @@ public class Nutriscore {
 	
 	public Nutriscore() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
