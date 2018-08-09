@@ -17,7 +17,7 @@ public class PackagingContenant {
 	private Integer idPackagingContenant;
 	
 	private String libellePackagingContenant;
-	private Integer duree_extention_apres_dlc;
+	private Integer joursExtentionApresDlc;
 	
 	@OneToMany(mappedBy="packagingContenant",fetch=FetchType.LAZY)
 	private List<AlimentGenerique> listeAlimentsGeneriquesPackaging;
@@ -26,11 +26,15 @@ public class PackagingContenant {
 		super();
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "PackagingContenant [idPackagingContenant=" + idPackagingContenant + ", libellePackagingContenant="
-				+ libellePackagingContenant + ", duree_extention_apres_dlc=" + duree_extention_apres_dlc + "]";
+				+ libellePackagingContenant + "]";
 	}
+
+
 
 	public Integer getIdPackagingContenant() {
 		return idPackagingContenant;
@@ -48,12 +52,14 @@ public class PackagingContenant {
 		this.libellePackagingContenant = libellePackagingContenant;
 	}
 
-	public Integer getDuree_extention_apres_dlc() {
-		return duree_extention_apres_dlc;
+
+
+	public Integer getJoursExtentionApresDlc() {
+		return joursExtentionApresDlc;
 	}
 
-	public void setDuree_extention_apres_dlc(Integer duree_extention_apres_dlc) {
-		this.duree_extention_apres_dlc = duree_extention_apres_dlc;
+	public void setJoursExtentionApresDlc(Integer joursExtentionApresDlc) {
+		this.joursExtentionApresDlc = joursExtentionApresDlc;
 	}
 
 	public List<AlimentGenerique> getListeAlimentsGeneriquesPackaging() {

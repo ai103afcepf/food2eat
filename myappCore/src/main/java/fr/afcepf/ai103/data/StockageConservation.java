@@ -17,12 +17,11 @@ public class StockageConservation {
 	private Integer idStockageConservation;
 	
 	private String libelleStockageConservation;
-	private Integer duree_extention_apres_dlcStockageConservation;
+	private Integer joursExtensionApresDlcStockageConservation;
 	
 	@OneToMany(mappedBy="stockageConservation",fetch=FetchType.LAZY)
 	private List<AlimentGenerique> listeAlimentsGeneriquesStockage;
-	
-	
+
 	public StockageConservation() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -32,7 +31,7 @@ public class StockageConservation {
 	public String toString() {
 		return "StockageConservation [idStockageConservation=" + idStockageConservation
 				+ ", libelleStockageConservation=" + libelleStockageConservation
-				+ ", duree_extention_apres_dlcStockageConservation=" + duree_extention_apres_dlcStockageConservation
+				+ ", joursExtensionApresDlcStockageConservation=" + joursExtensionApresDlcStockageConservation
 				+ "]";
 	}
 
@@ -52,12 +51,12 @@ public class StockageConservation {
 		this.libelleStockageConservation = libelleStockageConservation;
 	}
 
-	public Integer getDuree_extention_apres_dlcStockageConservation() {
-		return duree_extention_apres_dlcStockageConservation;
+	public Integer getJoursExtensionApresDlcStockageConservation() {
+		return joursExtensionApresDlcStockageConservation;
 	}
 
-	public void setDuree_extention_apres_dlcStockageConservation(Integer duree_extention_apres_dlcStockageConservation) {
-		this.duree_extention_apres_dlcStockageConservation = duree_extention_apres_dlcStockageConservation;
+	public void setJoursExtensionApresDlcStockageConservation(Integer joursExtensionApresDlcStockageConservation) {
+		this.joursExtensionApresDlcStockageConservation = joursExtensionApresDlcStockageConservation;
 	}
 
 	public List<AlimentGenerique> getListeAlimentsGeneriquesStockage() {
@@ -67,6 +66,9 @@ public class StockageConservation {
 	public void setListeAlimentsGeneriquesStockage(List<AlimentGenerique> listeAlimentsGeneriquesStockage) {
 		this.listeAlimentsGeneriquesStockage = listeAlimentsGeneriquesStockage;
 	}
+	
+	
+	
 
 	
 }

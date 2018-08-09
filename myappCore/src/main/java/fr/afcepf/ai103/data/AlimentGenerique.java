@@ -21,17 +21,17 @@ public class AlimentGenerique {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idAlimentGenerique;
-	private long codeBarreAlimentGenerique;
-	public long getCodeBarreAlimentGenerique() {
-		return codeBarreAlimentGenerique;
-	}
-
-	public void setCodeBarreAlimentGenerique(long codeBarreAlimentGenerique) {
-		this.codeBarreAlimentGenerique = codeBarreAlimentGenerique;
-	}
-
+	
+	private Long codeBarreAlimentGenerique;
 	private String libelleAlimentGenerique;
+	private Integer nombreUnitesAlimentGenerique;
+	private Long portionParUniteAlimentGenerique;
+	
 	private String imageAlimentGenerique;
+	private String imageZoomAlimentGenerique;
+	private String imageIngredientsAlimentGenerique;
+	private String imageNutritionAlimentGenerique;
+	
 	@Temporal(TemporalType.DATE)
 	private Date datePropositionReferencementAlimentGenerique;
 	@Temporal(TemporalType.DATE)
@@ -79,12 +79,12 @@ public class AlimentGenerique {
 	private Nutriscore nutriscore;
 
 	@ManyToOne
-	@JoinColumn(name = "idPortionUnite")
-	private PortionUnite portionUnite;
+	@JoinColumn(name = "idMesure")
+	private Mesure mesure;
 
 	@ManyToOne
-	@JoinColumn(name = "idNbUnites")
-	private NbUnites nbUnites;
+	@JoinColumn(name = "idMarque")
+	private Marque marque;
 
 	public AlimentGenerique() {
 		super();
@@ -92,8 +92,13 @@ public class AlimentGenerique {
 
 	@Override
 	public String toString() {
-		return "AlimentGenerique [idAlimentGenerique=" + idAlimentGenerique + ", libelleAlimentGenerique="
-				+ libelleAlimentGenerique + ", imageAlimentGenerique=" + imageAlimentGenerique
+		return "AlimentGenerique [idAlimentGenerique=" + idAlimentGenerique + ", codeBarreAlimentGenerique="
+				+ codeBarreAlimentGenerique + ", libelleAlimentGenerique=" + libelleAlimentGenerique
+				+ ", nombreUnitesAlimentGenerique=" + nombreUnitesAlimentGenerique
+				+ ", portionParUniteAlimentGenerique=" + portionParUniteAlimentGenerique + ", imageAlimentGenerique="
+				+ imageAlimentGenerique + ", imageZoomAlimentGenerique=" + imageZoomAlimentGenerique
+				+ ", imageIngredientsAlimentGenerique=" + imageIngredientsAlimentGenerique
+				+ ", imageNutritionAlimentGenerique=" + imageNutritionAlimentGenerique
 				+ ", datePropositionReferencementAlimentGenerique=" + datePropositionReferencementAlimentGenerique
 				+ ", dateRejetReferencementAlimentGenerique=" + dateRejetReferencementAlimentGenerique
 				+ ", dateAcceptationReferencementAlimentGenerique=" + dateAcceptationReferencementAlimentGenerique
@@ -109,6 +114,14 @@ public class AlimentGenerique {
 		this.idAlimentGenerique = idAlimentGenerique;
 	}
 
+	public Long getCodeBarreAlimentGenerique() {
+		return codeBarreAlimentGenerique;
+	}
+
+	public void setCodeBarreAlimentGenerique(Long codeBarreAlimentGenerique) {
+		this.codeBarreAlimentGenerique = codeBarreAlimentGenerique;
+	}
+
 	public String getLibelleAlimentGenerique() {
 		return libelleAlimentGenerique;
 	}
@@ -117,12 +130,52 @@ public class AlimentGenerique {
 		this.libelleAlimentGenerique = libelleAlimentGenerique;
 	}
 
+	public Integer getNombreUnitesAlimentGenerique() {
+		return nombreUnitesAlimentGenerique;
+	}
+
+	public void setNombreUnitesAlimentGenerique(Integer nombreUnitesAlimentGenerique) {
+		this.nombreUnitesAlimentGenerique = nombreUnitesAlimentGenerique;
+	}
+
+	public Long getPortionParUniteAlimentGenerique() {
+		return portionParUniteAlimentGenerique;
+	}
+
+	public void setPortionParUniteAlimentGenerique(Long portionParUniteAlimentGenerique) {
+		this.portionParUniteAlimentGenerique = portionParUniteAlimentGenerique;
+	}
+
 	public String getImageAlimentGenerique() {
 		return imageAlimentGenerique;
 	}
 
 	public void setImageAlimentGenerique(String imageAlimentGenerique) {
 		this.imageAlimentGenerique = imageAlimentGenerique;
+	}
+
+	public String getImageZoomAlimentGenerique() {
+		return imageZoomAlimentGenerique;
+	}
+
+	public void setImageZoomAlimentGenerique(String imageZoomAlimentGenerique) {
+		this.imageZoomAlimentGenerique = imageZoomAlimentGenerique;
+	}
+
+	public String getImageIngredientsAlimentGenerique() {
+		return imageIngredientsAlimentGenerique;
+	}
+
+	public void setImageIngredientsAlimentGenerique(String imageIngredientsAlimentGenerique) {
+		this.imageIngredientsAlimentGenerique = imageIngredientsAlimentGenerique;
+	}
+
+	public String getImageNutritionAlimentGenerique() {
+		return imageNutritionAlimentGenerique;
+	}
+
+	public void setImageNutritionAlimentGenerique(String imageNutritionAlimentGenerique) {
+		this.imageNutritionAlimentGenerique = imageNutritionAlimentGenerique;
 	}
 
 	public Date getDatePropositionReferencementAlimentGenerique() {
@@ -163,6 +216,14 @@ public class AlimentGenerique {
 
 	public void setDateRetraitReferencementAlimentGenerique(Date dateRetraitReferencementAlimentGenerique) {
 		this.dateRetraitReferencementAlimentGenerique = dateRetraitReferencementAlimentGenerique;
+	}
+
+	public List<StockPerso> getListeAlimentsStockPerso() {
+		return listeAlimentsStockPerso;
+	}
+
+	public void setListeAlimentsStockPerso(List<StockPerso> listeAlimentsStockPerso) {
+		this.listeAlimentsStockPerso = listeAlimentsStockPerso;
 	}
 
 	public CategorieAliment getCategorieAliment() {
@@ -229,28 +290,22 @@ public class AlimentGenerique {
 		this.nutriscore = nutriscore;
 	}
 
-	public PortionUnite getPortionUnite() {
-		return portionUnite;
+	public Mesure getMesure() {
+		return mesure;
 	}
 
-	public void setPortionUnite(PortionUnite portionUnite) {
-		this.portionUnite = portionUnite;
+	public void setMesure(Mesure mesure) {
+		this.mesure = mesure;
 	}
 
-	public NbUnites getNbUnites() {
-		return nbUnites;
+	public Marque getMarque() {
+		return marque;
 	}
 
-	public void setNbUnites(NbUnites nbUnites) {
-		this.nbUnites = nbUnites;
+	public void setMarque(Marque marque) {
+		this.marque = marque;
 	}
+	
+	
 
-	public List<StockPerso> getListeAlimentsStockPerso() {
-		return listeAlimentsStockPerso;
-	}
-
-	public void setListeAlimentsStockPerso(List<StockPerso> listeAlimentsStockPerso) {
-		this.listeAlimentsStockPerso = listeAlimentsStockPerso;
-	}
-
-}
+}	

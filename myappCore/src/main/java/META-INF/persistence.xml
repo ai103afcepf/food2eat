@@ -35,18 +35,17 @@
 		<class>fr.afcepf.ai103.data.Evaluation</class>
 		<class>fr.afcepf.ai103.data.GroupeAliment</class>
 		<class>fr.afcepf.ai103.data.Label</class>
+		<class>fr.afcepf.ai103.data.Marque</class>
+		<class>fr.afcepf.ai103.data.Mesure</class>
 		<class>fr.afcepf.ai103.data.MotifAnnulationAnnonce</class>
 		<class>fr.afcepf.ai103.data.MotifAnnulationResa</class>
 		<class>fr.afcepf.ai103.data.MotifDesinscription</class>
 		<class>fr.afcepf.ai103.data.MotifJeter</class>
 		<class>fr.afcepf.ai103.data.MotifRejetRef</class>
 		<class>fr.afcepf.ai103.data.MotifRetraitRef</class>
-		<class>fr.afcepf.ai103.data.NbUnites</class>
-		<class>fr.afcepf.ai103.data.Notation</class>
 		<class>fr.afcepf.ai103.data.Nutriscore</class>
 		<class>fr.afcepf.ai103.data.Origine</class>
 		<class>fr.afcepf.ai103.data.PackagingContenant</class>
-		<class>fr.afcepf.ai103.data.PortionUnite</class>
 		<class>fr.afcepf.ai103.data.Region</class>
 		<class>fr.afcepf.ai103.data.RelationFoodFriend</class>
 		<class>fr.afcepf.ai103.data.RendezVous</class>
@@ -58,7 +57,6 @@
 		<class>fr.afcepf.ai103.data.TypeVoie</class>
 		<class>fr.afcepf.ai103.data.Utilisateur</class>
 		<class>fr.afcepf.ai103.data.Ville</class>
-
 
 		<properties>
 			<!-- <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/> -->

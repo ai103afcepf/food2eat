@@ -25,6 +25,8 @@ public class Reponse {
 	private Date dateAcceptationReservation;
 	@Temporal(TemporalType.DATE)
 	private Date dateAnnulationReservation;
+	@Temporal(TemporalType.DATE)
+	private Date dateFermetureAnnonce;
 
 	@ManyToOne
 	@JoinColumn(name = "idUtilisateur")
@@ -51,12 +53,16 @@ public class Reponse {
 		// TODO Auto-generated constructor stub
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Reponse [idReponse=" + idReponse + ", dateReponseAnnonce=" + dateReponseAnnonce
 				+ ", dateAcceptationReservation=" + dateAcceptationReservation + ", dateAnnulationReservation="
-				+ dateAnnulationReservation + "]";
+				+ dateAnnulationReservation + ", dateFermetureAnnonce=" + dateFermetureAnnonce + "]";
 	}
+
+
 
 	public Integer getIdReponse() {
 		return idReponse;
@@ -88,6 +94,14 @@ public class Reponse {
 
 	public void setDateAnnulationReservation(Date dateAnnulationReservation) {
 		this.dateAnnulationReservation = dateAnnulationReservation;
+	}
+
+	public Date getDateFermetureAnnonce() {
+		return dateFermetureAnnonce;
+	}
+
+	public void setDateFermetureAnnonce(Date dateFermetureAnnonce) {
+		this.dateFermetureAnnonce = dateFermetureAnnonce;
 	}
 
 	public Utilisateur getUtilisateurReponse() {

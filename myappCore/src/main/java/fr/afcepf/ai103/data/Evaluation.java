@@ -15,12 +15,10 @@ public class Evaluation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEvaluation;
 	
+	private Long noteEvaluation;
 	private String commentaireEvaluation;
 	 
-	@ManyToOne
-	@JoinColumn(name="idNotation")
-	private Notation notation;
-	
+		
 	@OneToOne(mappedBy="evaluation")
 	private Reponse reponseEvalutaion;
 	
@@ -28,9 +26,11 @@ public class Evaluation {
 		super();
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Evaluation [idEvaluation=" + idEvaluation + ", commentaireEvaluation=" + commentaireEvaluation + "]";
+		return "Evaluation [idEvaluation=" + idEvaluation + ", noteEvaluation=" + noteEvaluation
+				+ ", commentaireEvaluation=" + commentaireEvaluation + "]";
 	}
 
 	public Integer getIdEvaluation() {
@@ -49,12 +49,12 @@ public class Evaluation {
 		this.commentaireEvaluation = commentaireEvaluation;
 	}
 
-	public Notation getNotation() {
-		return notation;
+	public Long getNoteEvaluation() {
+		return noteEvaluation;
 	}
 
-	public void setNotation(Notation notation) {
-		this.notation = notation;
+	public void setNoteEvaluation(Long noteEvaluation) {
+		this.noteEvaluation = noteEvaluation;
 	}
 
 	public Reponse getReponseEvalutaion() {

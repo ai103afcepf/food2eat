@@ -34,8 +34,6 @@ public class Ville {
 	@JoinColumn(name = "idRegion")
 	private Region region;
 
-	@OneToMany(mappedBy = "rdvReponse", fetch = FetchType.LAZY)
-	private List<Reponse> listeReponsesRdv;
 
 	@OneToMany(mappedBy = "adresseRdv", fetch = FetchType.LAZY)
 	private List<RendezVous> listeRendezVous;
@@ -88,6 +86,15 @@ public class Ville {
 
 	public void setRegion(Region region) {
 		this.region = region;
+	}
+
+
+	public List<RendezVous> getListeRendezVous() {
+		return listeRendezVous;
+	}
+
+	public void setListeRendezVous(List<RendezVous> listeRendezVous) {
+		this.listeRendezVous = listeRendezVous;
 	}
 
 }

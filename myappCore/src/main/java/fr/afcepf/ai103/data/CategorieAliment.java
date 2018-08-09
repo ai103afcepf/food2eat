@@ -19,7 +19,7 @@ public class CategorieAliment {
 	private Integer idCategorieAliment;
 	
 	private String libelleCategorieAliment;
-	private Integer dureeExtensionApresDlcCategorieAliment;
+	private Integer joursExtensionApresDlcCategorieAliment;
 	
 	@ManyToOne
 	@JoinColumn(name="idGroupeAliment")
@@ -33,12 +33,16 @@ public class CategorieAliment {
 		super();
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "CategorieAliment [idCategorieAliment=" + idCategorieAliment + ", libelleCategorieAliment="
-				+ libelleCategorieAliment + ", dureeExtensionApresDlcCategorieAliment="
-				+ dureeExtensionApresDlcCategorieAliment + "]";
+				+ libelleCategorieAliment + ", joursExtensionApresDlcCategorieAliment="
+				+ joursExtensionApresDlcCategorieAliment + "]";
 	}
+
+
 
 	public Integer getIdCategorieAliment() {
 		return idCategorieAliment;
@@ -56,12 +60,12 @@ public class CategorieAliment {
 		this.libelleCategorieAliment = libelleCategorieAliment;
 	}
 
-	public Integer getDureeExtensionApresDlcCategorieAliment() {
-		return dureeExtensionApresDlcCategorieAliment;
+	public Integer getJoursExtensionApresDlcCategorieAliment() {
+		return joursExtensionApresDlcCategorieAliment;
 	}
 
-	public void setDureeExtensionApresDlcCategorieAliment(Integer dureeExtensionApresDlcCategorieAliment) {
-		this.dureeExtensionApresDlcCategorieAliment = dureeExtensionApresDlcCategorieAliment;
+	public void setJoursExtensionApresDlcCategorieAliment(Integer joursExtensionApresDlcCategorieAliment) {
+		this.joursExtensionApresDlcCategorieAliment = joursExtensionApresDlcCategorieAliment;
 	}
 
 	public GroupeAliment getGroupeAliment() {
