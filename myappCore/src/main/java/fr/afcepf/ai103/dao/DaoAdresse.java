@@ -4,15 +4,11 @@ import java.util.List;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
-import javax.mail.Address;
 import javax.persistence.EntityManager;
-import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 
 import fr.afcepf.ai103.data.Adresse;
 import fr.afcepf.ai103.data.RendezVous;
-import fr.afcepf.ai103.data.Utilisateur;
-import fr.afcepf.ai103.data.Ville;
 
 @Stateless
 @Local
@@ -68,12 +64,12 @@ public class DaoAdresse implements IDaoAdresse {
 				.setParameter("idAdresse", idAdresse).getResultList();
 	}
 
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+	// public EntityManager getEntityManager() {
+	// return entityManager;
+	// }
+	//
+	// public void setEntityManager(EntityManager entityManager) {
+	// this.entityManager = entityManager;
+	// }
 
 }

@@ -9,18 +9,25 @@
 <ui:composition template="/templates/common.xhtml">
 	<ui:define name="title">client</ui:define>
 	<ui:define name="content">
-	  numClient: <h:outputText value="#{clientBean.client.numClient}"  /> <br/>
-	  prenom: <h:outputText value="#{clientBean.client.prenom}"  /> <br/>
-      nom: <h:outputText value="#{clientBean.client.nom}"  /> <br/>
-      email: <h:outputText value="#{clientBean.client.email}"  /> <br/>
-	  telephone: <h:outputText value="#{clientBean.client.telephone}"  /> <br/>
-      adresse: <h:outputText value="#{clientBean.client.adresse}"  /> 
-      <hr/>
-      
-      <!--  h:outputLink fabrique indirectement a href="..." -->
-	  <h:outputLink value="comptes.jsf?numClient=#{clientBean.client.numClient}" >
+	  numClient: <h:outputText value="#{clientBean.client.numClient}" />
+		<br />
+	  prenom: <h:outputText value="#{clientBean.client.prenom}" />
+		<br />
+      nom: <h:outputText value="#{clientBean.client.nom}" />
+		<br />
+      email: <h:outputText value="#{clientBean.client.email}" />
+		<br />
+	  telephone: <h:outputText value="#{clientBean.client.telephone}" />
+		<br />
+      adresse: <h:outputText value="#{clientBean.client.adresse}" />
+		<hr />
+
+		<!--  h:outputLink fabrique indirectement a href="..." -->
+		<h:outputLink
+			value="comptes.jsf?numClient=#{clientBean.client.numClient}">
 			liste des comptes du client
 		</h:outputLink>
+		
 	</ui:define>
 </ui:composition>
-</html> 
+</html>

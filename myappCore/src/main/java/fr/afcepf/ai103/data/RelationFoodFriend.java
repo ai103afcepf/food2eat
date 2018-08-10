@@ -36,7 +36,6 @@ public class RelationFoodFriend {
 
 	public RelationFoodFriend() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

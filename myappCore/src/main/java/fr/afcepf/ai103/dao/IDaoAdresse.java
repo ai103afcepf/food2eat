@@ -23,6 +23,5 @@ public interface IDaoAdresse {
 	public List<Adresse> rechcherAdresseParIdUtilisateur(Integer idUtilisateur);
 
 	public List<RendezVous> rechercherRDVParIdAdresse(Integer idAdresse);
-	
-	
+
 }

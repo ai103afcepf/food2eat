@@ -3,12 +3,12 @@ package fr.afcepf.ai103.web;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
-import javax.enterprise.inject.Default;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
+import fr.afcepf.ai103.data.Adresse;
 import fr.afcepf.ai103.data.RendezVous;
 import fr.afcepf.ai103.data.StatutAdresse;
 import fr.afcepf.ai103.data.TypeVoie;
@@ -16,7 +16,7 @@ import fr.afcepf.ai103.data.Utilisateur;
 import fr.afcepf.ai103.service.IServiceAdresse;
 
 @ManagedBean
-//@Default
+@SessionScoped
 public class AdresseBean {
 
 	private Integer idAdresse;
@@ -32,17 +32,22 @@ public class AdresseBean {
 	private Utilisateur utilisateurAdresse;
 	private List<RendezVous> listeRdvAdresse;
 
+	private Adresse adresse;
+
 	@EJB
 	private IServiceAdresse serviceAdresse;
 
 	public AdresseBean() {
-		System.out.println("dans constructeur par defaut, serviceAdresse=" + serviceAdresse);
+
 	}
 
 	@PostConstruct
-	private void initApresInjectionDependence() {
-		System.out.println("dans methode prefixée par @PostConstruct, serviceAdresse=" + serviceAdresse);
+	public void init() {
+		adresse = serviceAdresse.rechercherInfosAdresse(6);
+		// serviceAdresse.nbrAdresse(2);
+		System.out.println("adresse @PostConstruct, serviceAdresse=" + serviceAdresse);
 	}
+
 
 	public Integer getIdAdresse() {
 		return idAdresse;
@@ -132,11 +137,12 @@ public class AdresseBean {
 		this.listeRdvAdresse = listeRdvAdresse;
 	}
 
-	public IServiceAdresse getServiceAdresse() {
-		return serviceAdresse;
+	public Adresse getAdresse() {
+		return adresse;
 	}
 
-	public void setServiceAdresse(IServiceAdresse serviceAdresse) {
-		this.serviceAdresse = serviceAdresse;
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
+
 }

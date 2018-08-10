@@ -9,6 +9,8 @@ public interface IServiceAdresse {
 
 	public Adresse saveOrUpdateAdresse(Adresse adresse);
 
+	// public Long nbrAdresse(Integer idUtilisateur);
+
 	public Adresse rechercherInfosAdresse(Integer idAdresse);
 
 	public List<Adresse> rechercherAdresseParCodePostal(String codePostal);
@@ -16,5 +18,7 @@ public interface IServiceAdresse {
 	public List<Adresse> rechercherTousLesAdresses();
 
 	public List<Adresse> getAdresseByIdUser(Integer idUtilisateur);
+	
+	Long getNbrAdresseByUtilisateur(Integer idUtilisateur);
 
 }

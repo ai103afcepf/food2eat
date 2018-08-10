@@ -28,70 +28,59 @@ public class TestApp {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("myappCore");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-		
-		/******* Test Ville  ********/
+
+		/******* Test Ville ********/
 		DaoVille daoVille = new DaoVille();
 		daoVille.setEntityManager(em);
 
 		ServiceVille serviceVille = new ServiceVille();
 		serviceVille.setDaoVille(daoVille);
-		
+
 		System.out.println("Adresse by ville - idVille = 1 - : " + serviceVille.rechercherAdresseByNomVille(1));
 
 		daoVille.getEntityManager().getTransaction().commit();
 		daoVille.getEntityManager().close();
+
 		/*** Test Adresse ***/
-		/*DaoAdresse daoAdresse = new DaoAdresse();
-		daoAdresse.setEntityManager(em);
-
-		Region region = new Region();
-		region.setIdRegion(11);
-		region.setLibelleRegion("Ile-de-France");
-
-		TypeVoie typeVoie = new TypeVoie();
-		typeVoie.setIdTypeVoie(11);
-		typeVoie.setLibelleTypeVoie("Rue");
-
-		StatutAdresse statutAdresse = new StatutAdresse();
-		statutAdresse.setIdStatutAdresse(10);
-		statutAdresse.setLibelleStatutAdresse("Principale");
-
-		Ville ville = new Ville();
-		ville.setIdVille(11);
-		ville.setCodePostal("95170");
-		ville.setNomVille("Deuil-la-Barre");
-		ville.setRegion(region);
-
-		Utilisateur user = new Utilisateur();		
-		user.setDateInscription(null);
-		user.setDateLethargie(null);
-		user.setDateNaissance(null);
-		user.setEmail(null);
-		user.setNom("KADRI");
-		user.setNumeroTel("12232323");
-		user.setPassword("1234");
-		user.setPrenom("RABIE");
-		user.setPseudo("pseudoRabie");
-
-		Adresse adr2 = new Adresse();
-		adr2.setIdAdresse(3);
-		adr2.setCoordonneesGpsLat(43.8887);
-		adr2.setCoordonneesGpsLong(2.8887);
-		adr2.setDateDebutValidite(null);
-		adr2.setDateFinValidite(null);
-		adr2.setNomVoie("Rivoli");
-		adr2.setNumero(23);
-
-		// daoAdresse.insererAdresse(adr2);
-
-		List<Adresse> listAdresses = daoAdresse.rechercherAdresses();
-		System.out.println("Toutes les adresses " + listAdresses.toString());
-		System.out.println(listAdresses.toString());
-
-		List<Adresse> listByUser = daoAdresse.rechcherAdresseParIdUtilisateur(2);
-		System.out.println("adresse by userID " + listByUser.toString());
-
-		/*********** Faire les calculs pour le DashBord ************/
+		/*
+		 * DaoAdresse daoAdresse = new DaoAdresse(); daoAdresse.setEntityManager(em);
+		 * 
+		 * Region region = new Region(); region.setIdRegion(11);
+		 * region.setLibelleRegion("Ile-de-France");
+		 * 
+		 * TypeVoie typeVoie = new TypeVoie(); typeVoie.setIdTypeVoie(11);
+		 * typeVoie.setLibelleTypeVoie("Rue");
+		 * 
+		 * StatutAdresse statutAdresse = new StatutAdresse();
+		 * statutAdresse.setIdStatutAdresse(10);
+		 * statutAdresse.setLibelleStatutAdresse("Principale");
+		 * 
+		 * Ville ville = new Ville(); ville.setIdVille(11);
+		 * ville.setCodePostal("95170"); ville.setNomVille("Deuil-la-Barre");
+		 * ville.setRegion(region);
+		 * 
+		 * Utilisateur user = new Utilisateur(); user.setDateInscription(null);
+		 * user.setDateLethargie(null); user.setDateNaissance(null);
+		 * user.setEmail(null); user.setNom("KADRI"); user.setNumeroTel("12232323");
+		 * user.setPassword("1234"); user.setPrenom("RABIE");
+		 * user.setPseudo("pseudoRabie");
+		 * 
+		 * Adresse adr2 = new Adresse(); adr2.setIdAdresse(3);
+		 * adr2.setCoordonneesGpsLat(43.8887); adr2.setCoordonneesGpsLong(2.8887);
+		 * adr2.setDateDebutValidite(null); adr2.setDateFinValidite(null);
+		 * adr2.setNomVoie("Rivoli"); adr2.setNumero(23);
+		 * 
+		 * // daoAdresse.insererAdresse(adr2);
+		 * 
+		 * List<Adresse> listAdresses = daoAdresse.rechercherAdresses();
+		 * System.out.println("Toutes les adresses " + listAdresses.toString());
+		 * System.out.println(listAdresses.toString());
+		 * 
+		 * List<Adresse> listByUser = daoAdresse.rechcherAdresseParIdUtilisateur(2);
+		 * System.out.println("adresse by userID " + listByUser.toString());
+		 * 
+		 * /*********** Faire les calculs pour le DashBord
+		 ************/
 		/** Version jpql / hql **/
 		// Méthode pour le count
 		/*
@@ -112,23 +101,26 @@ public class TestApp {
 		 * x); /
 		 ********************************************/
 
-		/*List<Adresse> listByCodePostal = daoAdresse.getAdresseByCodePostal("75000");
-		System.out.println("Adresse by code postal = " + listByCodePostal);
-
-		ServiceAdresse serviceAdresse = new ServiceAdresse();
-		serviceAdresse.setDaoAdresse(daoAdresse);
-
-		serviceAdresse.saveOrUpdateAdresse(adr2);
-
-		serviceAdresse.getAdresseByIdUser(2);
-		
-		
-		List<Adresse> listParID = daoAdresse.rechercherAdresses().stream()
-				.filter(adr -> adr.getUtilisateurAdresse().getIdUtilisateur() == 2).collect(Collectors.toList());
-		listParID.forEach(s -> System.out.println("Affichage adresse " + s));
-
-		daoAdresse.getEntityManager().getTransaction().commit();
-		daoAdresse.getEntityManager().close();*/
+		/*
+		 * List<Adresse> listByCodePostal = daoAdresse.getAdresseByCodePostal("75000");
+		 * System.out.println("Adresse by code postal = " + listByCodePostal);
+		 * 
+		 * ServiceAdresse serviceAdresse = new ServiceAdresse();
+		 * serviceAdresse.setDaoAdresse(daoAdresse);
+		 * 
+		 * serviceAdresse.saveOrUpdateAdresse(adr2);
+		 * 
+		 * serviceAdresse.getAdresseByIdUser(2);
+		 * 
+		 * 
+		 * List<Adresse> listParID = daoAdresse.rechercherAdresses().stream()
+		 * .filter(adr -> adr.getUtilisateurAdresse().getIdUtilisateur() ==
+		 * 2).collect(Collectors.toList()); listParID.forEach(s ->
+		 * System.out.println("Affichage adresse " + s));
+		 * 
+		 * daoAdresse.getEntityManager().getTransaction().commit();
+		 * daoAdresse.getEntityManager().close();
+		 */
 		emf.close();
 
 	}
