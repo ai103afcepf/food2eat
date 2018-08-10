@@ -17,7 +17,6 @@ import fr.afcepf.ai103.service.IServiceAdresse;
 
 @ManagedBean
 @SessionScoped
-//@Default
 public class AdresseBean {
 
 	private Integer idAdresse;
@@ -34,6 +33,7 @@ public class AdresseBean {
 	private List<RendezVous> listeRdvAdresse;
 	private Adresse adresse;
 
+	
 	@EJB
 	private IServiceAdresse serviceAdresse;
 
@@ -41,10 +41,13 @@ public class AdresseBean {
 	}
 
 	@PostConstruct
-	private void init() {
-		adresse = serviceAdresse.rechercherInfosAdresse(1);
-		System.out.println("dans methode prefixée par @PostConstruct, serviceAdresse=" + serviceAdresse);
+	public void init() {
+		adresse = serviceAdresse.rechercherInfosAdresse(6);
+		// serviceAdresse.nbrAdresse(2);
+		System.out.println("adresse @PostConstruct, serviceAdresse=" + serviceAdresse);
+
 	}
+
 
 	public Integer getIdAdresse() {
 		return idAdresse;
@@ -134,14 +137,6 @@ public class AdresseBean {
 		this.listeRdvAdresse = listeRdvAdresse;
 	}
 
-	public IServiceAdresse getServiceAdresse() {
-		return serviceAdresse;
-	}
-
-	public void setServiceAdresse(IServiceAdresse serviceAdresse) {
-		this.serviceAdresse = serviceAdresse;
-	}
-
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -149,5 +144,6 @@ public class AdresseBean {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
-	
+
+
 }

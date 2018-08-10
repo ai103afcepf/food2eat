@@ -8,11 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+
+		@NamedQuery(name = "Reponse.FindRepByAnnonce", query = "SELECT rep1 FROM Reponse rep1 WHERE rep1.annonceReponse.idAnnonce= :idAnnonce"),
+		@NamedQuery(name = "Reponse.FindRepByUser", query = "SELECT rep2 FROM Reponse rep2 WHERE rep2.utilisateurReponse.idUtilisateur= :idUtilisateur") })
 public class Reponse {
 
 	@Id
@@ -53,16 +59,12 @@ public class Reponse {
 		// TODO Auto-generated constructor stub
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Reponse [idReponse=" + idReponse + ", dateReponseAnnonce=" + dateReponseAnnonce
 				+ ", dateAcceptationReservation=" + dateAcceptationReservation + ", dateAnnulationReservation="
 				+ dateAnnulationReservation + ", dateFermetureAnnonce=" + dateFermetureAnnonce + "]";
 	}
-
-
 
 	public Integer getIdReponse() {
 		return idReponse;

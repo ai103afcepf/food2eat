@@ -316,8 +316,9 @@ insert into Reponse (idReponse, idUtilisateur, idAnnonce,dateReponseAnnonce,date
 insert into Reponse (idReponse, idUtilisateur, idAnnonce,dateReponseAnnonce,dateFermetureAnnonce,dateAcceptationReservation,idEvaluation) values (4,1,4,'2018-01-06','2018-01-10','2018-01-06',4);
 
 
-
-
+/***************	RelationFoodFriend	****************/
+insert into   (idRelationFoodFriend, dateAcceptationFoodFriend, dateDemandeFoodFriend, dateRefusFoodFriend, dateRetraitFoodFriend, idUtilisateur, idFriend)
+VALUES (1, '2018-08-01', '2018-00-21'), 
 
 
 

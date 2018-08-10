@@ -1,24 +1,33 @@
-package fr.afcepf.ai103.data;
+package fr.afcepf.ai103.web;
 
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
-@Entity
-public class Utilisateur {
+import fr.afcepf.ai103.data.Adresse;
+import fr.afcepf.ai103.data.MotifDesinscription;
+import fr.afcepf.ai103.data.RelationFoodFriend;
+import fr.afcepf.ai103.data.Reponse;
+import fr.afcepf.ai103.data.Sexe;
+import fr.afcepf.ai103.data.StockPerso;
+import fr.afcepf.ai103.data.Utilisateur;
+import fr.afcepf.ai103.service.IServiceAdresse;
+import fr.afcepf.ai103.service.IServiceUtilisateur;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@ManagedBean
+@SessionScoped
+public class UtilisateurBean {
+
+	@EJB
+	private IServiceUtilisateur serviceUtilisateur;
+
+	@EJB
+	private IServiceAdresse serviceAdresse;
+
 	private Integer idUtilisateur;
 
 	private String nom;
@@ -27,51 +36,46 @@ public class Utilisateur {
 	private String password;
 	private String email;
 	private String numeroTel;
-	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
-	@Temporal(TemporalType.DATE)
 	private Date dateInscription;
-	@Temporal(TemporalType.DATE)
 	private Date dateLethargie;
-	@Temporal(TemporalType.DATE)
 	private Date dateDesinscription;
-	//private String photoProfil;
+	private String photoProfil;
 
-	@OneToMany(mappedBy = "utilisateurAdresse", fetch = FetchType.EAGER)
 	private List<Adresse> listeAdressesUtilisateur;
-
-	@ManyToOne // (cascade = CascadeType.ALL)
-	@JoinColumn(name = "idMotifDesinscription")
 	private MotifDesinscription motifDesinscription;
-
-	@ManyToOne // (cascade = CascadeType.ALL)
-	@JoinColumn(name = "idSexe")
 	private Sexe sexe;
-
-	@OneToMany(mappedBy = "utilisateurStock", fetch = FetchType.LAZY)
 	private List<StockPerso> listeStockPersoUtilisateur;
-
-	@OneToMany(mappedBy = "utilisateurReponse", fetch = FetchType.LAZY)
 	private List<Reponse> listeReponsesUtilisateur;
-
-	@OneToMany(mappedBy = "utilisateurFriend1", fetch = FetchType.LAZY)
-	// @JsonIgnore
 	private List<RelationFoodFriend> listeRelationFoodFriends1;
-
-	@OneToMany(mappedBy = "utilisateurFriend2", fetch = FetchType.LAZY)
-	// @JsonIgnore
 	private List<RelationFoodFriend> listeRelationFoodFriends2;
 
-	public Utilisateur() {
+	private Utilisateur utilisateur;
+
+	/*********************/
+	// var test calculs
+	private long nbr;
+
+	public long getNbr() {
+		return nbr;
+	}
+
+	public void setNbr(long nbr) {
+		this.nbr = nbr;
+	}
+
+	/*********************/
+	public UtilisateurBean() {
 		super();
 	}
 
-	@Override
-	public String toString() {
-		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nom=" + nom + ", prenom=" + prenom + ", pseudo="
-				+ pseudo + ", password=" + password + ", email=" + email + ", numeroTel=" + numeroTel
-				+ ", dateNaissance=" + dateNaissance + ", dateInscription=" + dateInscription + ", dateLethargie="
-				+ dateLethargie + ", dateDesinscription=" + dateDesinscription + "]";
+	// teste postConstructor
+	@PostConstruct
+	public void init() {
+		System.out.println("Avant init - ");
+		utilisateur = serviceUtilisateur.afficherProfilUtilisateur(2);
+		System.out.println("Après init - " + serviceUtilisateur);
+		nbr = serviceAdresse.getNbrAdresseByUtilisateur(2);
 	}
 
 	public Integer getIdUtilisateur() {
@@ -162,6 +166,14 @@ public class Utilisateur {
 		this.dateDesinscription = dateDesinscription;
 	}
 
+	public String getPhotoProfil() {
+		return photoProfil;
+	}
+
+	public void setPhotoProfil(String photoProfil) {
+		this.photoProfil = photoProfil;
+	}
+
 	public List<Adresse> getListeAdressesUtilisateur() {
 		return listeAdressesUtilisateur;
 	}
@@ -218,12 +230,12 @@ public class Utilisateur {
 		this.listeRelationFoodFriends2 = listeRelationFoodFriends2;
 	}
 
-//	public String getPhotoProfil() {
-//		return photoProfil;
-//	}
-//
-//	public void setPhotoProfil(String photoProfil) {
-//		this.photoProfil = photoProfil;
-//	}
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
 
 }

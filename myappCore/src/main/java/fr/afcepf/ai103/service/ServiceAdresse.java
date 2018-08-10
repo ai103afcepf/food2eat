@@ -72,5 +72,19 @@ public class ServiceAdresse implements IServiceAdresse {
 	public void setDaoAdresse(IDaoAdresse daoAdresse) {
 		this.daoAdresse = daoAdresse;
 	}
+	//
+	// @Override
+	// public Long nbrAdresse(Integer idUtilisateur) {
+	// Long x ;
+	// x = daoAdresse.rechercherAdresses().stream()
+	// .filter(adr -> adr.getUtilisateurAdresse().getIdUtilisateur() ==
+	// idUtilisateur).count();
+	// return null;
+	// }
+
+	@Override
+	public Long getNbrAdresseByUtilisateur(Integer idUtilisateur) {
+		return daoAdresse.rechcherAdresseParIdUtilisateur(idUtilisateur).stream().count();
+	}
 
 }

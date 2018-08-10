@@ -1,44 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
-
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/templates/common.xhtml">
-	<ui:define name="header">
-	    Add your header here or delete to use the default
-	</ui:define>
+	<ui:define name="title">Adresse</ui:define>
 	<ui:define name="content">
 	    Id Adresse: <h:outputText value="#{adresseBean.adresse.idAdresse}" />
+		<h3>
+			Adresse :
+			<h:outputText value="#{utilisateurBean.utilisateur.nom}" />
+		</h3>
 		<br />
 	  N°: <h:outputText value="#{adresseBean.adresse.numero}" />
+		<h:outputText value=" " />
+		<h:outputText value="#{adresseBean.adresse.typeVoie.libelleTypeVoie}" />
+		<h:outputText value=" " />
+		<h:outputText value="#{adresseBean.adresse.nomVoie}" />
 		<br />
-      nom voie: <h:outputText value="#{adresseBean.adresse.nomVoie}" />
 		<br />
-      coordonneesGpsLat: <h:outputText
-			value="#{adresseBean.adresse.coordonneesGpsLat}" />
-		<br />
-	  coordonneesGpsLong: <h:outputText
-			value="#{adresseBean.adresse.coordonneesGpsLong}" />
-		<br />
-      dateDebutValidite: <h:outputText
-			value="#{adresseBean.adresse.dateDebutValidite}" />
+		<h:outputText value="#{adresseBean.adresse.villeAdresse.codePostal}" />
+		, <h:outputText value="#{adresseBean.adresse.villeAdresse.nomVille}" />
 		<hr />
-		dateFinValidite: <h:outputText
-			value="#{adresseBean.adresse.dateFinValidite}" />
-		<hr />
-		TypeVoie: <h:outputText
-			value="#{adresseBean.adresse.typeVoie.libelleTypeVoie}" />
-		<hr />
-		StatutAdresse: <h:outputText
-			value="#{adresseBean.adresse.statutAdresse.libelleStatutAdresse}" />
-		<hr />
-		Utilisateur: <h:outputText
-			value="#{adresseBean.adresse.utilisateurAdresse.pseudo}" />
-		<hr />
+		 Nombre d'adresse: <h:outputText value="#{utilisateurBean.nbr}" />
+S	</ui:define>
+
+	<h:form>
+
+	</h:form>
+	<h:panelGrid columns="2" border="1">
+		<f:facet name="header">
+			<h:graphicImage url="./resources/images/photo1.jpg" width="100"
+				height="90" />
+		</f:facet>
+
+		<h:outputText value="Name:" />
+		<h:outputText value="Kobe Bryant" />
+
+		<h:outputText value="Team:" />
+		<h:outputText value="Los Angeles Lakers" />
+
+		<h:outputText value="Position:" />
+		<h:outputText value="Shooting Guard" />
+
+		<h:outputText value="Number:" />
+		<h:outputText value="#{utilisateurBean.utilisateur.numeroTel}" />
+	</h:panelGrid>
+
 	</ui:define>
-	
 </ui:composition>
 </html>
+
+
