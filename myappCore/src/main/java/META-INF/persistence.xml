@@ -59,10 +59,11 @@
 		<class>fr.afcepf.ai103.data.Ville</class>
 
 		<properties>
-			<!-- <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/> -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.H2Dialect" />
 			<!-- Dcommentaire 2 -->
-			<!-- <property name="hibernate.dialect" -->
-			<!-- value="org.hibernate.dialect.MySQL5InnoDBDialect" /> -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<!-- <property name="javax.persistence.jdbc.driver" -->
 			<!-- value="com.mysql.jdbc.Driver" /> -->
 			<!-- <property name="javax.persistence.jdbc.url" -->
@@ -73,7 +74,7 @@
 			<!-- <property name="javax.persistence.jdbc.user" value="root" /> -->
 
 			<!-- commentaire 2 -->
-<!-- 			<property name="hibernate.hbm2ddl.auto" value="create" /> -->
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
 
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
