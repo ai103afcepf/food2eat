@@ -10,11 +10,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+		@NamedQuery(name = "StockPerso.findStockByIdUtilisateur", query = "SELECT stock FROM StockPerso stock WHERE stock.utilisateurStock.idUtilisateur= :idUtilisateur")
+		,})
+
 public class StockPerso {
 	
 	@Id 
@@ -47,6 +53,20 @@ public class StockPerso {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public StockPerso( Integer quantiteStockPerso, Date dlcStockPerso, Date dateAjoutStockPerso,
+			Date dateConsoChoisieStockPerso, Utilisateur utilisateurStock, AlimentGenerique alimentGenerique) {
+		super();
+		this.quantiteStockPerso = quantiteStockPerso;
+		this.dlcStockPerso = dlcStockPerso;
+		this.dateAjoutStockPerso = dateAjoutStockPerso;
+		this.dateConsoChoisieStockPerso = dateConsoChoisieStockPerso;
+		this.utilisateurStock = utilisateurStock;
+		this.alimentGenerique = alimentGenerique;
+	}
+
+
 	@Override
 	public String toString() {
 		return "StockPerso [idStockPerso=" + idStockPerso + ", quantiteStockPerso=" + quantiteStockPerso

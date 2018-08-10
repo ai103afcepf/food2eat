@@ -50,12 +50,12 @@ public class DaoVille implements IDaoVille {
 				.setParameter("idVille", idVille).getResultList();
 	}
 
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+//	public EntityManager getEntityManager() {
+//		return entityManager;
+//	}
+//
+//	public void setEntityManager(EntityManager entityManager) {
+//		this.entityManager = entityManager;
+//	}
 
 }

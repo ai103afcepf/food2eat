@@ -11,11 +11,11 @@
 	    Add your header here or delete to use the default
 	</ui:define>
 	<ui:define name="content">
-	    Id Adresse: <h:outputText value="#{adressBean.adresse.idAdresse}" />
+	    Id Adresse: <h:outputText value="#{adresseBean.adresse.idAdresse}" />
 		<br />
-	  N°: <h:outputText value="#{adressBean.adresse.numero}" />
+	  N°: <h:outputText value="#{adresseBean.adresse.numero}" />
 		<br />
-      nom voie: <h:outputText value="#{adressBean.adresse.nomVoie}" />
+      nom voie: <h:outputText value="#{adresseBean.adresse.nomVoie}" />
 		<br />
       coordonneesGpsLat: <h:outputText
 			value="#{adresseBean.adresse.coordonneesGpsLat}" />
@@ -30,20 +30,15 @@
 			value="#{adresseBean.adresse.dateFinValidite}" />
 		<hr />
 		TypeVoie: <h:outputText
-			value="#{adresseBean.adresse.getTypeVoie()}" />
+			value="#{adresseBean.adresse.typeVoie.libelleTypeVoie}" />
 		<hr />
 		StatutAdresse: <h:outputText
-			value="#{adresseBean.adresse.getStatutAdresse()}" />
+			value="#{adresseBean.adresse.statutAdresse.libelleStatutAdresse}" />
 		<hr />
 		Utilisateur: <h:outputText
-			value="#{adresseBean.adresse.getUtilisateur()}" />
-		<hr />
-		listeRdvAdresse: <h:outputText
-			value="#{adresseBean.adresse.getListeRdvAdresse()}" />
+			value="#{adresseBean.adresse.utilisateurAdresse.pseudo}" />
 		<hr />
 	</ui:define>
-	<ui:define name="footer">
-	    Add your footer here or delete to use the default
-	</ui:define>
+	
 </ui:composition>
 </html>
