@@ -21,4 +21,12 @@ public class VerificateurV1 implements IVerificateur {
 		   return false;
 	}
 
+	@Override
+	public boolean motDePasseValide(Integer idUtilisateur, String pwd) {
+		if(pwd!=null && pwd.equals("pwd" + idUtilisateur))
+			return true;
+		else 
+		   return false;
+	}
+
 }

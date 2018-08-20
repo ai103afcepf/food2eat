@@ -1,5 +1,6 @@
 package fr.afcepf.ai103.web;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ComponentSystemEvent;
 
 import fr.afcepf.ai103.data.AlimentGenerique;
 import fr.afcepf.ai103.data.Annonce;
@@ -17,9 +19,10 @@ import fr.afcepf.ai103.service.IServiceStockPerso;
 
 @ManagedBean
 @SessionScoped
-public class StockPersoBean {
+public class StockPersoBean implements Serializable{
 	
-
+	private Integer idUtilisateur = null;
+	
 	private Integer idStockPerso;
 	private Integer quantiteStockPerso;
 	private Date dlcStockPerso;
@@ -30,19 +33,20 @@ public class StockPersoBean {
 	private List<Annonce> listesAnnoncesStock;
 	private AlimentGenerique alimentGenerique;
 	
+	private List<StockPerso> stocks;
 	private StockPerso stock;
 	
 	@EJB
-	private IServiceStockPerso serviceStokPerso;
+	private IServiceStockPerso serviceStockPerso;
 	
 	public StockPersoBean() {
 	
 	}
 	
 	@PostConstruct
-	public void init() {
-		System.out.println("dans methode prefixée par @PostConstruct, serviceStokPerso=" + serviceStokPerso);
-		stock = serviceStokPerso.recupererAlimentById(2);
+	public void init(ComponentSystemEvent event) {
+		System.out.println("dans methode prefixée par @PostConstruct, serviceStokPerso=" + serviceStockPerso);
+		stocks = serviceStockPerso.afficherStockByIdUtilisateur(idUtilisateur);
 	}
 	
 
