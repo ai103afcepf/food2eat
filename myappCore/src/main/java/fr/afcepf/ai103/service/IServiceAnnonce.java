@@ -6,7 +6,7 @@ import fr.afcepf.ai103.data.Annonce;
 
 public interface IServiceAnnonce {
 
-	public Annonce creerAnnonce(Annonce annonce);
+	public Annonce creerAnnonce(Annonce annonce); 
 	
 	public List<Annonce> rechercherAnnoncesAccueil(Integer idUtilisateur);
 }

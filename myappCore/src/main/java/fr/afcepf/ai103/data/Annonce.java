@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@NamedQueries({
+@NamedQueries({ 
 	//@NamedQuery(name="Annonce.find", query="")
 	@NamedQuery(name="Annonce.FindAnnoncesEnCours", query="SELECT ann1 FROM Annonce ann1 WHERE ann1.stockPersoAnnonce.utilisateurStock.idUtilisateur!= :idUtilisateur")
 //	@NamedQuery(name="Annonce.FindPseudoAnnonce", query="SELECT user1 FROM Utilisateur user1 WHERE user1.utilisateurStock")

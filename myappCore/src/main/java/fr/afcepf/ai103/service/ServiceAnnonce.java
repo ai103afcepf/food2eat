@@ -15,7 +15,7 @@ public class ServiceAnnonce implements IServiceAnnonce {
 
 	@EJB
 	private IDaoAnnonce daoAnnonce;
-	
+	 
 	@Override
 	public Annonce creerAnnonce(Annonce annonce) {
 		// TODO Auto-generated method stub

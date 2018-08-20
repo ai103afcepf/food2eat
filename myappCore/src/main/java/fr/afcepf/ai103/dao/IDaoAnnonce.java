@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.afcepf.ai103.data.Annonce;
 import fr.afcepf.ai103.data.RendezVous;
-
+ 
 public interface IDaoAnnonce {
 
 	public Annonce insererAnnonce(Annonce annonce);

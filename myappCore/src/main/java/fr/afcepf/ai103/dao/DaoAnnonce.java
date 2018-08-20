@@ -11,7 +11,7 @@ import fr.afcepf.ai103.data.Annonce;
 import fr.afcepf.ai103.data.RendezVous;
 
 
-@Stateless
+@Stateless 
 @Local
 public class DaoAnnonce implements IDaoAnnonce {
 

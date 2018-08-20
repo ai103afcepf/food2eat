@@ -11,7 +11,7 @@
 	<persistence-unit transaction-type="JTA" name="myappCore">
 		<jta-data-source>java:jboss/datasources/Food2EatMysql</jta-data-source>
 		
-			
+			 
 			<class>fr.afcepf.ai103.data.Client</class>
 			<class>fr.afcepf.ai103.data.Compte</class>
 			<class>fr.afcepf.ai103.data.Operation</class>

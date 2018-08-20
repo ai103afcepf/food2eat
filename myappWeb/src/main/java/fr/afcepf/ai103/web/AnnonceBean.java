@@ -33,7 +33,7 @@ public class AnnonceBean {
 	private Annonce annonce;
 	private Annonce selectedAnnonce;
 	
-	@EJB
+	@EJB 
 	private IServiceAnnonce serviceAnnonce;
 
 	@EJB
