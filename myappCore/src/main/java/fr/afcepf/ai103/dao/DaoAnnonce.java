@@ -17,6 +17,10 @@ public class DaoAnnonce implements IDaoAnnonce {
 
 	@PersistenceContext(unitName = "myappCore")
 	private EntityManager entityManager;
+	
+	public DaoAnnonce() {
+		super();
+	}
 
 	@Override
 	public Annonce insererAnnonce(Annonce annonce) {
@@ -37,7 +41,9 @@ public class DaoAnnonce implements IDaoAnnonce {
 
 	@Override
 	public List<Annonce> rechercherAnnonces(Integer idUtilisateur) {
-		return null;
+		
+		return entityManager.createNamedQuery("Annonce.FindAnnoncesEnCours", Annonce.class)
+				.setParameter("idUtilisateur", idUtilisateur).getResultList();
 	}
 
 	@Override
@@ -50,4 +56,11 @@ public class DaoAnnonce implements IDaoAnnonce {
 		return null;
 	}
 
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 }

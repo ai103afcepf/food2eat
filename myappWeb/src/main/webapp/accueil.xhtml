@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/common.xhtml">
+	<ui:define name="title">Accueil</ui:define>
+	<ui:define name="content">
+
+		<h:form id="Id">
+			<p:fieldset id="idListeStock" legend="Annonces en cours">
+				<p:dataGrid var="ann" value="#{annonceBean.listeAnnoncesAccueil}" columns="3" layout="grid"
+					rows="12" paginator="true" id="annonces"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="6,12,16">
+					<p:panel id="pnl" header="#{ann.stockPersoAnnonce.utilisateurStock.pseudo}" style="text-align:center">
+						<h:panelGrid columns="1" style="width:100%">
+					 		
+							<h:graphicImage value="#{ann.stockPersoAnnonce.alimentGenerique.imageZoomAlimentGenerique}"
+											style="width:150px;height:125px;"/>
+<!-- 							<h:outputText value="Publié le #{ann.datePublicationAnnonce.toLocaleString()} "></h:outputText> -->
+				
+							<h:outputText value="#{ann.stockPersoAnnonce.alimentGenerique.libelleAlimentGenerique}" style="font-weight: bold"></h:outputText>
+							
+							<h:outputText value="Expire le #{ann.stockPersoAnnonce.dlcStockPerso.toLocaleString()}"></h:outputText><br/>
+				    	 			
+							<p:commandButton  update=":Id:annonceDetail" oncomplete="PF('annonceDialog').show()" value="Food Détails" styleClass="ui-priority-primary">
+								<f:setPropertyActionListener value="#{ann}" target="#{annonceBean.selectedAnnonce}" />
+							</p:commandButton>
+						</h:panelGrid>
+					</p:panel>
+				</p:dataGrid>
+			</p:fieldset>
+   			 
+		 	<p:dialog header="Details" widgetVar="annonceDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        		<p:outputPanel id="annonceDetail" style="text-align:center;">
+            		<p:panelGrid  columns="2" rendered="#{not empty annonceBean.selectedAnnonce}" columnClasses="label,value">
+            			<f:facet name="header">
+		                    <p:graphicImage name="#{annonceBean.selectedAnnonce.stockPersoAnnonce.alimentGenerique.imageZoomAlimentGenerique}"/> 
+		                </f:facet>
+ 
+						<h:outputText value="Id Annonce:" />
+						<h:outputText value="#{annonceBean.selectedAnnonce.idAnnonce}" style="font-weight:bold"/>
+ 
+ 						<h:outputText value="Date de Publication:" />
+						<h:outputText value="#{annonceBean.selectedAnnonce.datePublicationAnnonce}" style="font-weight:bold"/>
+ 
+						<h:outputText value="Produit:" />
+						<h:outputText value="#{annonceBean.selectedAnnonce.stockPersoAnnonce.alimentGenerique.libelleAlimentGenerique}" style="font-weight:bold"/> 
+					
+						<h:outputText value="DLC / DDM:" />
+						<h:outputText value="#{annonceBean.selectedAnnonce.stockPersoAnnonce.dlcStockPerso}" style="font-weight:bold"/>
+					</p:panelGrid>
+					<hr/>
+				</p:outputPanel>
+				Intéressé(e) ? <p:button value="Réserver" icon="ui-icon">
+				</p:button>
+			</p:dialog>
+			
+			<!-- ***** Vue LISTE ***** -->
+<!-- 		    <p:dataScroller value="#{annonceBean.listeAnnoncesAccueil}" var="ann" chunkSize="10"> -->
+<!-- 		        <f:facet name="header"> -->
+<!-- 		            Scroll Down to Load More Cars -->
+<!-- 		        </f:facet> -->
+		 
+<!-- 		        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail"> -->
+<!-- 		            <p:graphicImage name="#{ann.stockPersoAnnonce.alimentGenerique.imageZoomAlimentGenerique}" />  -->
+		 
+<!-- 		            <p:outputPanel> -->
+<!-- 		                <h:panelGrid columns="2" cellpadding="5"> -->
+<!-- 		                    <h:outputText value="Id:" /> -->
+<!-- 		                    <h:outputText value="#{ann.idAnnonce}" style="font-weight: bold"/> -->
+		 
+<!-- 		                    <h:outputText value="Year:" /> -->
+<!-- 		                    <h:outputText value="#{ann.idAnnonce}" style="font-weight: bold"/> -->
+		 
+<!-- 		                    <h:outputText value="Color:" /> -->
+<!-- 		                    <h:outputText value="#{ann.idAnnonce}" style="font-weight: bold"/> -->
+<!-- 		                    <hr/> -->
+<!-- 		                </h:panelGrid> -->
+<!-- 		            </p:outputPanel> -->
+<!-- 		        </h:panelGrid> -->
+<!-- 		    </p:dataScroller> -->
+<!-- 		    </p:fieldset> -->
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -19,6 +19,13 @@
 	<dependencies>
 
 		<dependency>
+		    <groupId>net.bootsfaces</groupId>
+		    <artifactId>bootsfaces</artifactId>
+		    <version>1.3.0</version>
+		    <scope>compile</scope>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
 			<!-- complément facultatif pour JSF 2 -->
