@@ -8,10 +8,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "Consommation.findConsoByIdStock", 
+			query = "SELECT conso FROM Consommation conso WHERE conso.stockPersoConso.idStockPerso= :idStockPerso AND conso.dateManger <> NULL")
+	,
+	@NamedQuery(name = "Consommation.findJeterByIdStock", 
+	query = "SELECT conso FROM Consommation conso WHERE conso.stockPersoConso.idStockPerso= :idStockPerso AND conso.dateJeter <> NULL")
+	})
 public class Consommation {
 
 	@Id 

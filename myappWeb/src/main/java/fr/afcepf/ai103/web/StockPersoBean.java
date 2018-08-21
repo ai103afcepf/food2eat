@@ -1,6 +1,6 @@
 package fr.afcepf.ai103.web;
 
-import java.io.Serializable;
+
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +19,7 @@ import fr.afcepf.ai103.service.IServiceStockPerso;
 
 @ManagedBean
 @SessionScoped
-public class StockPersoBean implements Serializable{
+public class StockPersoBean{
 	
 	private Integer idUtilisateur = null;
 	
@@ -48,6 +48,8 @@ public class StockPersoBean implements Serializable{
 		System.out.println("dans methode prefixée par @PostConstruct, serviceStokPerso=" + serviceStockPerso);
 		stocks = serviceStockPerso.afficherStockByIdUtilisateur(idUtilisateur);
 	}
+	
+	
 	
 
 	public Integer getIdStockPerso() {
@@ -122,13 +124,7 @@ public class StockPersoBean implements Serializable{
 		this.alimentGenerique = alimentGenerique;
 	}
 
-//	public IServiceStockPerso getServiceStokPerso() {
-//		return serviceStokPerso;
-//	}
-//
-//	public void setServiceStokPerso(IServiceStockPerso serviceStokPerso) {
-//		this.serviceStokPerso = serviceStokPerso;
-//	}
+	
 
 	public StockPerso getStock() {
 		return stock;
@@ -136,6 +132,30 @@ public class StockPersoBean implements Serializable{
 
 	public void setStock(StockPerso stock) {
 		this.stock = stock;
+	}
+
+	public Integer getIdUtilisateur() {
+		return idUtilisateur;
+	}
+
+	public void setIdUtilisateur(Integer idUtilisateur) {
+		this.idUtilisateur = idUtilisateur;
+	}
+
+	public List<StockPerso> getStocks() {
+		return stocks;
+	}
+
+	public void setStocks(List<StockPerso> stocks) {
+		this.stocks = stocks;
+	}
+
+	public IServiceStockPerso getServiceStockPerso() {
+		return serviceStockPerso;
+	}
+
+	public void setServiceStockPerso(IServiceStockPerso serviceStockPerso) {
+		this.serviceStockPerso = serviceStockPerso;
 	}
 
 

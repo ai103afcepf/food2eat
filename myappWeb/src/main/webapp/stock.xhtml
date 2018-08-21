@@ -1,56 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-  "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml" 
-xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
-xmlns:f="http://java.sun.com/jsf/core" 
-xmlns:h="http://xmlns.jcp.org/jsf/html"
-xmlns:p="http://primefaces.org/ui">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
 <h:head></h:head>
 <h:body>
-	
-<ui:composition template="/templates/common.xhtml">
-	<ui:define name="title">Stock Produit</ui:define>
-	<ui:define name="content">
-	
-	<h:form>
-		<p:dataTable var="stock" value="#{stockPersoBean.stocks}">
-		
-		<f:facet name="header">Vos Aliments en Stock</f:facet>
-		
-		
-		<p:column headerText="Libelle"><h:output value="#{stockPersoBean.stock.alimentGenerique.libelleAlimentGenerique}"/></p:column>
-		
-		<p:rowExpansion>
-		</p:rowExpansion>
-		
-		</p:dataTable>
-	
-	</h:form>
-	 	mon stock 
-	 			<h3>
-			Label aliment - stock:
-			<h:outputText
-				value="#{stockPersoBean.stock.alimentGenerique.libelleAlimentGenerique}" />
-		</h3>
-		<br />
-				ID stock: <h:outputText value="#{stockPersoBean.stock.idStockPerso}" />
-		<br />
-				Date d'ajout en stock: <h:outputText
-			value="#{stockPersoBean.stock.dateAjoutStockPerso}" />
-		<br />Label
-				stock: <h:outputText
-			value="#{stockPersoBean.stock.alimentGenerique.label.libelleLabel}" />
-		<br />
-				Groupe aliment: <h:outputText
-			value="#{stockPersoBean.stock.alimentGenerique.categorieAliment.groupeAliment.libelleGroupeAliment}" />
-		<br />
-				Categorie aliment: <h:outputText
-			value="#{stockPersoBean.stock.alimentGenerique.categorieAliment.libelleCategorieAliment}" />
-		<br />
-	 	
-	 	
-	</ui:define>
-</ui:composition>
+
+	<ui:composition template="/templates/common.xhtml">
+		<ui:define name="title">Stock Produit</ui:define>
+
+		<ui:define name="pageMetaData">
+			<f:metadata>
+				<f:viewParam name="idUtilisateur"
+					value="#{stockPersoBean.idUtilisateur}" />
+				<f:event type="preRenderView" listener="#{stockPersoBean.init}" />
+			</f:metadata>
+		</ui:define>
+
+		<ui:define name="sidebar">
+			<h:form>
+				<p:growl id="growl" life="2000" />
+				<p:commandButton value="Jeter" id="withIconJeter"
+					 update="growl"
+					icon="ui-icon-trash" />
+					<p:commandButton value="Donner" id="withIconDonner"
+					 update="growl"
+					icon="ui-icon-trash" />
+			</h:form>
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h:form>
+			<h3 style="text-align:center !important;">Vos Aliments en Stock</h3>
+				<p:dataTable var="stock" value="#{stockPersoBean.stocks}">
+
+					
+
+					<p:column style="width:35px">
+						<p:rowToggler />
+					</p:column>
+					<p:column headerText="Libellé"
+						sortBy="#{stock.alimentGenerique.libelleAlimentGenerique}"
+						filterBy="#{stock.alimentGenerique.libelleAlimentGenerique}">
+						<h:outputText
+							value="#{stock.alimentGenerique.libelleAlimentGenerique}" />
+					</p:column>
+					<p:column headerText="Quantité restante" style="width:200px">
+						<h:outputText
+							value="#{stock.alimentGenerique.nombreUnitesAlimentGenerique}" />
+					</p:column>
+					<p:column headerText="Date de péremption" style="width:200px"
+						sortBy="#{stock.dlcStockPerso}" filterBy="#{stock.dlcStockPerso}">
+						<h:outputText value="#{stock.dlcStockPerso}">
+							<f:convertDateTime pattern="dd/ MM/ yyyy" />
+						</h:outputText>
+
+					</p:column>
+					<p:column headerText="Date d'extension" style="width:200px"
+						sortBy="#{not empty stock.dateConsoChoisieStockPerso}"
+						filterBy="#{not empty stock.dateConsoChoisieStockPerso}">
+						<h:outputText value="#{stock.dateConsoChoisieStockPerso}">
+							<f:convertDateTime pattern="dd/ MM/ yyyy" />
+						</h:outputText>
+					</p:column>
+
+
+					<p:rowExpansion>
+
+
+
+						<h:outputText value="Ajouté le " />
+						<h:outputText value="#{stock.dateAjoutStockPerso}">
+							<f:convertDateTime pattern="dd/ MM/ yyyy" />
+						</h:outputText>
+						<br />
+
+						<h:panelGrid columns="5">
+
+							<p:graphicImage
+								value="#{stock.alimentGenerique.imageZoomAlimentGenerique}"
+								style="width:150px;" />
+
+							<p:graphicImage
+								value="#{stock.alimentGenerique.imageIngredientsAlimentGenerique}"
+								style="width:300px;" />
+
+							<p:outputPanel>
+								<h:outputText
+									value="#{stock.alimentGenerique.nombreUnitesAlimentGenerique}" /> 
+							x 
+							<h:outputText
+									value="#{stock.alimentGenerique.portionParUniteAlimentGenerique}" />
+								<h:outputText
+									value="#{stock.alimentGenerique.mesure.uniteMesure}" />
+
+							</p:outputPanel>
+							<p:outputPanel>
+								<p:graphicImage
+									value="#{stock.alimentGenerique.nutriscore.imageNutriscore}"
+									style="width:200px;height:80px;" />
+
+								<p:graphicImage
+									value="#{stock.alimentGenerique.label.imageLabel}"
+									style="width:80px;height:80px;" />
+								<br />
+								<h:outputText
+									value="#{stock.alimentGenerique.label.libelleLabel}" />
+							</p:outputPanel>
+						</h:panelGrid>
+
+					</p:rowExpansion>
+
+				</p:dataTable>
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
 
 </h:body>
 </html>

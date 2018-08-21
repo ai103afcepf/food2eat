@@ -21,8 +21,9 @@ import javax.persistence.TemporalType;
 
 		@NamedQuery(name = "Annonce.ListeRdvByAnnonce", query = "SELECT rdv FROM RendezVous rdv WHERE rdv.annonceRdv.idAnnonce= :idAnnonce"),
 
-		@NamedQuery(name = "Annonce.FindAnnoncesEnCours", query = "SELECT ann1 FROM Annonce ann1 WHERE ann1.stockPersoAnnonce.utilisateurStock.idUtilisateur<> :idUtilisateur")
 
+	@NamedQuery(name="Annonce.FindAnnoncesEnCours", query="SELECT ann1 FROM Annonce ann1 "
+			+ "WHERE ann1.stockPersoAnnonce.utilisateurStock.idUtilisateur <> :idUtilisateur")
 })
 public class Annonce {
 

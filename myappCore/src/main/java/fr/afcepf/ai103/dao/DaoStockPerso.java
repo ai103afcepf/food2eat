@@ -16,9 +16,6 @@ public class DaoStockPerso implements IDaoStockPerso {
 	@PersistenceContext(unitName = "myappCore")
 	private EntityManager entityManager;
 
-	public DaoStockPerso() {
-		super();
-	}
 
 	@Override
 	public StockPerso setAlimentAuStock(StockPerso stockPerso) {
