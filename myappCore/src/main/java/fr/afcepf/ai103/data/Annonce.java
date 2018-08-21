@@ -17,13 +17,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@NamedQueries({ 
-	@NamedQuery(name="Annonce.FindAnnoncesEnCours",
-			query="SELECT ann1 FROM Annonce ann1 "
-					+ "WHERE ann1.stockPersoAnnonce.utilisateurStock.idUtilisateur!= :idUtilisateur "),
-	@NamedQuery(name="Annonce.ListeRdvByAnnonce", query="SELECT rdv FROM RendezVous rdv WHERE rdv.annonceRdv.idAnnonce= :idAnnonce")
+@NamedQueries({
+
+		@NamedQuery(name = "Annonce.ListeRdvByAnnonce", query = "SELECT rdv FROM RendezVous rdv WHERE rdv.annonceRdv.idAnnonce= :idAnnonce"),
+
+		@NamedQuery(name = "Annonce.FindAnnoncesEnCours", query = "SELECT ann1 FROM Annonce ann1 WHERE ann1.stockPersoAnnonce.utilisateurStock.idUtilisateur<> :idUtilisateur")
+
 })
-public class Annonce { 
+public class Annonce {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,22 +40,21 @@ public class Annonce {
 	private Date dateAnnulationPublicationAnnonce;
 	@Temporal(TemporalType.DATE)
 	private Date dateFermetureAnnonce;
- 
+
 	@OneToMany(mappedBy = "annonceReponse", fetch = FetchType.LAZY)
 	private List<Reponse> listeReponsesAnnonce;
-	
+
 	@OneToMany(mappedBy = "annonceRdv", fetch = FetchType.LAZY)
 	private List<RendezVous> listeRdvAnnonce;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idStockPerso")
+	@JoinColumn(name = "idStockPerso")
 	private StockPerso stockPersoAnnonce;
-	
+
 	@ManyToOne
-	@JoinColumn(name="idMotifAnnulationAnnonce")
+	@JoinColumn(name = "idMotifAnnulationAnnonce")
 	private MotifAnnulationAnnonce motifAnnulationAnnonce;
 
-	
 	public Annonce() {
 		super();
 	}
@@ -147,5 +147,4 @@ public class Annonce {
 		this.motifAnnulationAnnonce = motifAnnulationAnnonce;
 	}
 
-	
 }

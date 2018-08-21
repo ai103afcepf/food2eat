@@ -8,40 +8,107 @@
 
 
 <ui:composition template="/templates/common.xhtml">
+	<ui:define name="style">
+		<style>
+.ui-dashboard-column {
+	margin-right: 20px !important;
+	padding-bottom: 10px !important;
+}
+</style>
+	</ui:define>
 	<ui:define name="title">Dashboard</ui:define>
+	<ui:define name="sidebar">
+
+	</ui:define>
 	<ui:define name="content">
-		<div style="height: 600px">
-			<h:form>
-				<p:growl id="msgs" showDetail="true" />
+		<h:form>
+			<div style="height: auto;">
+				<div>
+					<h3>Gestion du stock</h3>
+					<p:separator />
+					<p:growl id="msgs" showDetail="true" />
+					<p:dashboard id="board" model="#{dashboardView.model}"
+						style="margin:0 auto !important;">
+						<p:ajax event="reorder" listener="#{dashboardView.handleReorder}"
+							update="msgs" />
+						<p:panel id="disponible" header="disponible">
+							<div class="knob-container ui-corner-all">
+								<p:knob colorTheme="hot-sneaks" disabled="true" value="21" />
+							</div>
+						</p:panel>
+						<p:panel id="consommer" header="consommer">
+							<div class="knob-container ui-corner-all">
+								<p:knob colorTheme="hot-sneaks" disabled="true" value="3" />
+							</div>
+						</p:panel>
+						<p:panel id="donner" header="donner">
+							<div class="knob-container ui-corner-all">
+								<p:knob colorTheme="hot-sneaks" disabled="true" value="13" />
+							</div>
+						</p:panel>
+						<p:panel id="jeter" header="jeter">
+							<div class="knob-container ui-corner-all">
+								<p:knob colorTheme="hot-sneaks" disabled="true" value="15" />
+							</div>
+						</p:panel>
+						<p:panel id="pdtdlc" header=" bientôt à expiration">
+							<div class="knob-container ui-corner-all">
+								<p:knob colorTheme="hot-sneaks" disabled="true" value="5" />
+							</div>
+						</p:panel>
+					</p:dashboard>
+					<div style="clear: both" />
+				</div>
+				<div>
+					<h3>Mes annonces</h3>
+					<p:separator />
+					<p:growl id="msgs" showDetail="true" />
+					<p:dashboard id="board" model="#{dashboardView.model}">
+						<p:ajax event="reorder" listener="#{dashboardView.handleReorder}"
+							update="msgs" />
+						<p:panel id="annoncesAttentes" header="en attentes">
+							<p:knob colorTheme="hot-sneaks" disabled="true" value="2" />
+						</p:panel>
 
-				<p:dashboard id="board" model="#{dashboardView.model}">
-					<p:ajax event="reorder" listener="#{dashboardView.handleReorder}"
-						update="msgs" />
+						<p:panel id="annoncesPubliees" header="publiées">
+							<p:knob colorTheme="hot-sneaks" disabled="true"
+								value="#{dashboardView.valAnnoncePublie}" />
+						</p:panel>
 
-					<p:panel id="consommer" header="consommer">
-						<h:outputText value="consommer" />
-					</p:panel>
+						<p:panel id="annoncesValidees" header="validées">
+							<p:knob colorTheme="hot-sneaks" disabled="true" value="2" />
+						</p:panel>
 
-					<p:panel id="donner" header="donner">
-						<h:outputText value="donner" />
-					</p:panel>
+						<p:panel id="annoncesFinalisees" header="finalisées">
+							<p:knob colorTheme="hot-sneaks" disabled="true" value="10" />
+						</p:panel>
+					</p:dashboard>
+					<div style="clear: both" />
+				</div>
+				<div>
+					<h3>Mes réservations</h3>
+					<p:separator />
+					<p:growl id="msgs" showDetail="true" />
+					<p:dashboard id="board" model="#{dashboardView.model}">
+						<p:ajax event="reorder" listener="#{dashboardView.handleReorder}"
+							update="msgs" />
 
-					<p:panel id="jeter" header="jeter">
-						<h:outputText value="jeter" />
-					</p:panel>
+						<p:panel id="reservationsAttentes" header="en attentes">
+							<p:knob colorTheme="hot-sneaks" disabled="true" value="4" />
+						</p:panel>
 
-					<p:panel id="pdtdlc" header="pdtdlc">
-						<h:outputText value=" bientot expirés" />
-					</p:panel>
-					
-					<p:panel id="politics" header="Politics">
-						<h:outputText value="Politics Content" />
-					</p:panel>
-				</p:dashboard>
+						<p:panel id="reservationsValidees" header="validées">
+							<p:knob colorTheme="hot-sneaks" disabled="true" value="6" />
+						</p:panel>
 
-				<div style="clear: both" />
-			</h:form>
-		</div>
+						<p:panel id="reservationsFinalisees" header="finalisées">
+							<p:knob colorTheme="hot-sneaks" disabled="true" value="2" />
+						</p:panel>
+					</p:dashboard>
+					<div style="clear: both" />
+				</div>
+			</div>
+		</h:form>
 	</ui:define>
 </ui:composition>
 

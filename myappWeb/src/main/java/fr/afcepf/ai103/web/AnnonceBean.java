@@ -22,9 +22,11 @@ import fr.afcepf.ai103.service.IServiceUtilisateur;
 @SessionScoped
 public class AnnonceBean {
 
+
 	private Integer idUtilisateur = null;
 	private Utilisateur utilisateurConnecte;
 	
+
 	private Integer idAnnonce;
 	private Date dateCreationAnnonce;
 	private Date datePublicationAnnonce;
@@ -60,13 +62,15 @@ public class AnnonceBean {
 				.filter(e -> e.getMotifAnnulationAnnonce() == null).collect(Collectors.toList());
 		listeRdvAnnonce = serviceAnnonce.afficherListeRdvByAnnonce(idAnnonce);
 	}
-
+//listeAnnoncesAccueil = serviceAnnonce
+//	.rechercherAnnoncesAccueil(stockPerso.getUtilisateurStock().getIdUtilisateur());
 	public List<RendezVous> getListeRdvAnnonce() {
 		return listeRdvAnnonce;
 	}
 
 	public void setListeRdvAnnonce(List<RendezVous> listeRdvAnnonce) {
 		this.listeRdvAnnonce = listeRdvAnnonce;
+
 	}
 
 	public Integer getIdAnnonce() {

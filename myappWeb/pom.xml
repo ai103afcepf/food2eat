@@ -41,7 +41,12 @@
 			<scope>provided</scope> <!-- dejà fourni par jboss -->
 		</dependency>
 
-
+		<dependency>
+			<groupId>net.bootsfaces</groupId>
+			<artifactId>bootsfaces</artifactId>
+			<version>1.3.0</version>
+			<scope>compile</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

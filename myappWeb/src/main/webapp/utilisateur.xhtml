@@ -48,6 +48,12 @@
 			<h:outputText value="Number:" />
 			<h:outputText value="#{utilisateurBean.utilisateur.numeroTel}" />
 		</h:panelGrid>
+		
+		<h:outputLink value="stock.jsf?idUtilisateur=#{utilisateurBean.utilisateur.idUtilisateur}" >
+			liste des aliments en stock
+		</h:outputLink>
+		
+		
 	</ui:define>
 </ui:composition>
 </html>

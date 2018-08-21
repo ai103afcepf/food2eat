@@ -48,13 +48,7 @@ public class ServiceAdresse implements IServiceAdresse {
 	@Override
 	public List<Adresse> getAdresseByIdUser(Integer idUtilisateur) {
 
-		// Modele java8 Stream()
-		/*
-		 * System.out.println("getAdresseByIdUser - Liste Adresse = "); List<Adresse>
-		 * adresses = daoAdresse.findAdressByIdUser().stream() .filter(adr ->
-		 * adr.getUtilisateurAdresse().getIdUtilisateur() == idUtilisateur)
-		 * .collect(Collectors.toList()); System.out.println(adresses.size());
-		 */
+		
 		return daoAdresse.rechcherAdresseParIdUtilisateur(idUtilisateur);
 		/*
 		 * Calcul pour récuperer :

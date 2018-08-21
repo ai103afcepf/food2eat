@@ -1,13 +1,54 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
   "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<html xmlns="https://www.w3.org/1999/xhtml" 
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+xmlns:f="http://java.sun.com/jsf/core" 
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
 <h:body>
 	
 <ui:composition template="/templates/common.xhtml">
 	<ui:define name="title">Stock Produit</ui:define>
 	<ui:define name="content">
+	
+	<h:form>
+		<p:dataTable var="stock" value="#{stockPersoBean.stocks}">
+		
+		<f:facet name="header">Vos Aliments en Stock</f:facet>
+		
+		
+		<p:column headerText="Libelle"><h:output value="#{stockPersoBean.stock.alimentGenerique.libelleAlimentGenerique}"/></p:column>
+		
+		<p:rowExpansion>
+		</p:rowExpansion>
+		
+		</p:dataTable>
+	
+	</h:form>
 	 	mon stock 
+	 			<h3>
+			Label aliment - stock:
+			<h:outputText
+				value="#{stockPersoBean.stock.alimentGenerique.libelleAlimentGenerique}" />
+		</h3>
+		<br />
+				ID stock: <h:outputText value="#{stockPersoBean.stock.idStockPerso}" />
+		<br />
+				Date d'ajout en stock: <h:outputText
+			value="#{stockPersoBean.stock.dateAjoutStockPerso}" />
+		<br />Label
+				stock: <h:outputText
+			value="#{stockPersoBean.stock.alimentGenerique.label.libelleLabel}" />
+		<br />
+				Groupe aliment: <h:outputText
+			value="#{stockPersoBean.stock.alimentGenerique.categorieAliment.groupeAliment.libelleGroupeAliment}" />
+		<br />
+				Categorie aliment: <h:outputText
+			value="#{stockPersoBean.stock.alimentGenerique.categorieAliment.libelleCategorieAliment}" />
+		<br />
+	 	
+	 	
 	</ui:define>
 </ui:composition>
 

@@ -37,10 +37,13 @@ public class ServiceAnnonce implements IServiceAnnonce {
 		this.daoAnnonce = daoAnnonce;
 	}
 
-	@Override
-	public List<RendezVous> afficherListeRdvByAnnonce(Integer idAnnonce) {
-		
-		return daoAnnonce.rechercherRendezVousParAnnonce(idAnnonce);
+		@Override
+	public Long getNbrAnnonceEnCours(Integer idUtilisateur) {
+
+		return daoAnnonce.rechercherAnnonces(idUtilisateur).stream()
+				.filter(a -> a.getDateFermetureAnnonce() == null) //l'annonce n'a pas été supprimée ou donnée
+				.filter(a -> a.getDateAnnulationPublicationAnnonce() == null) //l'annonce publié n'a pas été supprimée
+				.filter(a -> a.getDateAnnulationCreationAnnonce() == null).count(); //l'annonce crée n'a pas été supprimée 
 	}
 
 }

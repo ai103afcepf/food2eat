@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ComponentSystemEvent;
 
 import fr.afcepf.ai103.data.Adresse;
 import fr.afcepf.ai103.data.RendezVous;
@@ -19,6 +20,8 @@ import fr.afcepf.ai103.service.IServiceAdresse;
 @SessionScoped
 public class AdresseBean {
 
+	
+	
 	private Integer idAdresse;
 	private Integer numero;
 	private String nomVoie;
@@ -41,7 +44,7 @@ public class AdresseBean {
 	}
 
 	@PostConstruct
-	public void init() {
+	public void init(ComponentSystemEvent event) {
 		adresse = serviceAdresse.rechercherInfosAdresse(6);
 		// serviceAdresse.nbrAdresse(2);
 		System.out.println("adresse @PostConstruct, serviceAdresse=" + serviceAdresse);
