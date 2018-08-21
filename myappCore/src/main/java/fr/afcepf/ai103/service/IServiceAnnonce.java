@@ -9,4 +9,6 @@ public interface IServiceAnnonce {
 	public Annonce creerAnnonce(Annonce annonce); 
 	
 	public List<Annonce> rechercherAnnoncesAccueil(Integer idUtilisateur);
+	
+	public Long getNbrAnnonceEnCours(Integer idUtilisateur) ;
 }

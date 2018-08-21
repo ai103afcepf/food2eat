@@ -9,6 +9,12 @@
 	xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/templates/common.xhtml">
 	<ui:define name="title">Adresse</ui:define>
+	<ui:define name="pageMetaData">
+	    <f:metadata>
+		<f:viewParam name="idUtilisateur" value="utilisateurBean.idUtilisateur"/>
+		<f:event type="preRenderView" listener="#{utilisateurBean.init}"/>
+	   </f:metadata>
+	</ui:define>
 	<ui:define name="content">
 	    Id Adresse: <h:outputText value="#{adresseBean.adresse.idAdresse}" />
 		<h3>
@@ -27,7 +33,7 @@
 		, <h:outputText value="#{adresseBean.adresse.villeAdresse.nomVille}" />
 		<hr />
 		 Nombre d'adresse: <h:outputText value="#{utilisateurBean.nbr}" />
-S	</ui:define>
+	</ui:define>
 
 	<h:form>
 

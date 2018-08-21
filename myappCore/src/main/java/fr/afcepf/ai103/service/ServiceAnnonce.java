@@ -15,7 +15,7 @@ public class ServiceAnnonce implements IServiceAnnonce {
 
 	@EJB
 	private IDaoAnnonce daoAnnonce;
-	 
+
 	@Override
 	public Annonce creerAnnonce(Annonce annonce) {
 		// TODO Auto-generated method stub
@@ -34,6 +34,16 @@ public class ServiceAnnonce implements IServiceAnnonce {
 
 	public void setDaoAnnonce(IDaoAnnonce daoAnnonce) {
 		this.daoAnnonce = daoAnnonce;
+	}
+
+	// annonce publié
+	@Override
+	public Long getNbrAnnonceEnCours(Integer idUtilisateur) {
+
+		return daoAnnonce.rechercherAnnonces(idUtilisateur).stream()
+				.filter(a -> a.getDateFermetureAnnonce() == null) //l'annonce n'a pas été supprimée ou donnée
+				.filter(a -> a.getDateAnnulationPublicationAnnonce() == null) //l'annonce publié n'a pas été supprimée
+				.filter(a -> a.getDateAnnulationCreationAnnonce() == null).count(); //l'annonce crée n'a pas été supprimée 
 	}
 
 }

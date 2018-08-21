@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Inject;
 
 import fr.afcepf.ai103.data.Adresse;
@@ -23,20 +24,19 @@ import fr.afcepf.ai103.web.verif.IVerificateur;
 @ManagedBean
 @SessionScoped
 public class UtilisateurBean {
-	
-   
+
 	@EJB
 	private IServiceUtilisateur serviceUtilisateur;
 
 	@EJB
 	private IServiceAdresse serviceAdresse;
 
-	private Integer idUtilisateur;
+	private Integer idUtilisateur = null;
 
 	private String nom;
 	private String prenom;
-	private String pseudo;  //à saisir
-	private String password; //à saisir
+	private String pseudo; // à saisir
+	private String password; // à saisir
 	private String email;
 	private String numeroTel;
 	private Date dateNaissance;
@@ -53,9 +53,9 @@ public class UtilisateurBean {
 	private List<RelationFoodFriend> listeRelationFoodFriends1;
 	private List<RelationFoodFriend> listeRelationFoodFriends2;
 
-	private Utilisateur utilisateur; //infos "utilisateur" à récupérer
-	private String message; //à afficher
-	
+	private Utilisateur utilisateur; // infos "utilisateur" à récupérer
+	private String message; // à afficher
+
 	/*********************/
 	// var test calculs
 	private long nbr;
@@ -70,22 +70,22 @@ public class UtilisateurBean {
 
 	/*********************/
 	public UtilisateurBean() {
-		super();
 	}
 
 	// teste postConstructor
 	@PostConstruct
-	public void init() {
-//		System.out.println("Avant init - ");
-//		utilisateur = serviceUtilisateur.afficherProfilUtilisateur(2);
-//		System.out.println("Après init - " + serviceUtilisateur);
-//		nbr = serviceAdresse.getNbrAdresseByUtilisateur(2);
+	public void init(ComponentSystemEvent event) {
+		
+		// System.out.println("Avant init - ");
+		// utilisateur = serviceUtilisateur.afficherProfilUtilisateur(2);
+		// System.out.println("Après init - " + serviceUtilisateur);
+		//nbr = serviceAdresse.getNbrAdresseByUtilisateur(idUtilisateur);
 	}
 
 	@Inject // demander à CDI d'initialiser la référence verificateur
 	// pour que ça pointe vers un composant existant compatible avec l'interface
 	// IVerificateur
-	//@Default
+	// @Default
 	// @Default ou bien @Alternative ou bien @Secondaire pour choisir la version
 	private IVerificateur verificateur;// =null par defaut sans @Inject
 
@@ -95,7 +95,8 @@ public class UtilisateurBean {
 		// if(password!=null && password.equals("pwd" + numClient)) {
 		if (verificateur.motDePasseValide(idUtilisateur, password)) {
 			// mot de passe considéré comme ok si "pwd" + numClient (ex: "pwd1" )
-			this.utilisateur = serviceUtilisateur.afficherProfilUtilisateur(idUtilisateur);
+			utilisateur = serviceUtilisateur.afficherProfilUtilisateur(idUtilisateur);
+			nbr = serviceAdresse.getNbrAdresseByUtilisateur(utilisateur.getIdUtilisateur());
 			message = "";
 			// on demande à naviguer vers la page client
 			suite = "utilisateur"; // .jsf (.jsp ou .xhtml)
@@ -104,7 +105,7 @@ public class UtilisateurBean {
 		}
 		return suite;
 	}
-
+	
 	public Integer getIdUtilisateur() {
 		return idUtilisateur;
 	}
