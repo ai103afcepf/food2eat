@@ -1,6 +1,5 @@
 package fr.afcepf.ai103.web;
 
-
 import java.util.Date;
 import java.util.List;
 
