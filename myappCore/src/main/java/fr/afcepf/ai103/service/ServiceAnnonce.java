@@ -46,4 +46,10 @@ public class ServiceAnnonce implements IServiceAnnonce {
 				.filter(a -> a.getDateAnnulationCreationAnnonce() == null).count(); //l'annonce crée n'a pas été supprimée 
 	}
 
+		@Override
+		public List<RendezVous> afficherListeRdvByAnnonce(Integer idAnnonce) {
+			
+			return daoAnnonce.rechercherRendezVousParAnnonce(idAnnonce);
+		}
+
 }
