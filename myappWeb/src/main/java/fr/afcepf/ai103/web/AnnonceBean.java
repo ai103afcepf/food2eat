@@ -2,21 +2,28 @@ package fr.afcepf.ai103.web;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ComponentSystemEvent;
 
+import fr.afcepf.ai103.data.Utilisateur;
 import fr.afcepf.ai103.data.Annonce;
 import fr.afcepf.ai103.data.MotifAnnulationAnnonce;
+import fr.afcepf.ai103.data.RendezVous;
 import fr.afcepf.ai103.data.StockPerso;
 import fr.afcepf.ai103.service.IServiceAnnonce;
 import fr.afcepf.ai103.service.IServiceUtilisateur;
 
-@ManagedBean 
+@ManagedBean
 @SessionScoped
 public class AnnonceBean {
+
+	private Integer idUtilisateur = null;
+	private Utilisateur utilisateurConnecte;
 	
 	private Integer idAnnonce;
 	private Date dateCreationAnnonce;
@@ -24,28 +31,42 @@ public class AnnonceBean {
 	private Date dateFermetureAnnonce;
 	private Date dateAnnulationCreationAnnonce;
 	private Date dateAnnulationPublicationAnnonce;
-	
+
 	private String utilisateurAnnonce;
 	private List<Annonce> listeAnnoncesAccueil;
+	private List<RendezVous> listeRdvAnnonce;
 	private MotifAnnulationAnnonce motifAnnulationAnnonce;
 	private StockPerso stockPerso;
-	
+
 	private Annonce annonce;
 	private Annonce selectedAnnonce;
-	
-	@EJB 
+
+	@EJB
 	private IServiceAnnonce serviceAnnonce;
 
 	@EJB
 	private IServiceUtilisateur serviceUtilisateur;
-	
+
 	public AnnonceBean() {
 		super();
 	}
-	
+
 	@PostConstruct
-	public void init() {
-		listeAnnoncesAccueil = serviceAnnonce.rechercherAnnoncesAccueil(1);
+	public void init(ComponentSystemEvent event) {
+		listeAnnoncesAccueil = serviceAnnonce.rechercherAnnoncesAccueil(idUtilisateur).stream()
+				.filter(e -> e.getDateFermetureAnnonce() == null)
+				.filter(s -> s.getDateAnnulationCreationAnnonce() == null)
+				.filter(obj -> obj.getDateAnnulationPublicationAnnonce() == null)
+				.filter(e -> e.getMotifAnnulationAnnonce() == null).collect(Collectors.toList());
+		listeRdvAnnonce = serviceAnnonce.afficherListeRdvByAnnonce(idAnnonce);
+	}
+
+	public List<RendezVous> getListeRdvAnnonce() {
+		return listeRdvAnnonce;
+	}
+
+	public void setListeRdvAnnonce(List<RendezVous> listeRdvAnnonce) {
+		this.listeRdvAnnonce = listeRdvAnnonce;
 	}
 
 	public Integer getIdAnnonce() {

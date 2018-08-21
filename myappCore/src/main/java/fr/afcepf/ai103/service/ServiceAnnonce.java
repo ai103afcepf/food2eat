@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 
 import fr.afcepf.ai103.dao.IDaoAnnonce;
 import fr.afcepf.ai103.data.Annonce;
+import fr.afcepf.ai103.data.RendezVous;
 
 @Stateless
 @Local
@@ -34,6 +35,12 @@ public class ServiceAnnonce implements IServiceAnnonce {
 
 	public void setDaoAnnonce(IDaoAnnonce daoAnnonce) {
 		this.daoAnnonce = daoAnnonce;
+	}
+
+	@Override
+	public List<RendezVous> afficherListeRdvByAnnonce(Integer idAnnonce) {
+		
+		return daoAnnonce.rechercherRendezVousParAnnonce(idAnnonce);
 	}
 
 }

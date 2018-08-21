@@ -9,20 +9,25 @@
 
 <ui:composition template="/templates/common.xhtml">
 	<ui:define name="title">Accueil</ui:define>
+	<ui:define name="pageMetaData">
+	    <f:metadata>
+		<f:viewParam name="idUtilisateur" value="#{annonceBean.idUtilisateur}"/>
+		<f:event type="preRenderView" listener="#{annonceBean.init}"/>
+	   </f:metadata>
+	</ui:define>
 	<ui:define name="content">
 
 		<h:form id="Id">
-			<p:fieldset id="idListeStock" legend="Annonces en cours">
+			<p:fieldset id="idListeStock" legend="Annonces">
 				<p:dataGrid var="ann" value="#{annonceBean.listeAnnoncesAccueil}" columns="3" layout="grid"
 					rows="12" paginator="true" id="annonces"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="6,12,16">
+					rowsPerPageTemplate="3,6,9">
 					<p:panel id="pnl" header="#{ann.stockPersoAnnonce.utilisateurStock.pseudo}" style="text-align:center">
 						<h:panelGrid columns="1" style="width:100%">
 					 		
 							<h:graphicImage value="#{ann.stockPersoAnnonce.alimentGenerique.imageZoomAlimentGenerique}"
 											style="width:150px;height:125px;"/>
-<!-- 							<h:outputText value="Publié le #{ann.datePublicationAnnonce.toLocaleString()} "></h:outputText> -->
 				
 							<h:outputText value="#{ann.stockPersoAnnonce.alimentGenerique.libelleAlimentGenerique}" style="font-weight: bold"></h:outputText>
 							
@@ -40,7 +45,7 @@
         		<p:outputPanel id="annonceDetail" style="text-align:center;">
             		<p:panelGrid  columns="2" rendered="#{not empty annonceBean.selectedAnnonce}" columnClasses="label,value">
             			<f:facet name="header">
-		                    <p:graphicImage name="#{annonceBean.selectedAnnonce.stockPersoAnnonce.alimentGenerique.imageZoomAlimentGenerique}"/> 
+		                    <p:graphicImage value="#{annonceBean.selectedAnnonce.stockPersoAnnonce.alimentGenerique.imageIngredientsAlimentGenerique}"/>
 		                </f:facet>
  
 						<h:outputText value="Id Annonce:" />
@@ -57,7 +62,18 @@
 					</p:panelGrid>
 					<hr/>
 				</p:outputPanel>
-				Intéressé(e) ? <p:button value="Réserver" icon="ui-icon">
+				Intéressé(e) ?
+				<hr/>
+<!-- 				<p:dataTable var="rdv" value="#{annonceBean.selectedAnnonce.listeRdvAnnonce}"> -->
+<!-- 					<p:column headerText="rdv"> -->
+<!-- 						<h:outputText value="#{rdv.dateRendezVous}"></h:outputText> -->
+<!-- 					</p:column> -->
+<!-- 				</p:dataTable> -->
+<!-- 				<h:panelGrid columns="2" rendered="#{not empty annonceBean.annonce.listeRdvAnnonce}" columnClasses="label,value"> -->
+<!-- 					<h:outputText value="Id Annonce:" /> -->
+<!-- 					<h:outputText value="#{annonceBean.annonce.listeRdvAnnonce.dateRendezVous}" style="font-weight:bold"/> -->
+<!-- 				</h:panelGrid> -->
+				<p:button value="Réserver">
 				</p:button>
 			</p:dialog>
 			

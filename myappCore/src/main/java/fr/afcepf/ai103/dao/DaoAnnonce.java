@@ -48,7 +48,9 @@ public class DaoAnnonce implements IDaoAnnonce {
 
 	@Override
 	public List<RendezVous> rechercherRendezVousParAnnonce(Integer idAnnonce) {
-		return null;
+		
+		return entityManager.createNamedQuery("Annonce.ListeRdvByAnnonce", RendezVous.class)
+				.setParameter("idAnnonce", idAnnonce).getResultList();
 	}
 
 	@Override
