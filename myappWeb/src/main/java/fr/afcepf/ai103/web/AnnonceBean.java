@@ -185,4 +185,12 @@ public class AnnonceBean {
 		this.serviceUtilisateur = serviceUtilisateur;
 	}
 
+	public Integer getIdUtilisateur() {
+		return idUtilisateur;
+	}
+
+	public void setIdUtilisateur(Integer idUtilisateur) {
+		this.idUtilisateur = idUtilisateur;
+	}
+
 }

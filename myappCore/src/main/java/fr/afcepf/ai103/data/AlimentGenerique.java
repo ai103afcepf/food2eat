@@ -26,6 +26,7 @@ public class AlimentGenerique {
 	private String libelleAlimentGenerique;
 	private Integer nombreUnitesAlimentGenerique;
 	private Long portionParUniteAlimentGenerique;
+	private String ingredientsAlimentGenerique;
 	
 	private String imageAlimentGenerique;
 	private String imageZoomAlimentGenerique;
@@ -90,12 +91,15 @@ public class AlimentGenerique {
 		super();
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "AlimentGenerique [idAlimentGenerique=" + idAlimentGenerique + ", codeBarreAlimentGenerique="
 				+ codeBarreAlimentGenerique + ", libelleAlimentGenerique=" + libelleAlimentGenerique
 				+ ", nombreUnitesAlimentGenerique=" + nombreUnitesAlimentGenerique
-				+ ", portionParUniteAlimentGenerique=" + portionParUniteAlimentGenerique + ", imageAlimentGenerique="
+				+ ", portionParUniteAlimentGenerique=" + portionParUniteAlimentGenerique
+				+ ", ingredientsAlimentGenerique=" + ingredientsAlimentGenerique + ", imageAlimentGenerique="
 				+ imageAlimentGenerique + ", imageZoomAlimentGenerique=" + imageZoomAlimentGenerique
 				+ ", imageIngredientsAlimentGenerique=" + imageIngredientsAlimentGenerique
 				+ ", imageNutritionAlimentGenerique=" + imageNutritionAlimentGenerique
@@ -105,6 +109,8 @@ public class AlimentGenerique {
 				+ ", dateModificationReferencementAlimentGenerique=" + dateModificationReferencementAlimentGenerique
 				+ ", dateRetraitReferencementAlimentGenerique=" + dateRetraitReferencementAlimentGenerique + "]";
 	}
+
+
 
 	public Integer getIdAlimentGenerique() {
 		return idAlimentGenerique;
@@ -304,6 +310,18 @@ public class AlimentGenerique {
 
 	public void setMarque(Marque marque) {
 		this.marque = marque;
+	}
+
+
+
+	public String getIngredientsAlimentGenerique() {
+		return ingredientsAlimentGenerique;
+	}
+
+
+
+	public void setIngredientsAlimentGenerique(String ingredientsAlimentGenerique) {
+		this.ingredientsAlimentGenerique = ingredientsAlimentGenerique;
 	}
 	
 	

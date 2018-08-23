@@ -7,6 +7,7 @@ import javax.ejb.Local;
 import javax.ejb.Stateless;
 
 import fr.afcepf.ai103.dao.IDaoStockPerso;
+import fr.afcepf.ai103.data.Consommation;
 import fr.afcepf.ai103.data.StockPerso;
 
 @Stateless
@@ -33,6 +34,23 @@ public class ServiceStockPerso implements IServiceStockPerso {
 	public StockPerso recupererAlimentById(Integer idStockPerso) {
 		return daoStockPerso.getAlimentById(idStockPerso);
 	}
+	
+	@Override
+	public List<Consommation> afficherConsoByIdStock(Integer idStockPerso) {
+		return daoStockPerso.getDesConsommations(idStockPerso);
+	}
+
+	@Override
+	public Integer sommeQuantitesConso(Integer idStockPerso) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer calculQuantitesRestante(Integer idStockPerso) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public IDaoStockPerso getDaoStockPerso() {
 		return daoStockPerso;
@@ -41,5 +59,7 @@ public class ServiceStockPerso implements IServiceStockPerso {
 	public void setDaoStockPerso(IDaoStockPerso daoStockPerso) {
 		this.daoStockPerso = daoStockPerso;
 	}
+
+
 
 }

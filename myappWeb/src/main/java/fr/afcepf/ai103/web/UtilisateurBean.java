@@ -7,7 +7,9 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
+import javax.faces.view.facelets.FaceletContext;
 import javax.inject.Inject;
 
 import fr.afcepf.ai103.data.Adresse;
@@ -75,11 +77,11 @@ public class UtilisateurBean {
 	// teste postConstructor
 	@PostConstruct
 	public void init(ComponentSystemEvent event) {
-		
+
 		// System.out.println("Avant init - ");
 		// utilisateur = serviceUtilisateur.afficherProfilUtilisateur(2);
 		// System.out.println("Après init - " + serviceUtilisateur);
-		//nbr = serviceAdresse.getNbrAdresseByUtilisateur(idUtilisateur);
+		//nbr = serviceAdresse.getNbrAdresseByUtilisateur(utilisateur.getIdUtilisateur());
 	}
 
 	@Inject // demander à CDI d'initialiser la référence verificateur
@@ -96,6 +98,8 @@ public class UtilisateurBean {
 		if (verificateur.motDePasseValide(idUtilisateur, password)) {
 			// mot de passe considéré comme ok si "pwd" + numClient (ex: "pwd1" )
 			utilisateur = serviceUtilisateur.afficherProfilUtilisateur(idUtilisateur);
+			
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", utilisateur);
 			nbr = serviceAdresse.getNbrAdresseByUtilisateur(utilisateur.getIdUtilisateur());
 			message = "";
 			// on demande à naviguer vers la page client
@@ -105,7 +109,7 @@ public class UtilisateurBean {
 		}
 		return suite;
 	}
-	
+
 	public Integer getIdUtilisateur() {
 		return idUtilisateur;
 	}

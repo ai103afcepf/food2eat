@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ComponentSystemEvent;
 
 import fr.afcepf.ai103.data.AlimentGenerique;
@@ -21,13 +22,15 @@ import fr.afcepf.ai103.service.IServiceStockPerso;
 public class StockPersoBean{
 	
 	private Integer idUtilisateur = null;
+	private Integer codeBarreSaisi = null;
+	private List<AlimentGenerique> listeAlimentsGeneriquesRef;
 	
 	private Integer idStockPerso;
 	private Integer quantiteStockPerso;
 	private Date dlcStockPerso;
 	private Date dateAjoutStockPerso;
 	private Date dateConsoChoisieStockPerso;
-	private Utilisateur utilisateurStock;
+	private Utilisateur utilisateurStock = (Utilisateur)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("user");
 	private List<Consommation> listeConsommations;
 	private List<Annonce> listesAnnoncesStock;
 	private AlimentGenerique alimentGenerique;
@@ -35,6 +38,19 @@ public class StockPersoBean{
 	private List<StockPerso> stocks;
 	private StockPerso stock;
 	
+	private StockPerso selectedStock;
+	
+	
+		
+	public StockPerso getSelectedStock() {
+		System.out.println("coucou" + selectedStock);
+		return selectedStock;
+	}
+
+	public void setSelectedStock(StockPerso selectedStock) {
+		this.selectedStock = selectedStock;
+	}
+
 	@EJB
 	private IServiceStockPerso serviceStockPerso;
 	
@@ -43,9 +59,9 @@ public class StockPersoBean{
 	}
 	
 	@PostConstruct
-	public void init(ComponentSystemEvent event) {
+	public void init() {
 		System.out.println("dans methode prefixée par @PostConstruct, serviceStokPerso=" + serviceStockPerso);
-		stocks = serviceStockPerso.afficherStockByIdUtilisateur(idUtilisateur);
+		stocks = serviceStockPerso.afficherStockByIdUtilisateur(utilisateurStock.getIdUtilisateur());
 	}
 	
 	
@@ -155,6 +171,22 @@ public class StockPersoBean{
 
 	public void setServiceStockPerso(IServiceStockPerso serviceStockPerso) {
 		this.serviceStockPerso = serviceStockPerso;
+	}
+
+	public Integer getCodeBarreSaisi() {
+		return codeBarreSaisi;
+	}
+
+	public void setCodeBarreSaisi(Integer codeBarreSaisi) {
+		this.codeBarreSaisi = codeBarreSaisi;
+	}
+
+	public List<AlimentGenerique> getListeAlimentsGeneriquesRef() {
+		return listeAlimentsGeneriquesRef;
+	}
+
+	public void setListeAlimentsGeneriquesRef(List<AlimentGenerique> listeAlimentsGeneriquesRef) {
+		this.listeAlimentsGeneriquesRef = listeAlimentsGeneriquesRef;
 	}
 
 

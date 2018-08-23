@@ -10,10 +10,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import fr.afcepf.ai103.dao.DaoAnnonce;
+import fr.afcepf.ai103.dao.DaoConsommation;
 import fr.afcepf.ai103.dao.DaoReponse;
 import fr.afcepf.ai103.dao.DaoStockPerso;
 import fr.afcepf.ai103.data.Reponse;
 import fr.afcepf.ai103.service.ServiceAnnonce;
+import fr.afcepf.ai103.service.ServiceConsommation;
 import fr.afcepf.ai103.service.ServiceReponse;
 import fr.afcepf.ai103.service.ServiceStockPerso;
 
@@ -28,13 +30,21 @@ public class TestApp {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		
-		DaoStockPerso daoSP = new DaoStockPerso();
-		daoSP.setEntityManager(em);
+		DaoConsommation daoC = new DaoConsommation();
+		daoC.setEntityManager(em);
 		
-		ServiceStockPerso servSP =new ServiceStockPerso();
-		servSP.setDaoStockPerso(daoSP);
+		ServiceConsommation servC=new ServiceConsommation();
+		servC.setDaoConsommation(daoC);
 		
-		System.out.println("stock user 2: " + servSP.afficherStockByIdUtilisateur(2));
+		System.out.println("conso id stock 14: " + servC.recupererListAlimentsStockConso(14));
+		
+//		DaoStockPerso daoSP = new DaoStockPerso();
+//		daoSP.setEntityManager(em);
+//		
+//		ServiceStockPerso servSP =new ServiceStockPerso();
+//		servSP.setDaoStockPerso(daoSP);
+//		
+//		System.out.println("stock user 2: " + servSP.afficherStockByIdUtilisateur(2));
 		
 //		DaoReponse daoReponse = new DaoReponse();
 //		daoReponse.setEntityManager(em);
@@ -63,8 +73,8 @@ public class TestApp {
 //		daoReponse.insererReponse(rep);
 		
 		
-		daoSP.getEntityManager().getTransaction().commit();
-		daoSP.getEntityManager().close();
+		daoC.getEntityManager().getTransaction().commit();
+		daoC.getEntityManager().close();
 
 		/***********************
 		 * Tests des classes Dao et Service

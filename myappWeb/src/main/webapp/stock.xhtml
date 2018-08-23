@@ -19,55 +19,104 @@
 					value="#{stockPersoBean.idUtilisateur}" />
 				<f:event type="preRenderView" listener="#{stockPersoBean.init}" />
 			</f:metadata>
+			<f:metadata>
+				<f:viewParam name="idStockPerso"
+					value="#{consommationBean.idStockPerso}" />
+				<f:event type="preRenderView" listener="#{consommationBean.init}" />
+			</f:metadata>
 		</ui:define>
 
 		<ui:define name="sidebar">
 			<h:form>
-				<p:growl id="growl" life="2000" />
-				<p:commandButton value="Jeter" id="withIconJeter"
-					 update="growl"
-					icon="ui-icon-trash" />
-					<p:commandButton value="Donner" id="withIconDonner"
-					 update="growl"
-					icon="ui-icon-trash" />
+				<br />
+				<br />
+				<br />
+				<div></div>
 			</h:form>
-		</ui:define>
- 
-		<ui:define name="content">
 
 			<h:form>
-			<h3 style="text-align:center !important;">Vos Aliments en Stock</h3>
+				<br />
+				<br />
+				<h5>Ajouter un aliment au stock</h5>
+				<br />
+				<br />
+				<p:outputLabel value="Saissiez le code barre: " for="event" />
+				<br />
+				<p:autoComplete id="event" value="#{codeBarreSaisi}"
+					completeMethod="#{stockPersoBean.alimentGenerique.codeBarreAlimentGenerique}">
+				</p:autoComplete>
+				<br />
+				<br />
+				<p:outputLabel value="Saissiez la DLC: " />
+				<br />
+				 <p:calendar id="inline" mode="inline" style="border-size:15px;" />
+				 <br />
+				<br />
+				<p:commandButton value="Enregistrer"
+					actionListener="#{buttonView.buttonAction}" id="iconOnly"
+					icon="ui-icon-disk" />
+			</h:form>
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h:form id="form">
+				<p:growl id="msgs" showDetail="true" />
+				<h3 style="text-align: center !important;">Vos Aliments en
+					Stock</h3>
+
+
 				<p:dataTable var="stock" value="#{stockPersoBean.stocks}">
 
-					
 
 					<p:column style="width:35px">
 						<p:rowToggler />
 					</p:column>
+
 					<p:column headerText="Libellé"
 						sortBy="#{stock.alimentGenerique.libelleAlimentGenerique}"
 						filterBy="#{stock.alimentGenerique.libelleAlimentGenerique}">
 						<h:outputText
 							value="#{stock.alimentGenerique.libelleAlimentGenerique}" />
 					</p:column>
-					<p:column headerText="Quantité restante" style="width:200px">
+
+					<p:column headerText="Quantité restante" style="width:150px"
+						sortBy="#{stock.alimentGenerique.nombreUnitesAlimentGenerique}">
 						<h:outputText
 							value="#{stock.alimentGenerique.nombreUnitesAlimentGenerique}" />
 					</p:column>
-					<p:column headerText="Date de péremption" style="width:200px"
-						sortBy="#{stock.dlcStockPerso}" filterBy="#{stock.dlcStockPerso}">
-						<h:outputText value="#{stock.dlcStockPerso}">
+
+					<p:column headerText="Date de péremption" style="width:205px"
+						sortBy="#{stock.dlcStockPerso}">
+						<h:outputText value="#{stock.dlcStockPerso}" >
 							<f:convertDateTime pattern="dd/ MM/ yyyy" />
 						</h:outputText>
 
 					</p:column>
-					<p:column headerText="Date d'extension" style="width:200px"
-						sortBy="#{not empty stock.dateConsoChoisieStockPerso}"
-						filterBy="#{not empty stock.dateConsoChoisieStockPerso}">
+					<p:column headerText="Date d'extension" style="width:205px"
+						sortBy="#{not empty stock.dateConsoChoisieStockPerso}">
 						<h:outputText value="#{stock.dateConsoChoisieStockPerso}">
 							<f:convertDateTime pattern="dd/ MM/ yyyy" />
 						</h:outputText>
 					</p:column>
+
+					<p:column style="width:60px">
+						<p:commandButton update=":form:consoIssa"
+							oncomplete="PF('Dialog').show()" icon="ui-icon-search"
+							title="View">
+							<f:setPropertyActionListener value="#{stock}"
+								target="#{stockPersoBean.selectedStock}" />
+						</p:commandButton>
+					</p:column>
+
+
+
+
+
+
+
+
+
 
 
 					<p:rowExpansion>
@@ -80,27 +129,43 @@
 						</h:outputText>
 						<br />
 
-						<h:panelGrid columns="5">
+						<h:panelGrid columns="3" style="border-style:hidden !important;">
 
 							<p:graphicImage
 								value="#{stock.alimentGenerique.imageZoomAlimentGenerique}"
-								style="width:150px;" />
+								style="width:150px; display:block; margin-left:auto; margin-right:auto;" />
 
-							<p:graphicImage
-								value="#{stock.alimentGenerique.imageIngredientsAlimentGenerique}"
-								style="width:300px;" />
 
 							<p:outputPanel>
-								<h:outputText
-									value="#{stock.alimentGenerique.nombreUnitesAlimentGenerique}" /> 
-							x 
-							<h:outputText
+
+								<h:outputText style="font-size: 20px" value="Catégorie: " />
+
+								<h:outputText style="font-size: 15px"
+									value="#{stock.alimentGenerique.categorieAliment.libelleCategorieAliment}" />
+								<br />
+								<h:outputText style="font-size: 20px" value="Conservation: " />
+
+								<h:outputText style="font-size: 15px"
+									value="#{stock.alimentGenerique.stockageConservation.libelleStockageConservation}" />
+								<br />
+								<h:outputText style="font-size: 20px" value="Ingredients: " />
+
+								<h:outputText style="font-size: 15px"
+									value="#{stock.alimentGenerique.ingredientsAlimentGenerique}" />
+								<br />
+
+
+								<h:outputText style="font-size: 20px" value="Contenant: " />
+								<h:outputText style="font-size: 15px"
+									value="#{stock.alimentGenerique.nombreUnitesAlimentGenerique}" />
+								<h:outputText style="font-size: 15px" value=" x " />
+								<h:outputText style="font-size: 15px"
 									value="#{stock.alimentGenerique.portionParUniteAlimentGenerique}" />
-								<h:outputText
+								<h:outputText style="font-size: 15px"
 									value="#{stock.alimentGenerique.mesure.uniteMesure}" />
 
 							</p:outputPanel>
-							<p:outputPanel>
+							<p:outputPanel style="text-align:center !important;">
 								<p:graphicImage
 									value="#{stock.alimentGenerique.nutriscore.imageNutriscore}"
 									style="width:200px;height:80px;" />
@@ -112,11 +177,44 @@
 								<h:outputText
 									value="#{stock.alimentGenerique.label.libelleLabel}" />
 							</p:outputPanel>
+
+
 						</h:panelGrid>
 
 					</p:rowExpansion>
 
 				</p:dataTable>
+
+				<p:dialog header="Que voulez-vous faire?" widgetVar="Dialog"
+					minHeight="200">
+					<p:outputPanel id="consoIssa" style="text-align:center;">
+						<p:panelGrid columns="1" style="border-style:hidden !important;"
+							rendered="#{not empty stockPersoBean.selectedStock}">
+							<h:outputText
+								value="#{stockPersoBean.selectedStock.alimentGenerique.libelleAlimentGenerique}" />
+							<p:outputPanel>
+								<h:outputText value="Quantité en Stock:    " />
+								<h:outputText
+									value="#{stockPersoBean.selectedStock.alimentGenerique.nombreUnitesAlimentGenerique}" />
+								<br />
+								<h:outputText value="DLC:    " />
+								<h:outputText
+									value="#{stockPersoBean.selectedStock.dlcStockPerso}">
+									<f:convertDateTime pattern="dd/ MM/ yyyy" />
+								</h:outputText>
+							</p:outputPanel>
+						</p:panelGrid>
+						<br />
+						<p:commandButton value="Manger"
+							actionListener="#{buttonView.buttonAction}" id="btnValiderManger" icon="ui-icon-check"/>
+
+						<p:commandButton value="Donner"
+							actionListener="#{buttonView.buttonAction}" id="btnValiderDonner" />
+
+						<p:commandButton value="Jeter"
+							actionListener="#{buttonView.buttonAction}" id="btnValiderJeter" icon="ui-icon-trash"/>
+					</p:outputPanel>
+				</p:dialog>
 			</h:form>
 
 		</ui:define>

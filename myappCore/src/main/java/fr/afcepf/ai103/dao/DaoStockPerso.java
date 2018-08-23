@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import fr.afcepf.ai103.data.Consommation;
 import fr.afcepf.ai103.data.StockPerso;
 
 @Stateless
@@ -40,6 +41,12 @@ public class DaoStockPerso implements IDaoStockPerso {
 
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
+	}
+
+	@Override
+	public List<Consommation> getDesConsommations(Integer idStockPerso) {
+		return entityManager.createNamedQuery("Consommation.findConsoByIdStock", Consommation.class)
+				.setParameter("idStockPerso", idStockPerso).getResultList();
 	}
 
 }

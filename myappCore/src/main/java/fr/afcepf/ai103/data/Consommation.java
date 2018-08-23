@@ -20,6 +20,7 @@ import javax.persistence.TemporalType;
 	,
 	@NamedQuery(name = "Consommation.findJeterByIdStock", 
 	query = "SELECT conso FROM Consommation conso WHERE conso.stockPersoConso.idStockPerso= :idStockPerso AND conso.dateJeter <> NULL")
+	
 	})
 public class Consommation {
 
